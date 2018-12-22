@@ -1,0 +1,140 @@
+<!DOCTYPE html><html lang="en">
+<!-- Mirrored from bitcore.io/guides/wallet-service/ by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 22 Dec 2018 16:42:38 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Wallet Service | Tutorials | Bitcore</title><meta name="description" content="Run a wallet service for Copay with Bitcore."><!-- Twitter Card data--><meta name="twitter:card" content="summary"><meta name="twitter:site" content="@BitPay"><meta name="twitter:title" content="Wallet Service | Tutorials"><meta name="twitter:description" content="Run a wallet service for Copay with Bitcore."><meta name="twitter:image" content="../../images/social/card.jpg"><!-- Open Graph data (Facebook and Reddit)--><meta property="og:title" content="Wallet Service | Tutorials"><meta property="og:type" content="article"><meta property="og:url" content="../../index.html"><meta property="og:image" content="../../images/social/avatar.jpg"><meta property="og:description" content="Run a wallet service for Copay with Bitcore."><meta property="og:site_name" content="Bitcore.io"><!-- Add to homescreen for Chrome on Android--><meta name="mobile-web-app-capable" content="yes"><link rel="icon" sizes="192x192" href="../../images/touch/chrome-touch-icon-192x192.b0c7306c.png"><!-- Add to homescreen for Safari on iOS--><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><meta name="apple-mobile-web-app-title" content="Bitcore"><link rel="apple-touch-icon-precomposed" href="apple-touch-icon-precomposed.html"><!-- Tile icon for Win8 (144x144 + tile color)--><meta name="msapplication-TileImage" content="../../images/touch/ms-touch-icon-144x144-precomposed.dcbb3eea.png"><meta name="msapplication-TileColor" content="#F9AB3D"><!-- Favicon--><link rel="shortcut icon" href="../../favicon.ico"><link rel="stylesheet" href="../../styles/main.88c254de.css" data-instant-track><link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,300italic,400italic,600,700,700italic,600italic|Titillium+Web:400,300,700" rel="stylesheet" type="text/css"><script type="text/javascript" data-no-instant>
+  !function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","group","track","ready","alias","page","once","off","on"];analytics.factory=function(t){return function(){var e=Array.prototype.slice.call(arguments);e.unshift(t);analytics.push(e);return analytics}};for(var t=0;t<analytics.methods.length;t++){var e=analytics.methods[t];analytics[e]=analytics.factory(e)}analytics.load=function(t){var e=document.createElement("script");e.type="text/javascript";e.async=!0;e.src=("https:"===document.location.protocol?"https://":"http://")+"cdn.segment.com/analytics.js/v1/"+t+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(e,n)};analytics.SNIPPET_VERSION="3.0.1";
+  if(this.location.host === 'bitcore.io'){ analytics.load('hP7mqqPCPPa5hRatDaulKFxm0kPiB6Es'); }
+  else { analytics.load("dgbXyNcmHR3bJIjumdYoe3GZFrs6sHBd"); }
+  }}();
+</script>
+<script data-no-instant>
+  var $buoop = {vs:{i:9,f:30,o:25,s:5.1},c:2};
+  function $buo_f(){
+   var e = document.createElement("script");
+   e.src = "../../../browser-update.org/update.js";
+   document.body.appendChild(e);
+  };
+  try {document.addEventListener("DOMContentLoaded", $buo_f,false)}
+  catch(e){window.attachEvent("onload", $buo_f)}
+</script>
+<meta name="google-site-verification" content="GOfbzCpKO__Imdru-L0nG1Fo9tTvyH3QVAIWsYO9rCk"></head><body class="bg-white"><nav class="navbar navbar-light bg-faded hidden-sm-down light-nav p-y-0"><div class="container"><div class="navbar p-l-0"><a href="../../index.html" title="Home" class="logo logo-dark margin-top"></a><ul class="nav navbar-nav pull-right"><li class="nav-item"><a href="../../start.html" class="nav-link">Getting Started</a></li><li class="nav-item"><a href="../index.html" class="nav-link active">Guides</a></li><li class="nav-item"><a href="../../bitcoin.html" class="nav-link">Bitcoin</a></li><li class="nav-item"><a href="../../api/index.html" class="nav-link">Docs</a></li><li class="nav-item"><a href="../../playground/index.html" class="nav-link">Playground        </a></li><li class="nav-item"><a href="http://forum.bitcore.io/" class="nav-link">Forum</a></li></ul></div></div></nav><div class="mobile-menu hidden-md-up"> <div id="exCollapsingNavbar" class="collapse"><div class="bg-inverse p-md"><h3 class="m-b-0"><ul class="p-l-0 no-bullets m-b-0"><li class="nav-item"><a href="../../index.html" class="nav-link">Home</a></li><li class="nav-item"><a href="../../start.html" class="nav-link">Getting Started</a></li><li class="nav-item"><a href="../index.html" class="nav-link active">Guides</a></li><li class="nav-item"><a href="../../bitcoin.html" class="nav-link">Bitcoin</a></li><li class="nav-item"><a href="../../playground/index.html" class="nav-link">Playground        </a></li><li class="nav-item"><a href="../../api/index.html" class="nav-link">Docs</a></li><li class="nav-item"><a href="http://forum.bitcore.io/" class="nav-link">Forum</a></li></ul></h3></div></div><nav class="navbar light-nav"><button type="button" data-toggle="collapse" data-target="#exCollapsingNavbar" class="navbar-toggler p-l-0"><div class="logo logo-square-orange menu-text">Menu</div></button></nav></div><div class="container"><div class="row"><div class="col-md-12 col-lg-3 m-t-lg"><h3 class="menu-header">Guides</h3><ul class="nav nav-pills nav-stacked"><li class="nav-item"><a href="../full-node/index.html" class="nav-link">Run a Full Node</a></li><li class="nav-item"><a href="../bitcoin/index.html" class="nav-link">Run Bitcoin Standalone</a></li><li class="nav-item"><a href="../upstart-daemon/index.html" class="nav-link">Run Bitcore as a Daemon</a></li><li class="nav-item"><a href="index.html" class="active nav-link">Run a Wallet Service</a></li><li class="nav-item"><a href="../browser.html" class="nav-link">Browser Builds</a></li></ul><h3 class="menu-header m-t-md">Tutorials</h3><ul class="nav nav-pills nav-stacked"><li class="nav-item"><a href="../service-development/index.html" class="nav-link">Service Development</a></li><li class="nav-item"><a href="../satoshi-fire-alarm/index.html" class="nav-link">Satoshi Fire Alarm</a></li><li class="nav-item"><a href="../lemonade-stand/index.html" class="nav-link">Lemonade Stand</a></li><li class="nav-item"><a href="../i-made-this/index.html" class="nav-link">I Made This</a></li></ul></div><div class="col-md-12 col-lg-9 m-t-lg docs"><h1 id="running-a-wallet-service">Running a Wallet Service</h1>
+<p>The purpose of this tutorial is to show how to setup the Wallet Service. The Wallet Service is the backend for wallets such as BitPay&#39;s <a href="https://copay.io/">Copay Multisignature Wallet</a>. The wallet service is very much like the backend for traditional SPV (Simplified Payment Verification) wallets except that the wallet service is much more feature-full. It&#39;s recommended to be familiar with running a Bitcore node running before starting this tutorial, please see the <a href="../full-node/index.html">Run a Full Node</a> guide for details.</p>
+<h2 id="installing-mongodb">Installing MongoDB</h2>
+<p><a href="https://www.mongodb.com/">MongoDB</a> is the database for the <a href="https://github.com/bitpay/bitcore-wallet-service">Bitcore Wallet Service</a> and is the main dependency outside of the Node.js modules. Follow the <a href="https://docs.mongodb.com/manual/installation/">installation instructions</a> detailed at the MongoDB website, and/or follow details below.</p>
+<h3 id="mac-os-x">Mac OS X</h3>
+<p>The easiest way to install MongoDB is to use brew:</p>
+<pre><code class="lang-bash">brew install update
+brew install mongodb
+mkdir -p /data/db
+sudo chown -R `whoami` /data/db #this assumes that the next step will be run by the current user
+mongod
+</code></pre>
+<p>Please refer to these <a href="http://docs.mongodb.org/manual/tutorial/install-mongodb-on-os-x/">complete instructions</a> at the MongoDB website.</p>
+<h3 id="ubuntu-debian">Ubuntu/Debian</h3>
+<p>MongoDB is included in stardard repositories and can be installed via the package manager:</p>
+<pre><code class="lang-bash">sudo apt-get install mongodb
+</code></pre>
+<p>This should automatically start the <code>mongod</code> process.</p>
+<p>Kerberos packages will also need be available for the Node.js MongoDB driver depends:</p>
+<pre><code class="lang-bash">apt-get install libkrb5-dev
+</code></pre>
+<h2 id="add-the-wallet-service-to-our-node">Add the Wallet Service to Our Node</h2>
+<p><strong>Note</strong>: If you do not already have a Bitcore node setup, please see the <a href="../full-node/index.html">Run a Full Node</a> guide.</p>
+<pre><code class="lang-bash">cd &lt;your node&gt;
+bitcore install bitcore-wallet-service
+bitcore install insight-api
+</code></pre>
+<p>Now we should be ready to launch Bitcore and test the Wallet Service:</p>
+<pre><code class="lang-bash">bitcored
+</code></pre>
+<h2 id="test-the-wallet-service-using-copay">Test the Wallet Service using Copay</h2>
+<p>The wallet service should be running as a service within Bitcore. You may point wallets on the same network to:</p>
+<p><a href="http://your-bitcore-node-ip:3232/bws/api">http://your-bitcore-node-ip:3232/bws/api</a><br>Don&#39;t forget to include the &quot;http://&quot;</p>
+<p><img src="../../../i.imgur.com/2hsGXrx.png" alt="Copay Screenshot"></p>
+<h3 id="example">Example</h3>
+<p>Once the wallet service is running on your computer, configure your Copay wallet as such:</p>
+<ul>
+<li>Open the settings in your Copay wallet. Scroll to &quot;Bitcore Wallet Service&quot; and change this value to: <a href="http://your-bitcore-node-ip:3232/bws/api">http://your-bitcore-node-ip:3232/bws/api</a></li>
+<li>Please ensure that Copay is on the same network or that you have opened ports in order to let Copay access your new Wallet Service.</li>
+<li>TLS/SSL support can be enabled by <a href="#adding-ssltls-support">adding a few things to the bitcore-node.json config</a>.</li>
+</ul>
+<h2 id="test-the-wallet-service-using-the-bitcore-wallet-client">Test the Wallet Service using the Bitcore Wallet Client</h2>
+<p>Install the wallet client:</p>
+<pre><code class="lang-bash">npm install -g bitcore-wallet
+</code></pre>
+<p>Create a new wallet on your server:</p>
+<pre><code class="lang-bash">wallet-create -h http://your-bitcore-node-ip:3232/bws/api --testnet &#39;myWallet&#39; 1-1
+   [info] Generating new keys
+   * Testnet Wallet Created.
+   * Saving file /Users/myUsername/.wallet.dat
+</code></pre>
+<p>Add a new address:</p>
+<pre><code class="lang-bash">wallet -h http://your-bitcore-node-ip:3232/bws/api address
+   * New Address mjfmEtkaVbZPGPLBYvznPDer2dDdcruirB
+</code></pre>
+<p>Then send funds to this address from a faucet or other wallet. After you have funds, you can see them by checking your wallet status.</p>
+<pre><code class="lang-bash">wallet -h http://your-bitcore-node-ip:3232/bws/api status
+   * Wallet myWallet [testnet]: 1-of-1 complete
+   * Copayers: myUsername
+   * Balance 1,000 bit (Locked: 0 bit)
+</code></pre>
+<p><strong>Pro-tip:</strong> If you would rather not enter the host address of your wallet server every time you run a command, try <a href="https://wiki.manjaro.org/index.php?title=Aliases_in_.bashrc">aliasing</a> it in your bash profile by adding a line like this to your .bashrc file:</p>
+<pre><code>alias mywallet=&#39;wallet -h http://your-bitcore-node-ip:3232/bws/api&#39;
+</code></pre><p>You can then send your bits by using your new alias:</p>
+<pre><code class="lang-bash">mywallet send mxo2iZ9e1c4piKMZGyeujk2MwgBU31W7cw 100bit
+   * Tx created: ID 36f4 [pending] RequiredSignatures: 1
+mywallet sign 36f4
+   Transaction signed by you.
+mywallet broadcast 36f4
+   Transaction Broadcasted: TXID: fa7b45b63562c265c3a79904f1ec9c547bad5dee1508ce63628047a9097bfd0e
+mywallet balance
+   * Wallet balance 900 bit (Locked 0 bit)
+</code></pre>
+<h2 id="adding-ssl-tls-support">Adding SSL/TLS Support</h2>
+<h3 id="create-a-self-signed-certificate">Create a self-signed certificate</h3>
+<p>These directions assume that you have openssl installed. If so, please run:</p>
+<pre><code class="lang-bash">openssl
+</code></pre>
+<p>You should see an &quot;OpenSSL&gt;&quot; prompt, then press Ctrl+D to exit. If you don&#39;t have OpenSSL, then install it <a href="http://www.openssl.org/">here</a></p>
+<p>Next, you can run the following commands to generate a self-signed certificate:</p>
+<pre><code class="lang-bash">openssl req -x509 -newkey rsa:4096 -keyout key.pem -out cert.pem
+</code></pre>
+<p>For ease of use, just type in a password that you can remember to encrypt the key (you have the option to remove it later), then fill out the form or just hit &quot;enter&quot; for every question. If you would like to remove the password from the key.pem that you just created, then follow the next step – otherwise skip it. If you leave the password encryption on your key, then you will need to type it in each time the Wallet Service starts up:</p>
+<pre><code class="lang-bash">openssl rsa -in key.pem -out key.nopass.pem
+</code></pre>
+<p>Now, key.pem has the password you typed in upon certificate creation and key.nopass.pem does not have any password. It would be a good idea to store key.pem and cert.pem somewhere safe on your computer.</p>
+<h3 id="edit-your-config-">Edit Your Config.</h3>
+<pre><code class="lang-bash">vi bitcore-node.json
+</code></pre>
+<p>Added https options. Example:</p>
+<pre><code class="lang-json">{
+  &quot;network&quot;: &quot;livenet&quot;,
+  &quot;port&quot;: 3001,
+  &quot;https&quot;: true,
+  &quot;httpsOptions&quot;: {
+    &quot;key&quot;: &quot;some-place-safe/key.nopass.pem&quot;,
+    &quot;cert&quot;: &quot;some-place-safe/cert.pem&quot;
+  },
+  &quot;servicesConfig&quot;: {
+    &quot;bitcore-wallet-service&quot;: {
+      &quot;bwsPort&quot;: 3232
+    },
+    &quot;bitcoind&quot;: {
+      &quot;datadir&quot;: &quot;/home/user/.bitcore/data&quot;,
+      &quot;exec&quot;: &quot;/home/user/bitcoin/src/bitcoind&quot;
+    }
+  },
+  &quot;services&quot;: [
+    &quot;bitcoind&quot;,
+    &quot;bitcore-wallet-service&quot;,
+    &quot;insight-api&quot;,
+    &quot;web&quot;
+  ]
+}
+</code></pre>
+<p>Notice that you can also specify which port your Wallet Service will run on (default is 3232).</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>You should now be able to run your own Wallet Service for your users. Now you can have ultimate control over your wallets without trusting random SPV nodes on the Internet.</p>
+</div></div></div><a class="exit-off-canvas"></a><script src="../../scripts/main.min.efe3021b.js" data-no-instant="data-no-instant"></script></body>
+<!-- Mirrored from bitcore.io/guides/wallet-service/ by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 22 Dec 2018 16:42:39 GMT -->
+</html>

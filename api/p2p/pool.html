@@ -1,0 +1,337 @@
+<!DOCTYPE html><html lang="en">
+<!-- Mirrored from bitcore.io/api/p2p/pool by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 22 Dec 2018 16:43:33 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Pool | Bitcore</title><meta name="description" content="A simple interface to create and maintain a set of connections to bitcoin nodes."><!-- Twitter Card data--><meta name="twitter:card" content="summary"><meta name="twitter:site" content="@BitPay"><meta name="twitter:title" content="Pool"><meta name="twitter:description" content="A simple interface to create and maintain a set of connections to bitcoin nodes."><meta name="twitter:image" content="https://bitcore.io/images/social/card.jpg"><!-- Open Graph data (Facebook and Reddit)--><meta property="og:title" content="Pool"><meta property="og:type" content="article"><meta property="og:url" content="https://bitcore.io/"><meta property="og:image" content="https://bitcore.io/images/social/avatar.jpg"><meta property="og:description" content="A simple interface to create and maintain a set of connections to bitcoin nodes."><meta property="og:site_name" content="Bitcore.io"><!-- Add to homescreen for Chrome on Android--><meta name="mobile-web-app-capable" content="yes"><link rel="icon" sizes="192x192" href="https://bitcore.io/images/touch/chrome-touch-icon-192x192.b0c7306c.png"><!-- Add to homescreen for Safari on iOS--><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><meta name="apple-mobile-web-app-title" content="Bitcore"><link rel="apple-touch-icon-precomposed" href="https://bitcore.io/api/p2p/apple-touch-icon-precomposed.png"><!-- Tile icon for Win8 (144x144 + tile color)--><meta name="msapplication-TileImage" content="https://bitcore.io/images/touch/ms-touch-icon-144x144-precomposed.dcbb3eea.png"><meta name="msapplication-TileColor" content="#F9AB3D"><!-- Favicon--><link rel="shortcut icon" href="https://bitcore.io/favicon.ico"><link rel="stylesheet" href="https://bitcore.io/styles/main.88c254de.css" data-instant-track><link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,300italic,400italic,600,700,700italic,600italic|Titillium+Web:400,300,700" rel="stylesheet" type="text/css"><script type="text/javascript" data-no-instant>
+  !function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","group","track","ready","alias","page","once","off","on"];analytics.factory=function(t){return function(){var e=Array.prototype.slice.call(arguments);e.unshift(t);analytics.push(e);return analytics}};for(var t=0;t<analytics.methods.length;t++){var e=analytics.methods[t];analytics[e]=analytics.factory(e)}analytics.load=function(t){var e=document.createElement("script");e.type="text/javascript";e.async=!0;e.src=("https:"===document.location.protocol?"https://":"http://")+"cdn.segment.com/analytics.js/v1/"+t+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(e,n)};analytics.SNIPPET_VERSION="3.0.1";
+  if(this.location.host === 'bitcore.io'){ analytics.load('hP7mqqPCPPa5hRatDaulKFxm0kPiB6Es'); }
+  else { analytics.load("dgbXyNcmHR3bJIjumdYoe3GZFrs6sHBd"); }
+  }}();
+</script>
+<script data-no-instant>
+  var $buoop = {vs:{i:9,f:30,o:25,s:5.1},c:2};
+  function $buo_f(){
+   var e = document.createElement("script");
+   e.src = "http://browser-update.org/update.js";
+   document.body.appendChild(e);
+  };
+  try {document.addEventListener("DOMContentLoaded", $buo_f,false)}
+  catch(e){window.attachEvent("onload", $buo_f)}
+</script>
+<meta name="google-site-verification" content="GOfbzCpKO__Imdru-L0nG1Fo9tTvyH3QVAIWsYO9rCk"></head><body><nav class="navbar navbar-fixed-top dark-nav hidden-sm-down"><a href="https://bitcore.io/" title="Home" class="logo logo-light margin-top"></a><ul class="nav navbar-nav pull-right"><li class="nav-item"><a href="https://bitcore.io/start" class="nav-link">Getting Started</a></li><li class="nav-item"><a href="https://bitcore.io/guides" class="nav-link">Guides</a></li><li class="nav-item"><a href="https://bitcore.io/api" class="nav-link active">Docs</a></li><li class="nav-item"><a href="https://bitcore.io/playground" class="nav-link">Playground        </a></li><li class="nav-item"><a href="http://forum.bitcore.io/" class="nav-link">Forum</a></li></ul></nav><div class="mobile-menu hidden-md-up navbar-fixed-top"><div id="exCollapsingNavbar" class="collapse"><div class="bg-inverse p-md"><h3 class="m-b-0"> <ul class="p-l-0 no-bullets m-b-0"><li class="nav-item"><a href="https://bitcore.io/" class="nav-link">Home</a></li><li class="nav-item"><a href="https://bitcore.io/start" class="nav-link">Getting Started</a></li><li class="nav-item"><a href="https://bitcore.io/guides" class="nav-link">Guides</a></li><li class="nav-item"><a href="https://bitcore.io/api" class="nav-link active">Docs</a></li><li class="nav-item"><a href="https://bitcore.io/playground" class="nav-link">Playground        </a></li><li class="nav-item"><a href="http://forum.bitcore.io/" class="nav-link">Forum</a></li></ul></h3></div></div><nav class="navbar dark-nav"><button type="button" data-toggle="collapse" data-target="#exCollapsingNavbar" class="navbar-toggler p-l-0"><div class="logo logo-square-orange menu-text color-white">Menu</div></button></nav></div><div class="fixed-sidebar bg-gray border-right-grey p-l-md"><a href="https://bitcore.io/api/"><h3 class="menu-header m-t-md">Bitcore</h3><ul class="nav nav-pills nav-stacked"><li class="nav-item"><a href="https://bitcore.io/api/" class="nav-link">Overview</a></li></ul></a><a href="https://bitcore.io/api/node"><h3 class="menu-header m-t-md">Node</h3></a><a href="https://bitcore.io/api/service"><h3 class="menu-header m-t-md">Services</h3></a><a href="https://bitcore.io/api/lib"><h3 class="menu-header m-t-md">Library API</h3></a><a href="https://bitcore.io/api/mnemonic"><h3 class="menu-header m-t-md">Library Modules</h3></a><h3 class="menu-header m-t-md">Peer-to-Peer</h3><ul class="nav nav-pills nav-stacked"><li class="nav-item"><a href="https://bitcore.io/api/p2p" class="nav-link">Overview</a></li><li class="nav-item"><a href="https://bitcore.io/api/p2p/messages" class="nav-link">Messages</a></li><li class="nav-item"><a href="https://bitcore.io/api/p2p/peer" class="nav-link">Peer</a></li><li class="nav-item"><a href="https://bitcore.io/api/p2p/pool" class="active nav-link">Pool</a></li></ul></div><div class="scroll-content"><div class="api-content"><div class="docs bg-white"><div class="container"><div class="section p-t-lg"><div class="text-right bring-to-front"><a href="https://github.com/bitpay/bitcore-p2p/edit/master/docs/pool.md">Edit</a></div><h1 id="pool">Pool</h1>
+<p>A pool maintains a connection of <a href=https://bitcore.io/api/p2p/peer>Peers</a>. A pool will discover peers via DNS seeds, as well as when peer addresses are announced through the network.</p>
+<p>The quickest way to get connected is to run the following:</p>
+<pre><code class="lang-javascript">
+var Pool = require(&#39;bitcore-p2p&#39;).Pool;
+var Networks = require(&#39;bitcore-lib&#39;).Networks;
+
+var pool = new Pool({network: Networks.livenet});
+
+// connect to the network
+pool.connect();
+
+// attach peer events
+pool.on(&#39;peerinv&#39;, function(peer, message) {
+  // a new peer message has arrived
+});
+
+// will disconnect all peers
+pool.disconnect()
+</code></pre>
+<p>For more information about Peer events please read the <a href=https://bitcore.io/api/p2p/peer>Peer</a> documentation. Peer events are relayed to the pool, a peer event <code>inv</code> in the pool would be <code>peerinv</code>. When a peer is disconnected the pool will try to connect to the list of known addresses to maintain connection.</p>
+<h2 id="trusted-peers">Trusted Peers</h2>
+<p>By default, peers will be added via DNS discovery and as peers are announced in the network. Configuration options can be included to connect only to specific trusted peers:</p>
+<pre><code class="lang-javascript">
+var pool = new Pool({
+  network: Networks.livenet, // the network object
+  dnsSeed: false, // prevent seeding with DNS discovered known peers upon connecting
+  listenAddr: false, // prevent new peers being added from addr messages
+  addrs: [ // initial peers to connect to
+    {
+      ip: {
+        v4: &#39;127.0.0.1&#39;
+      }
+    }
+  ]
+});
+
+pool.connect();
+</code></pre>
+<h2 id="listening-for-peers">Listening for Peers</h2>
+<p>It&#39;s also possible to listen to incoming socket connections to add peers to the pool. To enable this capability, you can do the following:</p>
+<pre><code class="lang-javascript">var pool = new Pool({network: Networks.livenet});
+pool.listen();
+</code></pre>
+<p>When there are incoming connections the peer will be added to the pool.</p>
+</div></div></div><div class="lib bg-dark"><div class="container"><div class="section p-t-lg"><div class="text-right bring-to-front"><a href="https://github.com/bitpay/bitcore-p2p/blob/master/lib/pool.js">View Source</a></div><p><a name="Pool"></a></p>
+<h2 id="pool">Pool</h2>
+<p><strong>Kind</strong>: global class  </p>
+<ul>
+<li><a href="#Pool">Pool</a><ul>
+<li><a href="#new_Pool_new">new Pool([options])</a></li>
+<li><a href="#Pool+connect">.connect()</a></li>
+<li><a href="#Pool+disconnect">.disconnect()</a></li>
+<li><a href="#Pool+numberConnected">.numberConnected()</a> ⇒ <code>Number</code></li>
+<li><a href="#Pool+_fillConnections">._fillConnections()</a></li>
+<li><a href="#Pool+_removeConnectedPeer">._removeConnectedPeer(addr)</a></li>
+<li><a href="#Pool+_connectPeer">._connectPeer(addr)</a></li>
+<li><a href="#Pool+_addConnectedPeer">._addConnectedPeer(socket, addr)</a></li>
+<li><a href="#Pool+_addPeerEventHandlers">._addPeerEventHandlers()</a></li>
+<li><a href="#Pool+_deprioritizeAddr">._deprioritizeAddr(addr)</a></li>
+<li><a href="#Pool+_addAddr">._addAddr(addr)</a></li>
+<li><a href="#Pool+_addAddrsFromSeed">._addAddrsFromSeed(seed, done)</a></li>
+<li><a href="#Pool+_addAddrsFromSeeds">._addAddrsFromSeeds(done)</a></li>
+<li><a href="#Pool+inspect">.inspect()</a> ⇒ <code>String</code></li>
+<li><a href="#Pool+sendMessage">.sendMessage(message)</a></li>
+<li><a href="#Pool+listen">.listen()</a></li>
+</ul>
+</li>
+</ul>
+<p><a name="new_Pool_new"></a></p>
+<h3 id="new-pool-options-">new Pool([options])</h3>
+<p>A pool is a collection of Peers. A pool will discover peers from DNS seeds, and
+collect information about new peers in the network. When a peer disconnects the pool
+will connect to others that are available to maintain a max number of
+ongoing peer connections. Peer events are relayed to the pool.</p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[options]</td>
+<td><code>Object</code></td>
+<td></td>
+</tr>
+<tr>
+<td>[options.network]</td>
+<td><code>Network</code></td>
+<td>The network configuration</td>
+</tr>
+<tr>
+<td>[options.listenAddr]</td>
+<td><code>Boolean</code></td>
+<td>Prevent new peers being added from addr messages</td>
+</tr>
+<tr>
+<td>[options.dnsSeed]</td>
+<td><code>Boolean</code></td>
+<td>Prevent seeding with DNS discovered known peers</td>
+</tr>
+<tr>
+<td>[options.relay]</td>
+<td><code>Boolean</code></td>
+<td>Prevent inventory announcements until a filter is loaded</td>
+</tr>
+<tr>
+<td>[options.maxSize]</td>
+<td><code>Number</code></td>
+<td>The max number of peers</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong>  </p>
+<pre><code class="lang-javascript">
+var pool = new Pool({network: Networks.livenet});
+pool.on(&#39;peerinv&#39;, function(peer, message) {
+  // do something with the inventory announcement
+});
+pool.connect();
+</code></pre>
+<p><a name="Pool+connect"></a></p>
+<h3 id="pool-connect-">pool.connect()</h3>
+<p>Will initiate connection to peers, if available peers have been added to
+the pool, it will connect to those, otherwise will use DNS seeds to find
+peers to connect. When a peer disconnects it will add another.</p>
+<p><strong>Kind</strong>: instance method of <code><a href="#Pool">Pool</a></code><br><a name="Pool+disconnect"></a></p>
+<h3 id="pool-disconnect-">pool.disconnect()</h3>
+<p>Will disconnect all peers that are connected.</p>
+<p><strong>Kind</strong>: instance method of <code><a href="#Pool">Pool</a></code><br><a name="Pool+numberConnected"></a></p>
+<h3 id="pool-numberconnected-code-number-code-">pool.numberConnected() ⇒ <code>Number</code></h3>
+<p><strong>Kind</strong>: instance method of <code><a href="#Pool">Pool</a></code><br><strong>Returns</strong>: <code>Number</code> - The number of peers currently connected.<br><a name="Pool+_fillConnections"></a></p>
+<h3 id="pool-_fillconnections-">pool._fillConnections()</h3>
+<p>Will fill the connected peers to the maximum amount.</p>
+<p><strong>Kind</strong>: instance method of <code><a href="#Pool">Pool</a></code><br><a name="Pool+_removeConnectedPeer"></a></p>
+<h3 id="pool-_removeconnectedpeer-addr-">pool._removeConnectedPeer(addr)</h3>
+<p>Will remove a peer from the list of connected peers.</p>
+<p><strong>Kind</strong>: instance method of <code><a href="#Pool">Pool</a></code>  </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>addr</td>
+<td><code>Object</code></td>
+<td>An addr from the list of addrs</td>
+</tr>
+</tbody>
+</table>
+<p><a name="Pool+_connectPeer"></a></p>
+<h3 id="pool-_connectpeer-addr-">pool._connectPeer(addr)</h3>
+<p>Will connect a peer and add to the list of connected peers.</p>
+<p><strong>Kind</strong>: instance method of <code><a href="#Pool">Pool</a></code>  </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>addr</td>
+<td><code>Object</code></td>
+<td>An addr from the list of addrs</td>
+</tr>
+</tbody>
+</table>
+<p><a name="Pool+_addConnectedPeer"></a></p>
+<h3 id="pool-_addconnectedpeer-socket-addr-">pool._addConnectedPeer(socket, addr)</h3>
+<p>Adds a peer with a connected socket to the _connectedPeers object, and
+initializes the associated event handlers.</p>
+<p><strong>Kind</strong>: instance method of <code><a href="#Pool">Pool</a></code>  </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>socket</td>
+<td><code>Socket</code></td>
+<td>socket - A new connected socket</td>
+</tr>
+<tr>
+<td>addr</td>
+<td><code>Object</code></td>
+<td>addr - The associated addr object for the peer</td>
+</tr>
+</tbody>
+</table>
+<p><a name="Pool+_addPeerEventHandlers"></a></p>
+<h3 id="pool-_addpeereventhandlers-">pool._addPeerEventHandlers()</h3>
+<p>Will add disconnect and ready events for a peer and intialize
+handlers for relay peer message events.</p>
+<p><strong>Kind</strong>: instance method of <code><a href="#Pool">Pool</a></code><br><a name="Pool+_deprioritizeAddr"></a></p>
+<h3 id="pool-_deprioritizeaddr-addr-">pool._deprioritizeAddr(addr)</h3>
+<p>Will deprioritize an addr in the list of addrs by moving it to the end
+of the array, and setting a retryTime</p>
+<p><strong>Kind</strong>: instance method of <code><a href="#Pool">Pool</a></code>  </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>addr</td>
+<td><code>Object</code></td>
+<td>An addr from the list of addrs</td>
+</tr>
+</tbody>
+</table>
+<p><a name="Pool+_addAddr"></a></p>
+<h3 id="pool-_addaddr-addr-">pool._addAddr(addr)</h3>
+<p>Will add an addr to the beginning of the addrs array</p>
+<p><strong>Kind</strong>: instance method of <code><a href="#Pool">Pool</a></code>  </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>addr</td>
+<td><code>Object</code></td>
+</tr>
+</tbody>
+</table>
+<p><a name="Pool+_addAddrsFromSeed"></a></p>
+<h3 id="pool-_addaddrsfromseed-seed-done-">pool._addAddrsFromSeed(seed, done)</h3>
+<p>Will add addrs to the list of addrs from a DNS seed</p>
+<p><strong>Kind</strong>: instance method of <code><a href="#Pool">Pool</a></code>  </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>seed</td>
+<td><code>String</code></td>
+<td>A domain name to resolve known peers</td>
+</tr>
+<tr>
+<td>done</td>
+<td><code>function</code></td>
+</tr>
+</tbody>
+</table>
+<p><a name="Pool+_addAddrsFromSeeds"></a></p>
+<h3 id="pool-_addaddrsfromseeds-done-">pool._addAddrsFromSeeds(done)</h3>
+<p>Will add addrs to the list of addrs from network DNS seeds</p>
+<p><strong>Kind</strong>: instance method of <code><a href="#Pool">Pool</a></code>  </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>done</td>
+<td><code>function</code></td>
+</tr>
+</tbody>
+</table>
+<p><a name="Pool+inspect"></a></p>
+<h3 id="pool-inspect-code-string-code-">pool.inspect() ⇒ <code>String</code></h3>
+<p><strong>Kind</strong>: instance method of <code><a href="#Pool">Pool</a></code><br><strong>Returns</strong>: <code>String</code> - A string formatted for the console<br><a name="Pool+sendMessage"></a></p>
+<h3 id="pool-sendmessage-message-">pool.sendMessage(message)</h3>
+<p>Will send a message to all of the peers in the pool.</p>
+<p><strong>Kind</strong>: instance method of <code><a href="#Pool">Pool</a></code>  </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>message</td>
+<td><code>Message</code></td>
+<td>An instance of the message to send</td>
+</tr>
+</tbody>
+</table>
+<p><a name="Pool+listen"></a></p>
+<h3 id="pool-listen-">pool.listen()</h3>
+<p>Will enable a listener for peer connections, when a peer connects
+it will be added to the pool.</p>
+<p><strong>Kind</strong>: instance method of <code><a href="#Pool">Pool</a></code>  </p>
+</div></div></div></div></div><a class="exit-off-canvas"></a><script src="https://bitcore.io/scripts/main.min.efe3021b.js" data-no-instant="data-no-instant"></script></body>
+<!-- Mirrored from bitcore.io/api/p2p/pool by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 22 Dec 2018 16:43:33 GMT -->
+</html>

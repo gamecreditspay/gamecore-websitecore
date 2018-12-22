@@ -1,0 +1,88 @@
+<!DOCTYPE html><html lang="en">
+<!-- Mirrored from bitcore.io/api/upgrade by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 22 Dec 2018 16:43:06 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Upgrade Notes | Bitcore</title><meta name="description" content="A guide for upgrading Bitcore"><!-- Twitter Card data--><meta name="twitter:card" content="summary"><meta name="twitter:site" content="@BitPay"><meta name="twitter:title" content="Upgrade Notes"><meta name="twitter:description" content="A guide for upgrading Bitcore"><meta name="twitter:image" content="../images/social/card.jpg"><!-- Open Graph data (Facebook and Reddit)--><meta property="og:title" content="Upgrade Notes"><meta property="og:type" content="article"><meta property="og:url" content="../index.html"><meta property="og:image" content="../images/social/avatar.jpg"><meta property="og:description" content="A guide for upgrading Bitcore"><meta property="og:site_name" content="Bitcore.io"><!-- Add to homescreen for Chrome on Android--><meta name="mobile-web-app-capable" content="yes"><link rel="icon" sizes="192x192" href="../images/touch/chrome-touch-icon-192x192.b0c7306c.png"><!-- Add to homescreen for Safari on iOS--><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><meta name="apple-mobile-web-app-title" content="Bitcore"><link rel="apple-touch-icon-precomposed" href="apple-touch-icon-precomposed.html"><!-- Tile icon for Win8 (144x144 + tile color)--><meta name="msapplication-TileImage" content="../images/touch/ms-touch-icon-144x144-precomposed.dcbb3eea.png"><meta name="msapplication-TileColor" content="#F9AB3D"><!-- Favicon--><link rel="shortcut icon" href="../favicon.ico"><link rel="stylesheet" href="../styles/main.88c254de.css" data-instant-track><link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,300italic,400italic,600,700,700italic,600italic|Titillium+Web:400,300,700" rel="stylesheet" type="text/css"><script type="text/javascript" data-no-instant>
+  !function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","group","track","ready","alias","page","once","off","on"];analytics.factory=function(t){return function(){var e=Array.prototype.slice.call(arguments);e.unshift(t);analytics.push(e);return analytics}};for(var t=0;t<analytics.methods.length;t++){var e=analytics.methods[t];analytics[e]=analytics.factory(e)}analytics.load=function(t){var e=document.createElement("script");e.type="text/javascript";e.async=!0;e.src=("https:"===document.location.protocol?"https://":"http://")+"cdn.segment.com/analytics.js/v1/"+t+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(e,n)};analytics.SNIPPET_VERSION="3.0.1";
+  if(this.location.host === 'bitcore.io'){ analytics.load('hP7mqqPCPPa5hRatDaulKFxm0kPiB6Es'); }
+  else { analytics.load("dgbXyNcmHR3bJIjumdYoe3GZFrs6sHBd"); }
+  }}();
+</script>
+<script data-no-instant>
+  var $buoop = {vs:{i:9,f:30,o:25,s:5.1},c:2};
+  function $buo_f(){
+   var e = document.createElement("script");
+   e.src = "../../browser-update.org/update.js";
+   document.body.appendChild(e);
+  };
+  try {document.addEventListener("DOMContentLoaded", $buo_f,false)}
+  catch(e){window.attachEvent("onload", $buo_f)}
+</script>
+<meta name="google-site-verification" content="GOfbzCpKO__Imdru-L0nG1Fo9tTvyH3QVAIWsYO9rCk"></head><body><nav class="navbar navbar-fixed-top dark-nav hidden-sm-down"><a href="../index.html" title="Home" class="logo logo-light margin-top"></a><ul class="nav navbar-nav pull-right"><li class="nav-item"><a href="../start.html" class="nav-link">Getting Started</a></li><li class="nav-item"><a href="../guides/index.html" class="nav-link">Guides</a></li><li class="nav-item"><a href="index.html" class="nav-link active">Docs</a></li><li class="nav-item"><a href="../playground/index.html" class="nav-link">Playground        </a></li><li class="nav-item"><a href="http://forum.bitcore.io/" class="nav-link">Forum</a></li></ul></nav><div class="mobile-menu hidden-md-up navbar-fixed-top"><div id="exCollapsingNavbar" class="collapse"><div class="bg-inverse p-md"><h3 class="m-b-0"> <ul class="p-l-0 no-bullets m-b-0"><li class="nav-item"><a href="../index.html" class="nav-link">Home</a></li><li class="nav-item"><a href="../start.html" class="nav-link">Getting Started</a></li><li class="nav-item"><a href="../guides/index.html" class="nav-link">Guides</a></li><li class="nav-item"><a href="index.html" class="nav-link active">Docs</a></li><li class="nav-item"><a href="../playground/index.html" class="nav-link">Playground        </a></li><li class="nav-item"><a href="http://forum.bitcore.io/" class="nav-link">Forum</a></li></ul></h3></div></div><nav class="navbar dark-nav"><button type="button" data-toggle="collapse" data-target="#exCollapsingNavbar" class="navbar-toggler p-l-0"><div class="logo logo-square-orange menu-text color-white">Menu</div></button></nav></div><div class="fixed-sidebar bg-gray border-right-grey p-l-md"><a href="index.html"><h3 class="menu-header m-t-md">Bitcore</h3><ul class="nav nav-pills nav-stacked"><li class="nav-item"><a href="index.html" class="nav-link">Overview</a></li></ul></a><h3 class="menu-header m-t-md">Node</h3><ul class="nav nav-pills nav-stacked"><li class="nav-item"><a href="node.html" class="nav-link">Get Started</a></li><li class="nav-item"><a href="node-constructor.html" class="nav-link">Node Constructor</a></li><li class="nav-item"><a href="bus.html" class="nav-link">Event Bus</a></li><li class="nav-item"><a href="development.html" class="nav-link">Development</a></li><li class="nav-item"><a href="upgrade.html" class="active nav-link">Upgrade</a></li></ul><a href="service/index.html"><h3 class="menu-header m-t-md">Services</h3></a><a href="lib/index.html"><h3 class="menu-header m-t-md">Library API</h3></a><a href="mnemonic/index.html"><h3 class="menu-header m-t-md">Library Modules</h3></a><a href="p2p/index.html"><h3 class="menu-header m-t-md">Peer-to-Peer</h3></a></div><div class="scroll-content"><div class="api-content"><div class="docs bg-white"><div class="container"><div class="section p-t-lg"><div class="text-right bring-to-front"><a href="https://github.com/bitpay/bitcore-node/edit/master/docs/upgrade.md">Edit</a></div><h1 id="upgrade-notes">Upgrade Notes</h1>
+<h2 id="from-bitcore-3-0-0-to-4-0-0">From Bitcore 3.0.0 to 4.0.0</h2>
+<p><a href="../cdn-cgi/l/email-protection.html#68080a011c0b071a0d4506070c0d285a46594659">`<span class="__cf_email__" data-cfemail="0e6c677a6d617c6b2360616a6b4e3c203f203f">[email&#160;protected]</span></a><code>to</code><a href="../cdn-cgi/l/email-protection.html#83e1eaf7e0ecf1e6aeedece7e6c3b0adb3adb3"><span class="__cf_email__" data-cfemail="ddbfb4a9beb2afb8f0b3b2b9b89deef3edf3ed">[email&#160;protected]</span></a>`</p>
+<p>This major upgrade includes changes to indexes, API methods and services. Please review below details before upgrading.</p>
+<h3 id="indexes">Indexes</h3>
+<p>Indexes include <em>more information</em> and are now also <em>faster</em>. Because of this a <strong>reindex will be necessary</strong> when upgrading as the address and database indexes are now a part of bitcoind with three new <code>bitcoin.conf</code> options:</p>
+<ul>
+<li><code>-addressindex</code></li>
+<li><code>-timestampindex</code></li>
+<li><code>-spentindex</code></li>
+</ul>
+<p>To start reindexing add <code>reindex=1</code> during the <strong>first startup only</strong>.</p>
+<h3 id="configuration-options">Configuration Options</h3>
+<ul>
+<li>The <code>bitcoin.conf</code> file in will need to be updated to include additional indexes <em>(see below)</em>.</li>
+<li>The <code>datadir</code> option is now a part of <code>bitcoind</code> spawn configuration, and there is a new option to connect to multiple bitcoind processes (Please see <a href=service/bitcoin.html>Bitcoin Service Docs</a> for more details). The services <code>db</code> and <code>address</code> are now a part of the <code>bitcoind</code> service. Here is how to update <code>bitcore-node.json</code> configuration options:</li>
+</ul>
+<p><strong>Before</strong>:</p>
+<pre><code class="lang-json">{
+  &quot;datadir&quot;: &quot;/home/&lt;username&gt;/.bitcoin&quot;,
+  &quot;network&quot;: &quot;livenet&quot;,
+  &quot;port&quot;: 3001,
+  &quot;services&quot;: [
+    &quot;address&quot;,
+    &quot;bitcoind&quot;,
+    &quot;db&quot;,
+    &quot;web&quot;
+  ]
+}
+</code></pre>
+<p><strong>After</strong>:</p>
+<pre><code class="lang-json">{
+  &quot;network&quot;: &quot;livenet&quot;,
+  &quot;port&quot;: 3001,
+  &quot;services&quot;: [
+    &quot;bitcoind&quot;,
+    &quot;web&quot;
+  ],
+  &quot;servicesConfig&quot;: {
+    &quot;bitcoind&quot;: {
+      &quot;spawn&quot;: {
+        &quot;datadir&quot;: &quot;/home/&lt;username&gt;/.bitcoin&quot;,
+        &quot;exec&quot;: &quot;/home/&lt;username&gt;/bitcore-node/bin/bitcoind&quot;
+      }
+    }
+  }
+}
+</code></pre>
+<p>It will also be necessary to update <code>bitcoin.conf</code> settings, to include these fields:</p>
+<pre><code>server=1
+whitelist=127.0.0.1
+txindex=1
+addressindex=1
+timestampindex=1
+spentindex=1
+zmqpubrawtx=tcp://127.0.0.1:&lt;port&gt;
+zmqpubhashblock=tcp://127.0.0.1:&lt;port&gt;
+rpcallowip=127.0.0.1
+rpcuser=&lt;user&gt;
+rpcpassword=&lt;password&gt;
+</code></pre><p><strong>Important</strong>: Once changes have been made you&#39;ll also need to add the <code>reindex=1</code> option <strong>only for the first startup</strong> to regenerate the indexes. Once this is complete you should be able to remove the <code>bitcore-node.db</code> directory with the old indexes.</p>
+<h3 id="api-and-service-changes">API and Service Changes</h3>
+<ul>
+<li>Many API methods that were a part of the <code>db</code> and <code>address</code> services are now a part of the <code>bitcoind</code> service. Please see <a href=service/bitcoin.html>Bitcoin Service Docs</a> for more details.</li>
+<li>The <code>db</code> and <code>address</code> services are deprecated, most of the functionality still exists. Any services that were extending indexes with the <code>db</code> service, will need to manage chain state itself, or build the indexes within <code>bitcoind</code>.</li>
+</ul>
+</div></div></div><div class="lib bg-dark"><div class="container"></div></div></div></div><a class="exit-off-canvas"></a><script data-cfasync="false" src="../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="../scripts/main.min.efe3021b.js" data-no-instant="data-no-instant"></script></body>
+<!-- Mirrored from bitcore.io/api/upgrade by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 22 Dec 2018 16:43:06 GMT -->
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html><html lang="en">
+<!-- Mirrored from bitcore.io/api/development by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 22 Dec 2018 16:43:06 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Setting up a Development Environment | Bitcore</title><meta name="description" content="A guide for setting up a bitcore development environement"><!-- Twitter Card data--><meta name="twitter:card" content="summary"><meta name="twitter:site" content="@BitPay"><meta name="twitter:title" content="Setting up a Development Environment"><meta name="twitter:description" content="A guide for setting up a bitcore development environement"><meta name="twitter:image" content="../images/social/card.jpg"><!-- Open Graph data (Facebook and Reddit)--><meta property="og:title" content="Setting up a Development Environment"><meta property="og:type" content="article"><meta property="og:url" content="../index.html"><meta property="og:image" content="../images/social/avatar.jpg"><meta property="og:description" content="A guide for setting up a bitcore development environement"><meta property="og:site_name" content="Bitcore.io"><!-- Add to homescreen for Chrome on Android--><meta name="mobile-web-app-capable" content="yes"><link rel="icon" sizes="192x192" href="../images/touch/chrome-touch-icon-192x192.b0c7306c.png"><!-- Add to homescreen for Safari on iOS--><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><meta name="apple-mobile-web-app-title" content="Bitcore"><link rel="apple-touch-icon-precomposed" href="apple-touch-icon-precomposed.html"><!-- Tile icon for Win8 (144x144 + tile color)--><meta name="msapplication-TileImage" content="../images/touch/ms-touch-icon-144x144-precomposed.dcbb3eea.png"><meta name="msapplication-TileColor" content="#F9AB3D"><!-- Favicon--><link rel="shortcut icon" href="../favicon.ico"><link rel="stylesheet" href="../styles/main.88c254de.css" data-instant-track><link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,300italic,400italic,600,700,700italic,600italic|Titillium+Web:400,300,700" rel="stylesheet" type="text/css"><script type="text/javascript" data-no-instant>
+  !function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","group","track","ready","alias","page","once","off","on"];analytics.factory=function(t){return function(){var e=Array.prototype.slice.call(arguments);e.unshift(t);analytics.push(e);return analytics}};for(var t=0;t<analytics.methods.length;t++){var e=analytics.methods[t];analytics[e]=analytics.factory(e)}analytics.load=function(t){var e=document.createElement("script");e.type="text/javascript";e.async=!0;e.src=("https:"===document.location.protocol?"https://":"http://")+"cdn.segment.com/analytics.js/v1/"+t+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(e,n)};analytics.SNIPPET_VERSION="3.0.1";
+  if(this.location.host === 'bitcore.io'){ analytics.load('hP7mqqPCPPa5hRatDaulKFxm0kPiB6Es'); }
+  else { analytics.load("dgbXyNcmHR3bJIjumdYoe3GZFrs6sHBd"); }
+  }}();
+</script>
+<script data-no-instant>
+  var $buoop = {vs:{i:9,f:30,o:25,s:5.1},c:2};
+  function $buo_f(){
+   var e = document.createElement("script");
+   e.src = "../../browser-update.org/update.js";
+   document.body.appendChild(e);
+  };
+  try {document.addEventListener("DOMContentLoaded", $buo_f,false)}
+  catch(e){window.attachEvent("onload", $buo_f)}
+</script>
+<meta name="google-site-verification" content="GOfbzCpKO__Imdru-L0nG1Fo9tTvyH3QVAIWsYO9rCk"></head><body><nav class="navbar navbar-fixed-top dark-nav hidden-sm-down"><a href="../index.html" title="Home" class="logo logo-light margin-top"></a><ul class="nav navbar-nav pull-right"><li class="nav-item"><a href="../start.html" class="nav-link">Getting Started</a></li><li class="nav-item"><a href="../guides/index.html" class="nav-link">Guides</a></li><li class="nav-item"><a href="index.html" class="nav-link active">Docs</a></li><li class="nav-item"><a href="../playground/index.html" class="nav-link">Playground        </a></li><li class="nav-item"><a href="http://forum.bitcore.io/" class="nav-link">Forum</a></li></ul></nav><div class="mobile-menu hidden-md-up navbar-fixed-top"><div id="exCollapsingNavbar" class="collapse"><div class="bg-inverse p-md"><h3 class="m-b-0"> <ul class="p-l-0 no-bullets m-b-0"><li class="nav-item"><a href="../index.html" class="nav-link">Home</a></li><li class="nav-item"><a href="../start.html" class="nav-link">Getting Started</a></li><li class="nav-item"><a href="../guides/index.html" class="nav-link">Guides</a></li><li class="nav-item"><a href="index.html" class="nav-link active">Docs</a></li><li class="nav-item"><a href="../playground/index.html" class="nav-link">Playground        </a></li><li class="nav-item"><a href="http://forum.bitcore.io/" class="nav-link">Forum</a></li></ul></h3></div></div><nav class="navbar dark-nav"><button type="button" data-toggle="collapse" data-target="#exCollapsingNavbar" class="navbar-toggler p-l-0"><div class="logo logo-square-orange menu-text color-white">Menu</div></button></nav></div><div class="fixed-sidebar bg-gray border-right-grey p-l-md"><a href="index.html"><h3 class="menu-header m-t-md">Bitcore</h3><ul class="nav nav-pills nav-stacked"><li class="nav-item"><a href="index.html" class="nav-link">Overview</a></li></ul></a><h3 class="menu-header m-t-md">Node</h3><ul class="nav nav-pills nav-stacked"><li class="nav-item"><a href="node.html" class="nav-link">Get Started</a></li><li class="nav-item"><a href="node-constructor.html" class="nav-link">Node Constructor</a></li><li class="nav-item"><a href="bus.html" class="nav-link">Event Bus</a></li><li class="nav-item"><a href="development.html" class="active nav-link">Development</a></li><li class="nav-item"><a href="upgrade.html" class="nav-link">Upgrade</a></li></ul><a href="service/index.html"><h3 class="menu-header m-t-md">Services</h3></a><a href="lib/index.html"><h3 class="menu-header m-t-md">Library API</h3></a><a href="mnemonic/index.html"><h3 class="menu-header m-t-md">Library Modules</h3></a><a href="p2p/index.html"><h3 class="menu-header m-t-md">Peer-to-Peer</h3></a></div><div class="scroll-content"><div class="api-content"><div class="docs bg-white"><div class="container"><div class="section p-t-lg"><div class="text-right bring-to-front"><a href="https://github.com/bitpay/bitcore-node/edit/master/docs/development.md">Edit</a></div><h1 id="setting-up-development-environment">Setting up Development Environment</h1>
+<h2 id="install-node-js">Install Node.js</h2>
+<p>Install Node.js by your favorite method, or use Node Version Manager by following directions at <a href="https://github.com/creationix/nvm">https://github.com/creationix/nvm</a></p>
+<pre><code class="lang-bash">nvm install v4
+</code></pre>
+<h2 id="fork-and-download-repositories">Fork and Download Repositories</h2>
+<p>To develop bitcore-node:</p>
+<pre><code class="lang-bash">cd ~
+git clone <a href="../cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="a7c0ced3e7c0ced3cfd2c589c4c8ca">[email&#160;protected]</a>:&lt;yourusername&gt;/bitcore-node.git
+git clone <a href="../cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="3a5d534e7a5d534e524f5814595557">[email&#160;protected]</a>:&lt;yourusername&gt;/bitcore-lib.git
+</code></pre>
+<p>To develop bitcoin or to compile from source:</p>
+<pre><code class="lang-bash">git clone <a href="../cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="99fef0edd9fef0edf1ecfbb7faf6f4">[email&#160;protected]</a>:&lt;yourusername&gt;/bitcoin.git
+git fetch origin &lt;branchname&gt;:&lt;branchname&gt;
+git checkout &lt;branchname&gt;
+</code></pre>
+<p><strong>Note</strong>: See bitcoin documentation for building bitcoin on your platform.</p>
+<h2 id="install-development-dependencies">Install Development Dependencies</h2>
+<p>For Ubuntu:</p>
+<pre><code class="lang-bash">sudo apt-get install libzmq3-dev
+sudo apt-get install build-essential
+</code></pre>
+<p><strong>Note</strong>: Make sure that libzmq-dev is not installed, it should be removed when installing libzmq3-dev.</p>
+<p>For Mac OS X:</p>
+<pre><code class="lang-bash">brew install zeromq
+</code></pre>
+<h2 id="install-and-symlink">Install and Symlink</h2>
+<pre><code class="lang-bash">cd bitcore-lib
+npm install
+cd ../bitcore-node
+npm install
+</code></pre>
+<p><strong>Note</strong>: If you get a message about not being able to download bitcoin distribution, you&#39;ll need to compile bitcoind from source, and setup your configuration to use that version.</p>
+<p>We now will setup symlinks in <code>bitcore-node</code> <em>(repeat this for any other modules you&#39;re planning on developing)</em>:</p>
+<pre><code class="lang-bash">cd node_modules
+rm -rf bitcore-lib
+ln -s ~/bitcore-lib
+rm -rf bitcoind-rpc
+ln -s ~/bitcoind-rpc
+</code></pre>
+<p>And if you&#39;re compiling or developing bitcoin:</p>
+<pre><code class="lang-bash">cd ../bin
+ln -sf ~/bitcoin/src/bitcoind
+</code></pre>
+<h2 id="run-tests">Run Tests</h2>
+<p>If you do not already have mocha installed:</p>
+<pre><code class="lang-bash">npm install mocha -g
+</code></pre>
+<p>To run all test suites:</p>
+<pre><code class="lang-bash">cd bitcore-node
+npm run regtest
+npm run test
+</code></pre>
+<p>To run a specific unit test in watch mode:</p>
+<pre><code class="lang-bash">mocha -w -R spec test/services/bitcoind.unit.js
+</code></pre>
+<p>To run a specific regtest:</p>
+<pre><code class="lang-bash">mocha -R spec regtest/bitcoind.js
+</code></pre>
+<h2 id="running-a-development-node">Running a Development Node</h2>
+<p>To test running the node, you can setup a configuration that will specify development versions of all of the services:</p>
+<pre><code class="lang-bash">cd ~
+mkdir devnode
+cd devnode
+mkdir node_modules
+touch bitcore-node.json
+touch package.json
+</code></pre>
+<p>Edit <code>bitcore-node.json</code> with something similar to:</p>
+<pre><code class="lang-json">{
+  &quot;network&quot;: &quot;livenet&quot;,
+  &quot;port&quot;: 3001,
+  &quot;services&quot;: [
+    &quot;bitcoind&quot;,
+    &quot;web&quot;,
+    &quot;insight-api&quot;,
+    &quot;insight-ui&quot;,
+    &quot;&lt;additional_service&gt;&quot;
+  ],
+  &quot;servicesConfig&quot;: {
+    &quot;bitcoind&quot;: {
+      &quot;spawn&quot;: {
+        &quot;datadir&quot;: &quot;/home/&lt;youruser&gt;/.bitcoin&quot;,
+        &quot;exec&quot;: &quot;/home/&lt;youruser&gt;/bitcoin/src/bitcoind&quot;
+      }
+    }
+  }
+}
+</code></pre>
+<p><strong>Note</strong>: To install services <a href="https://github.com/bitpay/insight-api">insight-api</a> and <a href="https://github.com/bitpay/insight-ui">insight-ui</a> you&#39;ll need to clone the repositories locally.</p>
+<p>Setup symlinks for all of the services and dependencies:</p>
+<pre><code class="lang-bash">cd node_modules
+ln -s ~/bitcore-lib
+ln -s ~/bitcore-node
+ln -s ~/insight-api
+ln -s ~/insight-ui
+</code></pre>
+<p>Make sure that the <code>&lt;datadir&gt;/bitcoin.conf</code> has the necessary settings, for example:</p>
+<pre><code>server=1
+whitelist=127.0.0.1
+txindex=1
+addressindex=1
+timestampindex=1
+spentindex=1
+zmqpubrawtx=tcp://127.0.0.1:28332
+zmqpubhashblock=tcp://127.0.0.1:28332
+rpcallowip=127.0.0.1
+rpcuser=bitcoin
+rpcpassword=local321
+</code></pre><p>From within the <code>devnode</code> directory with the configuration file, start the node:</p>
+<pre><code class="lang-bash">../bitcore-node/bin/bitcore-node start
+</code></pre>
+</div></div></div><div class="lib bg-dark"><div class="container"></div></div></div></div><a class="exit-off-canvas"></a><script data-cfasync="false" src="../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="../scripts/main.min.efe3021b.js" data-no-instant="data-no-instant"></script></body>
+<!-- Mirrored from bitcore.io/api/development by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 22 Dec 2018 16:43:06 GMT -->
+</html>

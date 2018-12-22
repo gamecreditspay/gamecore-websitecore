@@ -1,0 +1,96 @@
+<!DOCTYPE html><html lang="en">
+<!-- Mirrored from bitcore.io/guides/full-node/ by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 22 Dec 2018 16:42:38 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Run a Bitcoin Node | Bitcore</title><meta name="description" content="Set up and run a full Bitcoin Node with Bitcore."><!-- Twitter Card data--><meta name="twitter:card" content="summary"><meta name="twitter:site" content="@BitPay"><meta name="twitter:title" content="Run a Bitcoin Node"><meta name="twitter:description" content="Set up and run a full Bitcoin Node with Bitcore."><meta name="twitter:image" content="../../images/social/card.jpg"><!-- Open Graph data (Facebook and Reddit)--><meta property="og:title" content="Run a Bitcoin Node"><meta property="og:type" content="article"><meta property="og:url" content="../../index.html"><meta property="og:image" content="../../images/social/avatar.jpg"><meta property="og:description" content="Set up and run a full Bitcoin Node with Bitcore."><meta property="og:site_name" content="Bitcore.io"><!-- Add to homescreen for Chrome on Android--><meta name="mobile-web-app-capable" content="yes"><link rel="icon" sizes="192x192" href="../../images/touch/chrome-touch-icon-192x192.b0c7306c.png"><!-- Add to homescreen for Safari on iOS--><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><meta name="apple-mobile-web-app-title" content="Bitcore"><link rel="apple-touch-icon-precomposed" href="apple-touch-icon-precomposed.html"><!-- Tile icon for Win8 (144x144 + tile color)--><meta name="msapplication-TileImage" content="../../images/touch/ms-touch-icon-144x144-precomposed.dcbb3eea.png"><meta name="msapplication-TileColor" content="#F9AB3D"><!-- Favicon--><link rel="shortcut icon" href="../../favicon.ico"><link rel="stylesheet" href="../../styles/main.88c254de.css" data-instant-track><link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,300italic,400italic,600,700,700italic,600italic|Titillium+Web:400,300,700" rel="stylesheet" type="text/css"><script type="text/javascript" data-no-instant>
+  !function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","group","track","ready","alias","page","once","off","on"];analytics.factory=function(t){return function(){var e=Array.prototype.slice.call(arguments);e.unshift(t);analytics.push(e);return analytics}};for(var t=0;t<analytics.methods.length;t++){var e=analytics.methods[t];analytics[e]=analytics.factory(e)}analytics.load=function(t){var e=document.createElement("script");e.type="text/javascript";e.async=!0;e.src=("https:"===document.location.protocol?"https://":"http://")+"cdn.segment.com/analytics.js/v1/"+t+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(e,n)};analytics.SNIPPET_VERSION="3.0.1";
+  if(this.location.host === 'bitcore.io'){ analytics.load('hP7mqqPCPPa5hRatDaulKFxm0kPiB6Es'); }
+  else { analytics.load("dgbXyNcmHR3bJIjumdYoe3GZFrs6sHBd"); }
+  }}();
+</script>
+<script data-no-instant>
+  var $buoop = {vs:{i:9,f:30,o:25,s:5.1},c:2};
+  function $buo_f(){
+   var e = document.createElement("script");
+   e.src = "../../../browser-update.org/update.js";
+   document.body.appendChild(e);
+  };
+  try {document.addEventListener("DOMContentLoaded", $buo_f,false)}
+  catch(e){window.attachEvent("onload", $buo_f)}
+</script>
+<meta name="google-site-verification" content="GOfbzCpKO__Imdru-L0nG1Fo9tTvyH3QVAIWsYO9rCk"></head><body class="bg-white"><nav class="navbar navbar-light bg-faded hidden-sm-down light-nav p-y-0"><div class="container"><div class="navbar p-l-0"><a href="../../index.html" title="Home" class="logo logo-dark margin-top"></a><ul class="nav navbar-nav pull-right"><li class="nav-item"><a href="../../start.html" class="nav-link">Getting Started</a></li><li class="nav-item"><a href="../index.html" class="nav-link active">Guides</a></li><li class="nav-item"><a href="../../bitcoin.html" class="nav-link">Bitcoin</a></li><li class="nav-item"><a href="../../api/index.html" class="nav-link">Docs</a></li><li class="nav-item"><a href="../../playground/index.html" class="nav-link">Playground        </a></li><li class="nav-item"><a href="http://forum.bitcore.io/" class="nav-link">Forum</a></li></ul></div></div></nav><div class="mobile-menu hidden-md-up"> <div id="exCollapsingNavbar" class="collapse"><div class="bg-inverse p-md"><h3 class="m-b-0"><ul class="p-l-0 no-bullets m-b-0"><li class="nav-item"><a href="../../index.html" class="nav-link">Home</a></li><li class="nav-item"><a href="../../start.html" class="nav-link">Getting Started</a></li><li class="nav-item"><a href="../index.html" class="nav-link active">Guides</a></li><li class="nav-item"><a href="../../bitcoin.html" class="nav-link">Bitcoin</a></li><li class="nav-item"><a href="../../playground/index.html" class="nav-link">Playground        </a></li><li class="nav-item"><a href="../../api/index.html" class="nav-link">Docs</a></li><li class="nav-item"><a href="http://forum.bitcore.io/" class="nav-link">Forum</a></li></ul></h3></div></div><nav class="navbar light-nav"><button type="button" data-toggle="collapse" data-target="#exCollapsingNavbar" class="navbar-toggler p-l-0"><div class="logo logo-square-orange menu-text">Menu</div></button></nav></div><div class="container"><div class="row"><div class="col-md-12 col-lg-3 m-t-lg"><h3 class="menu-header">Guides</h3><ul class="nav nav-pills nav-stacked"><li class="nav-item"><a href="index.html" class="active nav-link">Run a Full Node</a></li><li class="nav-item"><a href="../bitcoin/index.html" class="nav-link">Run Bitcoin Standalone</a></li><li class="nav-item"><a href="../upstart-daemon/index.html" class="nav-link">Run Bitcore as a Daemon</a></li><li class="nav-item"><a href="../wallet-service/index.html" class="nav-link">Run a Wallet Service</a></li><li class="nav-item"><a href="../browser.html" class="nav-link">Browser Builds</a></li></ul><h3 class="menu-header m-t-md">Tutorials</h3><ul class="nav nav-pills nav-stacked"><li class="nav-item"><a href="../service-development/index.html" class="nav-link">Service Development</a></li><li class="nav-item"><a href="../satoshi-fire-alarm/index.html" class="nav-link">Satoshi Fire Alarm</a></li><li class="nav-item"><a href="../lemonade-stand/index.html" class="nav-link">Lemonade Stand</a></li><li class="nav-item"><a href="../i-made-this/index.html" class="nav-link">I Made This</a></li></ul></div><div class="col-md-12 col-lg-9 m-t-lg docs"><h1 id="running-a-full-node">Running a Full Node</h1>
+<p>This tutorial will go over the basics of spinning up a Bitcore node. Before you begin, you&#39;ll need to have around 8GB of memory and about 200GB of disk space available to store the Bitcoin blockchain plus additional database information. Both 64bit Mac OS X and GNU/Linux are currently supported. The process of downloading the blocks and indexing can take upwards of 24 hours on livenet and 2 hours for testnet, depending on Internet connection and other factors such as CPU and disk speed. It&#39;s also possible to use an existing Bitcoin data directory, which will speed up the process as reindexing can take upwards of 12 hours for livenet and 1 hour for testnet.</p>
+<h2 id="install-node-js-v4-lts">Install Node.js v4 LTS</h2>
+<p>It&#39;s recommended to install the Node Version Manager, as this makes it simple to switch between different Node.js versions. We will specifically need to install and run v0.12 or v4 LTS. Please follow the directions at <a href="https://github.com/creationix/nvm#install-script">https://github.com/creationix/nvm#install-script</a> and then run:</p>
+<pre><code class="lang-bash">nvm install v4
+</code></pre>
+<h2 id="install-zeromq-and-tools">Install ZeroMQ and Tools</h2>
+<p>For <strong>GNU/Linux</strong> distribution such as <strong>Debian</strong> or <strong>Ubuntu</strong>:</p>
+<pre><code>apt-get install libzmq3-dev build-essential
+</code></pre><p>For <strong>Mac OS X</strong>:</p>
+<pre><code>brew install zeromq
+</code></pre><h2 id="install-bitcore">Install Bitcore</h2>
+<p>Bitcore comes with a command line utility for creating and managing your full node. To get started, run these commands, and you&#39;ll then have the <code>bitcore</code> command in your path:</p>
+<pre><code>npm install -g bitcore
+</code></pre><p><strong>Note</strong>: Do not run this command with <code>sudo</code> or with <em>root privileges</em> as this will lead to <a href="https://docs.npmjs.com/misc/scripts#user">permission issues</a>.</p>
+<p>At this point, if you just want to sync the blockchain and run the Insight Block Explorer, then you are done! Just run:</p>
+<pre><code class="lang-bash">bitcored
+</code></pre>
+<p>This will start your node from a config file in <code>~/.bitcore</code> with the insight-api and insight-ui services enabled.</p>
+<h2 id="create-a-new-non-global-node-for-running-custom-services-like-bitcore-wallet-service">Create a New (Non-Global) Node for Running Custom Services like Bitcore Wallet Service</h2>
+<p>If you would like to create additional nodes that are not in your global npm installation directory, or run the Bitcore Wallet Service, please do the following:</p>
+<pre><code class="lang-bash">bitcore create mynode
+</code></pre>
+<p>or for testnet:</p>
+<pre><code class="lang-bash">bitcore create mynode --testnet
+</code></pre>
+<p>This will create the directory &quot;mynode&quot; in your current working and install all of the necessary dependencies and configuration files for your node.</p>
+<p>To create a node if you already have a Bitcoin data directory that you want to use:</p>
+<pre><code class="lang-bash">bitcore create -d &lt;path-to-datadirectory&gt; mynode
+</code></pre>
+<p>The database directory will likely be at <code>~/.bitcore</code>. Note that you&#39;ll need to have <code>txindex</code> enabled in your bitcoin configuration file. To enable <code>txindex</code>, add <code>txindex=1</code> and <code>reindex=1</code> to <code>~/.bitcoin/bitcoin.conf</code>. After you start Bitcoin once with <code>reindex=1</code> you should remove it, otherwise it will reindex every time the node starts. Be sure to leave <code>txindex=1</code>, though.</p>
+<p>For installation instructions regarding the Bitcore Wallet Service, please see <a href="../wallet-service/index.html">wallet service</a></p>
+<h2 id="configure-the-network">Configure the Network</h2>
+<p>Your node can run on &quot;livenet&quot; or &quot;testnet&quot;. If you wish to configure the network, you can do so by opening the <code>bitcore-node.json</code> configuration file with your favorite text editor (vi is used here):</p>
+<pre><code class="lang-bash">cd mynode
+vi bitcore-node.json
+</code></pre>
+<p>Then change the network value to &quot;testnet&quot; or &quot;livenet&quot;. Here is an example configuration file:</p>
+<pre><code>{
+  &quot;network&quot;: &quot;livenet&quot;,
+  &quot;port&quot;: 3001,
+  &quot;services&quot;: [
+    &quot;bitcoind&quot;,
+    &quot;web&quot;
+  ],
+  &quot;servicesConfig&quot;: {
+    &quot;bitcoind&quot;: {
+      &quot;datadir&quot;: &quot;/home/user/.bitcoin&quot;,
+      &quot;exec&quot;: &quot;/home/user/bitcoin/src/bitcoind&quot;
+    }
+  }
+}
+</code></pre><p><strong>Note</strong>: This configuration includes an exec path to a locally compiled <code>bitcoind</code> and shares the datadir with standard <code>.bitcoin</code> location.</p>
+<h2 id="start-syncing">Start Syncing</h2>
+<p>As mentioned previously, this process can take several hours to complete, so you can start the script and come back later to check on the status. Let&#39;s get started!</p>
+<pre><code class="lang-bash">cd mynode
+bitcored
+</code></pre>
+<p>This will start up all of the services that have been enabled in your configuration file. The first service that will most likely be started is Bitcoin itself, followed by others that depend on it, such as the Database and Address Service. The syncing process will connect to other Bitcoin peers in the network and start downloading the blockchain, verifying proof-of-work, and creating indexes for querying the blockchain. Both Bitcoin and the Database Service will log the status of the initial synchronization process.</p>
+<h2 id="query-for-information">Query for Information</h2>
+<p>Get details about the genesis block:</p>
+<pre><code class="lang-bash">bitcore call getBlock 000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26f
+</code></pre>
+<p>Get the details of a transaction <em>(with address information)</em>:</p>
+<pre><code class="lang-bash">bitcore call getDetailedTransaction  c4b968504a34a27482bf0f1f9d9b93b74fddbf3877cfd92e2fde48c6ba8c791c
+</code></pre>
+<h2 id="install-a-block-explorer">Install a Block Explorer</h2>
+<p><strong>Note</strong>: If you created your node by running <code>bitcored</code> instead of <code>bitcore create mynode</code>, your node will already have these services installed and you can skip this command.</p>
+<p>While running individual CLI commands is a useful way to interact with your node, being able to view it in a GUI is even be better. Let&#39;s get started by installing the blockchain explorer Insight!</p>
+<pre><code>bitcore install insight-api insight-ui
+</code></pre><p>This will run an <code>npm</code> command to download the packages <code>insight-api</code> and <code>insight-ui</code> and add them to your node&#39;s <code>package.json</code> as well as <code>bitcore-node.json</code>. The next time you start up your node, the services will be enabled, and you&#39;ll be able to open your web browser to view the explorer.</p>
+<p>Go to the URL <em>(default)</em>:</p>
+<p><code>http://localhost:3001/insight/</code></p>
+<p><img src="../../images/guides/full-node/insight.d1fa5ecc.png" alt="Insight Screenshot"></p>
+</div></div></div><a class="exit-off-canvas"></a><script src="../../scripts/main.min.efe3021b.js" data-no-instant="data-no-instant"></script></body>
+<!-- Mirrored from bitcore.io/guides/full-node/ by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 22 Dec 2018 16:42:38 GMT -->
+</html>

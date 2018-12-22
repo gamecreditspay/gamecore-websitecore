@@ -1,0 +1,97 @@
+<!DOCTYPE html><html lang="en">
+<!-- Mirrored from bitcore.io/api/service/ by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 22 Dec 2018 16:42:45 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Overview | Bitcore</title><meta name="description" content="Overview of Bitcore's services architecture."><!-- Twitter Card data--><meta name="twitter:card" content="summary"><meta name="twitter:site" content="@BitPay"><meta name="twitter:title" content="Overview"><meta name="twitter:description" content="Overview of Bitcore's services architecture."><meta name="twitter:image" content="../../images/social/card.jpg"><!-- Open Graph data (Facebook and Reddit)--><meta property="og:title" content="Overview"><meta property="og:type" content="article"><meta property="og:url" content="../../index.html"><meta property="og:image" content="../../images/social/avatar.jpg"><meta property="og:description" content="Overview of Bitcore's services architecture."><meta property="og:site_name" content="Bitcore.io"><!-- Add to homescreen for Chrome on Android--><meta name="mobile-web-app-capable" content="yes"><link rel="icon" sizes="192x192" href="../../images/touch/chrome-touch-icon-192x192.b0c7306c.png"><!-- Add to homescreen for Safari on iOS--><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><meta name="apple-mobile-web-app-title" content="Bitcore"><link rel="apple-touch-icon-precomposed" href="apple-touch-icon-precomposed.html"><!-- Tile icon for Win8 (144x144 + tile color)--><meta name="msapplication-TileImage" content="../../images/touch/ms-touch-icon-144x144-precomposed.dcbb3eea.png"><meta name="msapplication-TileColor" content="#F9AB3D"><!-- Favicon--><link rel="shortcut icon" href="../../favicon.ico"><link rel="stylesheet" href="../../styles/main.88c254de.css" data-instant-track><link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,300italic,400italic,600,700,700italic,600italic|Titillium+Web:400,300,700" rel="stylesheet" type="text/css"><script type="text/javascript" data-no-instant>
+  !function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","group","track","ready","alias","page","once","off","on"];analytics.factory=function(t){return function(){var e=Array.prototype.slice.call(arguments);e.unshift(t);analytics.push(e);return analytics}};for(var t=0;t<analytics.methods.length;t++){var e=analytics.methods[t];analytics[e]=analytics.factory(e)}analytics.load=function(t){var e=document.createElement("script");e.type="text/javascript";e.async=!0;e.src=("https:"===document.location.protocol?"https://":"http://")+"cdn.segment.com/analytics.js/v1/"+t+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(e,n)};analytics.SNIPPET_VERSION="3.0.1";
+  if(this.location.host === 'bitcore.io'){ analytics.load('hP7mqqPCPPa5hRatDaulKFxm0kPiB6Es'); }
+  else { analytics.load("dgbXyNcmHR3bJIjumdYoe3GZFrs6sHBd"); }
+  }}();
+</script>
+<script data-no-instant>
+  var $buoop = {vs:{i:9,f:30,o:25,s:5.1},c:2};
+  function $buo_f(){
+   var e = document.createElement("script");
+   e.src = "../../../browser-update.org/update.js";
+   document.body.appendChild(e);
+  };
+  try {document.addEventListener("DOMContentLoaded", $buo_f,false)}
+  catch(e){window.attachEvent("onload", $buo_f)}
+</script>
+<meta name="google-site-verification" content="GOfbzCpKO__Imdru-L0nG1Fo9tTvyH3QVAIWsYO9rCk"></head><body><nav class="navbar navbar-fixed-top dark-nav hidden-sm-down"><a href="../../index.html" title="Home" class="logo logo-light margin-top"></a><ul class="nav navbar-nav pull-right"><li class="nav-item"><a href="../../start.html" class="nav-link">Getting Started</a></li><li class="nav-item"><a href="../../guides/index.html" class="nav-link">Guides</a></li><li class="nav-item"><a href="../index.html" class="nav-link active">Docs</a></li><li class="nav-item"><a href="../../playground/index.html" class="nav-link">Playground        </a></li><li class="nav-item"><a href="http://forum.bitcore.io/" class="nav-link">Forum</a></li></ul></nav><div class="mobile-menu hidden-md-up navbar-fixed-top"><div id="exCollapsingNavbar" class="collapse"><div class="bg-inverse p-md"><h3 class="m-b-0"> <ul class="p-l-0 no-bullets m-b-0"><li class="nav-item"><a href="../../index.html" class="nav-link">Home</a></li><li class="nav-item"><a href="../../start.html" class="nav-link">Getting Started</a></li><li class="nav-item"><a href="../../guides/index.html" class="nav-link">Guides</a></li><li class="nav-item"><a href="../index.html" class="nav-link active">Docs</a></li><li class="nav-item"><a href="../../playground/index.html" class="nav-link">Playground        </a></li><li class="nav-item"><a href="http://forum.bitcore.io/" class="nav-link">Forum</a></li></ul></h3></div></div><nav class="navbar dark-nav"><button type="button" data-toggle="collapse" data-target="#exCollapsingNavbar" class="navbar-toggler p-l-0"><div class="logo logo-square-orange menu-text color-white">Menu</div></button></nav></div><div class="fixed-sidebar bg-gray border-right-grey p-l-md"><a href="../index.html"><h3 class="menu-header m-t-md">Bitcore</h3><ul class="nav nav-pills nav-stacked"><li class="nav-item"><a href="../index.html" class="nav-link">Overview</a></li></ul></a><a href="../node.html"><h3 class="menu-header m-t-md">Node</h3></a><h3 class="menu-header m-t-md">Services</h3><ul class="nav nav-pills nav-stacked"><li class="nav-item"><a href="index.html" class="active nav-link">Overview</a></li><li class="nav-item"><a href="bitcoin.html" class="nav-link">Bitcoin Service</a></li><li class="nav-item"><a href="web.html" class="nav-link">Web Service</a></li></ul><a href="../lib/index.html"><h3 class="menu-header m-t-md">Library API</h3></a><a href="../mnemonic/index.html"><h3 class="menu-header m-t-md">Library Modules</h3></a><a href="../p2p/index.html"><h3 class="menu-header m-t-md">Peer-to-Peer</h3></a></div><div class="scroll-content"><div class="api-content"><div class="docs bg-white"><div class="container"><div class="section p-t-lg"><div class="text-right bring-to-front"><a href="https://github.com/bitpay/bitcore-node/edit/master/docs/services.md">Edit</a></div><h1 id="services">Services</h1>
+<p>Bitcore Node has a service module system that can start up additional services that can include additional:</p>
+<ul>
+<li>Blockchain indexes (e.g. querying balances for addresses)</li>
+<li>API methods</li>
+<li>HTTP routes</li>
+<li>Event types to publish and subscribe</li>
+</ul>
+<p>The <code>bitcore-node.json</code> file describes which services will load for a node:</p>
+<pre><code class="lang-json">{
+  &quot;services&quot;: [
+    &quot;bitcoind&quot;, &quot;web&quot;
+  ]
+}
+</code></pre>
+<p>Services correspond with a Node.js module as described in &#39;package.json&#39;, for example:</p>
+<pre><code class="lang-json">{
+  &quot;dependencies&quot;: {
+    &quot;bitcore-lib&quot;: &quot;^0.13.7&quot;,
+    &quot;bitcore-node&quot;: &quot;^0.2.0&quot;,
+    &quot;insight-api&quot;: &quot;^3.0.0&quot;
+  }
+}
+</code></pre>
+<p><em>Note:</em> If you already have a bitcore-node database, and you want to query data from previous blocks in the blockchain, you will need to reindex. Reindexing right now means deleting your bitcore-node database and resyncing.</p>
+<h2 id="using-services-programmatically">Using Services Programmatically</h2>
+<p>If, instead, you would like to run a custom node, you can include services by including them in your configuration object when initializing a new node.</p>
+<pre><code class="lang-js">//Require bitcore
+var bitcore = require(&#39;bitcore-node&#39;);
+
+//Services
+var Bitcoin = bitcore.services.Bitcoin;
+var Web = bitcore.services.Web;
+
+var myNode = new bitcore.Node({
+  network: &#39;regtest&#39;
+  services: [
+    {
+      name: &#39;bitcoind&#39;,
+      module: Bitcoin,
+      config: {
+        spawn: {
+          datadir: &#39;/home/&lt;username&gt;/.bitcoin&#39;,
+          exec: &#39;/home/&lt;username&gt;/bitcore-node/bin/bitcoind&#39;
+        }
+      }
+    },
+    {
+      name: &#39;web&#39;,
+      module: Web,
+      config: {
+        port: 3001
+      }
+    }
+  ]
+});
+</code></pre>
+<p>Now that you&#39;ve loaded your services you can access them via <code>myNode.services.&lt;service-name&gt;.&lt;method-name&gt;</code>. For example if you wanted to check the balance of an address, you could access the address service like so.</p>
+<pre><code class="lang-js">myNode.services.bitcoind.getAddressBalance(&#39;1HB5XMLmzFVj8ALj6mfBsbifRoD4miY36v&#39;, false, function(err, total) {
+  console.log(total.balance); //Satoshi amount of this address
+});
+</code></pre>
+<h2 id="writing-a-service">Writing a Service</h2>
+<p>A new service can be created by inheriting from <code>Node.Service</code> and implementing these methods and properties:</p>
+<ul>
+<li><code>Service.dependencies</code> -  An array of services that are needed, this will determine the order that services are started on the node.</li>
+<li><code>Service.prototype.start()</code> - Called to start up the service.</li>
+<li><code>Service.prototype.stop()</code> - Called to stop the service.</li>
+<li><code>Service.prototype.blockHandler()</code> - Will be called when a block is added or removed from the chain, and is useful for updating a database view/index.</li>
+<li><code>Service.prototype.getAPIMethods()</code> - Describes which API methods that this service includes, these methods can then be called over the JSON-RPC API, as well as the command-line utility.</li>
+<li><code>Service.prototype.getPublishEvents()</code> - Describes which events can be subscribed to for this service, useful to subscribe to events over the included web socket API.</li>
+<li><code>Service.prototype.setupRoutes()</code> - A service can extend HTTP routes on an express application by implementing this method.</li>
+</ul>
+<p>The <code>package.json</code> for the service module can either export the <code>Node.Service</code> directly, or specify a specific module to load by including <code>&quot;bitcoreNode&quot;: &quot;lib/bitcore-node.js&quot;</code>.</p>
+<p>Please take a look at some of the existing services for implementation specifics.</p>
+</div></div></div><div class="lib bg-dark"><div class="container"></div></div></div></div><a class="exit-off-canvas"></a><script src="../../scripts/main.min.efe3021b.js" data-no-instant="data-no-instant"></script></body>
+<!-- Mirrored from bitcore.io/api/service/ by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 22 Dec 2018 16:42:45 GMT -->
+</html>

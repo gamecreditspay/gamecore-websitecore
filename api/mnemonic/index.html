@@ -1,0 +1,329 @@
+<!DOCTYPE html><html lang="en">
+<!-- Mirrored from bitcore.io/api/mnemonic/ by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 22 Dec 2018 16:42:48 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Overview | Bitcore</title><meta name="description" content="A simple interface to generate mnemonic codes and deterministic keys."><!-- Twitter Card data--><meta name="twitter:card" content="summary"><meta name="twitter:site" content="@BitPay"><meta name="twitter:title" content="Overview"><meta name="twitter:description" content="A simple interface to generate mnemonic codes and deterministic keys."><meta name="twitter:image" content="../../images/social/card.jpg"><!-- Open Graph data (Facebook and Reddit)--><meta property="og:title" content="Overview"><meta property="og:type" content="article"><meta property="og:url" content="../../index.html"><meta property="og:image" content="../../images/social/avatar.jpg"><meta property="og:description" content="A simple interface to generate mnemonic codes and deterministic keys."><meta property="og:site_name" content="Bitcore.io"><!-- Add to homescreen for Chrome on Android--><meta name="mobile-web-app-capable" content="yes"><link rel="icon" sizes="192x192" href="../../images/touch/chrome-touch-icon-192x192.b0c7306c.png"><!-- Add to homescreen for Safari on iOS--><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><meta name="apple-mobile-web-app-title" content="Bitcore"><link rel="apple-touch-icon-precomposed" href="apple-touch-icon-precomposed.html"><!-- Tile icon for Win8 (144x144 + tile color)--><meta name="msapplication-TileImage" content="../../images/touch/ms-touch-icon-144x144-precomposed.dcbb3eea.png"><meta name="msapplication-TileColor" content="#F9AB3D"><!-- Favicon--><link rel="shortcut icon" href="../../favicon.ico"><link rel="stylesheet" href="../../styles/main.88c254de.css" data-instant-track><link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,300italic,400italic,600,700,700italic,600italic|Titillium+Web:400,300,700" rel="stylesheet" type="text/css"><script type="text/javascript" data-no-instant>
+  !function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","group","track","ready","alias","page","once","off","on"];analytics.factory=function(t){return function(){var e=Array.prototype.slice.call(arguments);e.unshift(t);analytics.push(e);return analytics}};for(var t=0;t<analytics.methods.length;t++){var e=analytics.methods[t];analytics[e]=analytics.factory(e)}analytics.load=function(t){var e=document.createElement("script");e.type="text/javascript";e.async=!0;e.src=("https:"===document.location.protocol?"https://":"http://")+"cdn.segment.com/analytics.js/v1/"+t+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(e,n)};analytics.SNIPPET_VERSION="3.0.1";
+  if(this.location.host === 'bitcore.io'){ analytics.load('hP7mqqPCPPa5hRatDaulKFxm0kPiB6Es'); }
+  else { analytics.load("dgbXyNcmHR3bJIjumdYoe3GZFrs6sHBd"); }
+  }}();
+</script>
+<script data-no-instant>
+  var $buoop = {vs:{i:9,f:30,o:25,s:5.1},c:2};
+  function $buo_f(){
+   var e = document.createElement("script");
+   e.src = "../../../browser-update.org/update.js";
+   document.body.appendChild(e);
+  };
+  try {document.addEventListener("DOMContentLoaded", $buo_f,false)}
+  catch(e){window.attachEvent("onload", $buo_f)}
+</script>
+<meta name="google-site-verification" content="GOfbzCpKO__Imdru-L0nG1Fo9tTvyH3QVAIWsYO9rCk"></head><body><nav class="navbar navbar-fixed-top dark-nav hidden-sm-down"><a href="../../index.html" title="Home" class="logo logo-light margin-top"></a><ul class="nav navbar-nav pull-right"><li class="nav-item"><a href="../../start.html" class="nav-link">Getting Started</a></li><li class="nav-item"><a href="../../guides/index.html" class="nav-link">Guides</a></li><li class="nav-item"><a href="../index.html" class="nav-link active">Docs</a></li><li class="nav-item"><a href="../../playground/index.html" class="nav-link">Playground        </a></li><li class="nav-item"><a href="http://forum.bitcore.io/" class="nav-link">Forum</a></li></ul></nav><div class="mobile-menu hidden-md-up navbar-fixed-top"><div id="exCollapsingNavbar" class="collapse"><div class="bg-inverse p-md"><h3 class="m-b-0"> <ul class="p-l-0 no-bullets m-b-0"><li class="nav-item"><a href="../../index.html" class="nav-link">Home</a></li><li class="nav-item"><a href="../../start.html" class="nav-link">Getting Started</a></li><li class="nav-item"><a href="../../guides/index.html" class="nav-link">Guides</a></li><li class="nav-item"><a href="../index.html" class="nav-link active">Docs</a></li><li class="nav-item"><a href="../../playground/index.html" class="nav-link">Playground        </a></li><li class="nav-item"><a href="http://forum.bitcore.io/" class="nav-link">Forum</a></li></ul></h3></div></div><nav class="navbar dark-nav"><button type="button" data-toggle="collapse" data-target="#exCollapsingNavbar" class="navbar-toggler p-l-0"><div class="logo logo-square-orange menu-text color-white">Menu</div></button></nav></div><div class="fixed-sidebar bg-gray border-right-grey p-l-md"><a href="../index.html"><h3 class="menu-header m-t-md">Bitcore</h3><ul class="nav nav-pills nav-stacked"><li class="nav-item"><a href="../index.html" class="nav-link">Overview</a></li></ul></a><a href="../node.html"><h3 class="menu-header m-t-md">Node</h3></a><a href="../service/index.html"><h3 class="menu-header m-t-md">Services</h3></a><a href="../lib/index.html"><h3 class="menu-header m-t-md">Library API</h3></a><h3 class="menu-header m-t-md">Library Modules</h3><ul class="nav nav-pills nav-stacked"><li class="nav-item"><a href="index.html" class="active nav-link">Mnemonic</a></li><li class="nav-item"><a href="../paypro/index.html" class="nav-link">Payment Protocol</a></li><li class="nav-item"><a href="../message/index.html" class="nav-link">Message</a></li></ul><a href="../p2p/index.html"><h3 class="menu-header m-t-md">Peer-to-Peer</h3></a></div><div class="scroll-content"><div class="api-content"><div class="docs bg-white"><div class="container"><div class="section p-t-lg"><div class="text-right bring-to-front"><a href="https://github.com/bitpay/bitcore-mnemonic/edit/master/docs/index.md">Edit</a></div><h1 id="mnemonic">Mnemonic</h1>
+<p>The <code>Mnemonic</code> class provides an implementation of a mnemonic code or mnemonic sentence – a group of easy to remember words – for the generation of deterministic keys. The class handles code generation and its later conversion to a <a href=../lib/hd-keys.html>HDPrivateKey</a>. See <a href="https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki">the official BIP-0039</a> for technical background information.</p>
+<h2 id="installation">Installation</h2>
+<p>Mnemonics is implemented as a separate module and you must add it to your dependencies:</p>
+<p>For node projects:</p>
+<pre><code>npm install bitcore-mnemonic --save
+</code></pre><p>For client-side projects:</p>
+<pre><code>bower install bitcore-mnemonic --save
+</code></pre><h2 id="mnemonic-generation">Mnemonic generation</h2>
+<p>For creating a new random mnemonic code you just create a new instance.</p>
+<pre><code class="lang-javascript">var Mnemonic = require(&#39;bitcore-mnemonic&#39;);
+var code = new Mnemonic();
+
+code.toString(); // &#39;select scout crash enforce riot rival spring whale hollow radar rule sentence&#39;
+</code></pre>
+<h2 id="multi-language-support">Multi-language support</h2>
+<p>The <code>Mnemonic</code> class can use any list of 2048 unique words to generate the mnemonic code. For convenience the class provides default word lists for the following languages: English (default), Chinese, French, Japanese and Spanish. Those word list are published under <code>Mnemonic.Words.LANGUAGE</code>, take a look at the following example:</p>
+<pre><code class="lang-javascript">var Mnemonic = require(&#39;bitcore-mnemonic&#39;);
+var code = new Mnemonic(Mnemonic.Words.SPANISH);
+code.toString(); // natal hada sutil año sólido papel jamón combate aula flota ver esfera...
+
+var myWordList = [ &#39;abandon&#39;, &#39;ability&#39;, &#39;able&#39;, &#39;about&#39;, &#39;above&#39;, ... ];
+var customCode = new Mnemonic(myWordList);
+</code></pre>
+<h2 id="validating-a-mnemonic">Validating a mnemonic</h2>
+<p>The Mnemonic class provides a static method to check if a mnemonic string is valid. If you generated the mnemonic code using any of the default word list, the class will identify it, otherwise you must provide the word list used.</p>
+<pre><code class="lang-javascript">var Mnemonic = require(&#39;bitcore-mnemonic&#39;);
+
+var code = &#39;select scout crash enforce riot rival spring whale hollow radar rule sentence&#39;;
+var valid = Mnemonic.isValid(code);
+
+// using a custom word list
+var validCutom = Mnemonic.isValid(code, customWordlist);
+</code></pre>
+<h2 id="generating-a-private-key">Generating a private key</h2>
+<p>A mnemonic encodes entropy that can be used for creating a seed and later a <a href=../lib/hd-keys.html>HDPrivateKey</a>. During the seed generation process a passphrase can be used. The code for doing so looks like this:</p>
+<pre><code class="lang-javascript">var Mnemonic = require(&#39;bitcore-mnemonic&#39;);
+var code = new Mnemonic(&#39;select scout crash enforce riot rival spring whale hollow radar rule sentence&#39;);
+
+var xpriv1 = code.toHDPrivateKey(); // no passphrase
+var xpriv2 = code.toHDPrivateKey(&#39;my passphrase&#39;); // using a passphrase
+</code></pre>
+</div></div></div><div class="lib bg-dark"><div class="container"><div class="section p-t-lg"><div class="text-right bring-to-front"><a href="../../../github.com/bitpay/bitcore-mnemonic/blob/master/lib/mnemonic.html">View Source</a></div><p><a name="Mnemonic"></a></p>
+<h2 id="mnemonic">Mnemonic</h2>
+<p><strong>Kind</strong>: global class  </p>
+<ul>
+<li><a href="#Mnemonic">Mnemonic</a><ul>
+<li><a href="#new_Mnemonic_new">new Mnemonic([data], [wordlist])</a></li>
+<li><em>instance</em><ul>
+<li><a href="#Mnemonic+toSeed">.toSeed([passphrase])</a> ⇒ <code>Buffer</code></li>
+<li><a href="#Mnemonic+toHDPrivateKey">.toHDPrivateKey([passphrase], [network])</a> ⇒ <code>HDPrivateKey</code></li>
+<li><a href="#Mnemonic+toString">.toString()</a> ⇒ <code>String</code></li>
+<li><a href="#Mnemonic+inspect">.inspect()</a> ⇒ <code>String</code></li>
+</ul>
+</li>
+<li><em>static</em><ul>
+<li><a href="#Mnemonic.isValid">.isValid(mnemonic, [wordlist])</a> ⇒ <code>boolean</code></li>
+<li><a href="#Mnemonic._belongsToWordlist">._belongsToWordlist(mnemonic, wordlist)</a> ⇒ <code>boolean</code></li>
+<li><a href="#Mnemonic._getDictionary">._getDictionary(mnemonic)</a> ⇒ <code>Array</code></li>
+<li><a href="#Mnemonic.fromSeed">.fromSeed([seed], [wordlist])</a> ⇒ <code><a href="#Mnemonic">Mnemonic</a></code></li>
+<li><a href="#Mnemonic._mnemonic">._mnemonic(ENT, wordlist)</a> ⇒ <code>String</code></li>
+<li><a href="#Mnemonic._entropy2mnemonic">._entropy2mnemonic(entropy, wordlist)</a> ⇒ <code>String</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><a name="new_Mnemonic_new"></a></p>
+<h3 id="new-mnemonic-data-wordlist-">new Mnemonic([data], [wordlist])</h3>
+<p>This is an immutable class that represents a BIP39 Mnemonic code.
+See BIP39 specification for more info: <a href="https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki">https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki</a>
+A Mnemonic code is a a group of easy to remember words used for the generation
+of deterministic wallets. A Mnemonic can be used to generate a seed using
+an optional passphrase, for later generate a HDPrivateKey.</p>
+<p><strong>Returns</strong>: <code><a href="#Mnemonic">Mnemonic</a></code> - A new instance of Mnemonic  </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[data]</td>
+<td><code>*</code></td>
+<td>a seed, phrase, or entropy to initialize (can be skipped)</td>
+</tr>
+<tr>
+<td>[wordlist]</td>
+<td><code>Array</code></td>
+<td>the wordlist to generate mnemonics from</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong>  </p>
+<pre><code class="lang-js">// generate a random mnemonic
+var mnemonic = new Mnemonic();
+var phrase = mnemonic.phrase;
+
+// use a different language
+var mnemonic = new Mnemonic(Mnemonic.Words.SPANISH);
+var xprivkey = mnemonic.toHDPrivateKey();
+</code></pre>
+<p><a name="Mnemonic+toSeed"></a></p>
+<h3 id="mnemonic-toseed-passphrase-code-buffer-code-">mnemonic.toSeed([passphrase]) ⇒ <code>Buffer</code></h3>
+<p>Will generate a seed based on the mnemonic and optional passphrase.</p>
+<p><strong>Kind</strong>: instance method of <code><a href="#Mnemonic">Mnemonic</a></code>  </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[passphrase]</td>
+<td><code>String</code></td>
+</tr>
+</tbody>
+</table>
+<p><a name="Mnemonic+toHDPrivateKey"></a></p>
+<h3 id="mnemonic-tohdprivatekey-passphrase-network-code-hdprivatekey-code-">mnemonic.toHDPrivateKey([passphrase], [network]) ⇒ <code>HDPrivateKey</code></h3>
+<p>Generates a HD Private Key from a Mnemonic.
+Optionally receive a passphrase and bitcoin network.</p>
+<p><strong>Kind</strong>: instance method of <code><a href="#Mnemonic">Mnemonic</a></code>  </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[passphrase]</td>
+<td><code>String</code></td>
+<td></td>
+</tr>
+<tr>
+<td>[network]</td>
+<td><code>Network</code> &#124; <code>String</code> &#124; <code>number</code></td>
+<td>The network: &#39;livenet&#39; or &#39;testnet&#39;</td>
+</tr>
+</tbody>
+</table>
+<p><a name="Mnemonic+toString"></a></p>
+<h3 id="mnemonic-tostring-code-string-code-">mnemonic.toString() ⇒ <code>String</code></h3>
+<p>Will return a the string representation of the mnemonic</p>
+<p><strong>Kind</strong>: instance method of <code><a href="#Mnemonic">Mnemonic</a></code><br><strong>Returns</strong>: <code>String</code> - Mnemonic<br><a name="Mnemonic+inspect"></a></p>
+<h3 id="mnemonic-inspect-code-string-code-">mnemonic.inspect() ⇒ <code>String</code></h3>
+<p>Will return a string formatted for the console</p>
+<p><strong>Kind</strong>: instance method of <code><a href="#Mnemonic">Mnemonic</a></code><br><strong>Returns</strong>: <code>String</code> - Mnemonic<br><a name="Mnemonic.isValid"></a></p>
+<h3 id="mnemonic-isvalid-mnemonic-wordlist-code-boolean-code-">Mnemonic.isValid(mnemonic, [wordlist]) ⇒ <code>boolean</code></h3>
+<p>Will return a boolean if the mnemonic is valid</p>
+<p><strong>Kind</strong>: static method of <code><a href="#Mnemonic">Mnemonic</a></code>  </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>mnemonic</td>
+<td><code>String</code></td>
+<td>The mnemonic string</td>
+</tr>
+<tr>
+<td>[wordlist]</td>
+<td><code>String</code></td>
+<td>The wordlist used</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong>  </p>
+<pre><code class="lang-js">var valid = Mnemonic.isValid(&#39;lab rescue lunch elbow recall phrase perfect donkey biology guess moment husband&#39;);
+// true
+</code></pre>
+<p><a name="Mnemonic._belongsToWordlist"></a></p>
+<h3 id="mnemonic-_belongstowordlist-mnemonic-wordlist-code-boolean-code-">Mnemonic._belongsToWordlist(mnemonic, wordlist) ⇒ <code>boolean</code></h3>
+<p>Internal function to check if a mnemonic belongs to a wordlist.</p>
+<p><strong>Kind</strong>: static method of <code><a href="#Mnemonic">Mnemonic</a></code>  </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>mnemonic</td>
+<td><code>String</code></td>
+<td>The mnemonic string</td>
+</tr>
+<tr>
+<td>wordlist</td>
+<td><code>String</code></td>
+<td>The wordlist</td>
+</tr>
+</tbody>
+</table>
+<p><a name="Mnemonic._getDictionary"></a></p>
+<h3 id="mnemonic-_getdictionary-mnemonic-code-array-code-">Mnemonic._getDictionary(mnemonic) ⇒ <code>Array</code></h3>
+<p>Internal function to detect the wordlist used to generate the mnemonic.</p>
+<p><strong>Kind</strong>: static method of <code><a href="#Mnemonic">Mnemonic</a></code><br><strong>Returns</strong>: <code>Array</code> - the wordlist or null  </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>mnemonic</td>
+<td><code>String</code></td>
+<td>The mnemonic string</td>
+</tr>
+</tbody>
+</table>
+<p><a name="Mnemonic.fromSeed"></a></p>
+<h3 id="mnemonic-fromseed-seed-wordlist-code-mnemonic-code-">Mnemonic.fromSeed([seed], [wordlist]) ⇒ <code><a href="#Mnemonic">Mnemonic</a></code></h3>
+<p>Will generate a Mnemonic object based on a seed.</p>
+<p><strong>Kind</strong>: static method of <code><a href="#Mnemonic">Mnemonic</a></code>  </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[seed]</td>
+<td><code>Buffer</code></td>
+</tr>
+<tr>
+<td>[wordlist]</td>
+<td><code>string</code></td>
+</tr>
+</tbody>
+</table>
+<p><a name="Mnemonic._mnemonic"></a></p>
+<h3 id="mnemonic-_mnemonic-ent-wordlist-code-string-code-">Mnemonic._mnemonic(ENT, wordlist) ⇒ <code>String</code></h3>
+<p>Internal function to generate a random mnemonic</p>
+<p><strong>Kind</strong>: static method of <code><a href="#Mnemonic">Mnemonic</a></code><br><strong>Returns</strong>: <code>String</code> - Mnemonic string  </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ENT</td>
+<td><code>Number</code></td>
+<td>Entropy size, defaults to 128</td>
+</tr>
+<tr>
+<td>wordlist</td>
+<td><code>Array</code></td>
+<td>Array of words to generate the mnemonic</td>
+</tr>
+</tbody>
+</table>
+<p><a name="Mnemonic._entropy2mnemonic"></a></p>
+<h3 id="mnemonic-_entropy2mnemonic-entropy-wordlist-code-string-code-">Mnemonic._entropy2mnemonic(entropy, wordlist) ⇒ <code>String</code></h3>
+<p>Internal function to generate mnemonic based on entropy</p>
+<p><strong>Kind</strong>: static method of <code><a href="#Mnemonic">Mnemonic</a></code><br><strong>Returns</strong>: <code>String</code> - Mnemonic string  </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>entropy</td>
+<td><code>Number</code></td>
+<td>Entropy buffer</td>
+</tr>
+<tr>
+<td>wordlist</td>
+<td><code>Array</code></td>
+<td>Array of words to generate the mnemonic</td>
+</tr>
+</tbody>
+</table>
+</div><div class="section p-t-lg"><div class="text-right bring-to-front"><a href="../../../github.com/bitpay/bitcore-mnemonic/blob/master/lib/pbkdf2.html">View Source</a></div><p><a name="pbkdf2"></a></p>
+<h2 id="pbkdf2-">pbkdf2()</h2>
+<p>PDKBF2
+Credit to: <a href="https://github.com/stayradiated/pbkdf2-sha512">https://github.com/stayradiated/pbkdf2-sha512</a>
+Copyright (c) 2014, JP Richardson Copyright (c) 2010-2011 Intalio Pte, All Rights Reserved</p>
+<p><strong>Kind</strong>: global function  </p>
+</div><div class="section p-t-lg"><div class="text-right bring-to-front"><a href="../../../github.com/bitpay/bitcore-mnemonic/blob/master/lib/errors.html">View Source</a></div></div></div></div></div></div><a class="exit-off-canvas"></a><script src="../../scripts/main.min.efe3021b.js" data-no-instant="data-no-instant"></script></body>
+<!-- Mirrored from bitcore.io/api/mnemonic/ by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 22 Dec 2018 16:42:52 GMT -->
+</html>

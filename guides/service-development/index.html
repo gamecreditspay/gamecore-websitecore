@@ -1,0 +1,101 @@
+<!DOCTYPE html><html lang="en">
+<!-- Mirrored from bitcore.io/guides/service-development/ by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 22 Dec 2018 16:42:41 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Service Development | Tutorials | Bitcore</title><meta name="description" content="Getting started with developing a service."><!-- Twitter Card data--><meta name="twitter:card" content="summary"><meta name="twitter:site" content="@BitPay"><meta name="twitter:title" content="Service Development | Tutorials"><meta name="twitter:description" content="Getting started with developing a service."><meta name="twitter:image" content="../../images/social/card.jpg"><!-- Open Graph data (Facebook and Reddit)--><meta property="og:title" content="Service Development | Tutorials"><meta property="og:type" content="article"><meta property="og:url" content="../../index.html"><meta property="og:image" content="../../images/social/avatar.jpg"><meta property="og:description" content="Getting started with developing a service."><meta property="og:site_name" content="Bitcore.io"><!-- Add to homescreen for Chrome on Android--><meta name="mobile-web-app-capable" content="yes"><link rel="icon" sizes="192x192" href="../../images/touch/chrome-touch-icon-192x192.b0c7306c.png"><!-- Add to homescreen for Safari on iOS--><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><meta name="apple-mobile-web-app-title" content="Bitcore"><link rel="apple-touch-icon-precomposed" href="apple-touch-icon-precomposed.html"><!-- Tile icon for Win8 (144x144 + tile color)--><meta name="msapplication-TileImage" content="../../images/touch/ms-touch-icon-144x144-precomposed.dcbb3eea.png"><meta name="msapplication-TileColor" content="#F9AB3D"><!-- Favicon--><link rel="shortcut icon" href="../../favicon.ico"><link rel="stylesheet" href="../../styles/main.88c254de.css" data-instant-track><link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,300italic,400italic,600,700,700italic,600italic|Titillium+Web:400,300,700" rel="stylesheet" type="text/css"><script type="text/javascript" data-no-instant>
+  !function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","group","track","ready","alias","page","once","off","on"];analytics.factory=function(t){return function(){var e=Array.prototype.slice.call(arguments);e.unshift(t);analytics.push(e);return analytics}};for(var t=0;t<analytics.methods.length;t++){var e=analytics.methods[t];analytics[e]=analytics.factory(e)}analytics.load=function(t){var e=document.createElement("script");e.type="text/javascript";e.async=!0;e.src=("https:"===document.location.protocol?"https://":"http://")+"cdn.segment.com/analytics.js/v1/"+t+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(e,n)};analytics.SNIPPET_VERSION="3.0.1";
+  if(this.location.host === 'bitcore.io'){ analytics.load('hP7mqqPCPPa5hRatDaulKFxm0kPiB6Es'); }
+  else { analytics.load("dgbXyNcmHR3bJIjumdYoe3GZFrs6sHBd"); }
+  }}();
+</script>
+<script data-no-instant>
+  var $buoop = {vs:{i:9,f:30,o:25,s:5.1},c:2};
+  function $buo_f(){
+   var e = document.createElement("script");
+   e.src = "../../../browser-update.org/update.js";
+   document.body.appendChild(e);
+  };
+  try {document.addEventListener("DOMContentLoaded", $buo_f,false)}
+  catch(e){window.attachEvent("onload", $buo_f)}
+</script>
+<meta name="google-site-verification" content="GOfbzCpKO__Imdru-L0nG1Fo9tTvyH3QVAIWsYO9rCk"></head><body class="bg-white"><nav class="navbar navbar-light bg-faded hidden-sm-down light-nav p-y-0"><div class="container"><div class="navbar p-l-0"><a href="../../index.html" title="Home" class="logo logo-dark margin-top"></a><ul class="nav navbar-nav pull-right"><li class="nav-item"><a href="../../start.html" class="nav-link">Getting Started</a></li><li class="nav-item"><a href="../index.html" class="nav-link active">Guides</a></li><li class="nav-item"><a href="../../bitcoin.html" class="nav-link">Bitcoin</a></li><li class="nav-item"><a href="../../api/index.html" class="nav-link">Docs</a></li><li class="nav-item"><a href="../../playground/index.html" class="nav-link">Playground        </a></li><li class="nav-item"><a href="http://forum.bitcore.io/" class="nav-link">Forum</a></li></ul></div></div></nav><div class="mobile-menu hidden-md-up"> <div id="exCollapsingNavbar" class="collapse"><div class="bg-inverse p-md"><h3 class="m-b-0"><ul class="p-l-0 no-bullets m-b-0"><li class="nav-item"><a href="../../index.html" class="nav-link">Home</a></li><li class="nav-item"><a href="../../start.html" class="nav-link">Getting Started</a></li><li class="nav-item"><a href="../index.html" class="nav-link active">Guides</a></li><li class="nav-item"><a href="../../bitcoin.html" class="nav-link">Bitcoin</a></li><li class="nav-item"><a href="../../playground/index.html" class="nav-link">Playground        </a></li><li class="nav-item"><a href="../../api/index.html" class="nav-link">Docs</a></li><li class="nav-item"><a href="http://forum.bitcore.io/" class="nav-link">Forum</a></li></ul></h3></div></div><nav class="navbar light-nav"><button type="button" data-toggle="collapse" data-target="#exCollapsingNavbar" class="navbar-toggler p-l-0"><div class="logo logo-square-orange menu-text">Menu</div></button></nav></div><div class="container"><div class="row"><div class="col-md-12 col-lg-3 m-t-lg"><h3 class="menu-header">Guides</h3><ul class="nav nav-pills nav-stacked"><li class="nav-item"><a href="../full-node/index.html" class="nav-link">Run a Full Node</a></li><li class="nav-item"><a href="../bitcoin/index.html" class="nav-link">Run Bitcoin Standalone</a></li><li class="nav-item"><a href="../upstart-daemon/index.html" class="nav-link">Run Bitcore as a Daemon</a></li><li class="nav-item"><a href="../wallet-service/index.html" class="nav-link">Run a Wallet Service</a></li><li class="nav-item"><a href="../browser.html" class="nav-link">Browser Builds</a></li></ul><h3 class="menu-header m-t-md">Tutorials</h3><ul class="nav nav-pills nav-stacked"><li class="nav-item"><a href="index.html" class="active nav-link">Service Development</a></li><li class="nav-item"><a href="../satoshi-fire-alarm/index.html" class="nav-link">Satoshi Fire Alarm</a></li><li class="nav-item"><a href="../lemonade-stand/index.html" class="nav-link">Lemonade Stand</a></li><li class="nav-item"><a href="../i-made-this/index.html" class="nav-link">I Made This</a></li></ul></div><div class="col-md-12 col-lg-9 m-t-lg docs"><h1 id="creating-a-service">Creating a Service</h1>
+<p>The purpose of this tutorial is to demonstrate how to create a service for a Bitcore node.</p>
+<h2 id="concepts">Concepts</h2>
+<p>Services can be added to your node in order to extend the functionality of a Bitcore node and Bitcoin itself. Services are very simple to write if you follow the guidelines below. Services are intended to be node modules themselves. This is because we would like to leverage all the good things about npm.</p>
+<h2 id="creating-a-node">Creating a Node</h2>
+<p>Create a node using <a href="full-node.html">these directions</a>. If your service will not require Bitcoin code or the blockchain, feel free to skip the sync of the blockchain.</p>
+<h2 id="create-the-structure-for-your-service">Create the Structure for Your Service</h2>
+<pre><code class="lang-bash">$ cd #home dir
+$ mkdir -p myservice
+$ cd !$
+$ npm init
+$ nano index.js
+</code></pre>
+<p>Every service that connects to your bitcore-node must implement some methods (interface). A Bitcore node will call your service&#39;s start and stop methods, for example:</p>
+<pre><code class="lang-js">var inherits = require(&#39;util&#39;).inherits;
+var EventEmitter = require(&#39;events&#39;).EventEmitter;
+
+function MyService(options) {
+  EventEmitter.call(this);
+  this.node = options.node;
+}
+inherits(MyService, EventEmitter);
+
+MyService.dependencies = [&#39;bitcoind&#39;];
+
+MyService.prototype.start = function(callback) {
+  setImmediate(callback);
+};
+
+MyService.prototype.stop = function(callback) {
+  setImmediate(callback);
+};
+
+MyService.prototype.getAPIMethods = function() {
+  return [];
+};
+
+MyService.prototype.getPublishEvents = function() {
+  return [];
+};
+
+module.exports = MyService;
+</code></pre>
+<p>The code above will help you get started. The required methods are start, stop, getAPIMethods, getPublishedEvents. Additionally, your service should inherit from EventEmitter or Service (a bitcore-node prototype). The dependencies should also be noted. In the example above, we are depending on bitcoind. Bitcoind is the interface to the bitcoin daemon and the blockchain.</p>
+<h2 id="setup-the-symlinks">Setup the Symlinks</h2>
+<p>We need to symlink our service into our created node, assuming the created node is called mynode and exists in your home directory:</p>
+<pre><code class="lang-bash">$ cd ~/mynode/node_modules
+$ ln -s ~/myservice
+</code></pre>
+<h2 id="add-the-service-to-the-node-configuration">Add the Service to the Node Configuration</h2>
+<pre><code class="lang-bash">$ nano ~/mynode/bitcore-node.json
+</code></pre>
+<pre><code class="lang-json">{
+  &quot;network&quot;: &quot;testnet&quot;,
+  &quot;port&quot;: 3001,
+  &quot;services&quot;: [
+    &quot;bitcoind&quot;,
+    &quot;myservice&quot;
+  ],
+  &quot;servicesConfig&quot;: {
+    &quot;bitcoind&quot;: {
+      &quot;datadir&quot;: &quot;/home/user/.bitcoin&quot;,
+      &quot;exec&quot;: &quot;/home/user/bitcoin/src/bitcoind&quot;
+    }
+  }
+}
+</code></pre>
+<p>And now you should be able to start bitcore with your service.</p>
+<h2 id="publish-your-service-to-npm">Publish Your Service to NPM</h2>
+<p>Be sure to publish your service to npm! This helps others re-use your service and make bitcore-node even better. Please see the <a href="https://www.npmjs.com/">npm site</a> for more details.</p>
+<pre><code class="lang-bash">$ npm publish
+</code></pre>
+<p>Once published, you can use your service directly (without the symlink) by:</p>
+<pre><code class="lang-bash">$ cd ~/mynode
+$ bitcore-node add myservice
+</code></pre>
+<p>Now your development version of bitcore-node is symlinked into your node modules and any changes to this project will be picked up by your node.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>Creating a service is easy. We encourage you to create your own services and publish them to npm.</p>
+</div></div></div><a class="exit-off-canvas"></a><script src="../../scripts/main.min.efe3021b.js" data-no-instant="data-no-instant"></script></body>
+<!-- Mirrored from bitcore.io/guides/service-development/ by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 22 Dec 2018 16:42:42 GMT -->
+</html>

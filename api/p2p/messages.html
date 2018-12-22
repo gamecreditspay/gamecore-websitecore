@@ -1,0 +1,959 @@
+<!DOCTYPE html><html lang="en">
+<!-- Mirrored from bitcore.io/api/p2p/messages by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 22 Dec 2018 16:43:33 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Messages | Bitcore</title><meta name="description" content="A superclass for the messages of the bitcoin network."><!-- Twitter Card data--><meta name="twitter:card" content="summary"><meta name="twitter:site" content="@BitPay"><meta name="twitter:title" content="Messages"><meta name="twitter:description" content="A superclass for the messages of the bitcoin network."><meta name="twitter:image" content="https://bitcore.io/images/social/card.jpg"><!-- Open Graph data (Facebook and Reddit)--><meta property="og:title" content="Messages"><meta property="og:type" content="article"><meta property="og:url" content="https://bitcore.io/"><meta property="og:image" content="https://bitcore.io/images/social/avatar.jpg"><meta property="og:description" content="A superclass for the messages of the bitcoin network."><meta property="og:site_name" content="Bitcore.io"><!-- Add to homescreen for Chrome on Android--><meta name="mobile-web-app-capable" content="yes"><link rel="icon" sizes="192x192" href="https://bitcore.io/images/touch/chrome-touch-icon-192x192.b0c7306c.png"><!-- Add to homescreen for Safari on iOS--><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><meta name="apple-mobile-web-app-title" content="Bitcore"><link rel="apple-touch-icon-precomposed" href="https://bitcore.io/api/p2p/apple-touch-icon-precomposed.png"><!-- Tile icon for Win8 (144x144 + tile color)--><meta name="msapplication-TileImage" content="https://bitcore.io/images/touch/ms-touch-icon-144x144-precomposed.dcbb3eea.png"><meta name="msapplication-TileColor" content="#F9AB3D"><!-- Favicon--><link rel="shortcut icon" href="https://bitcore.io/favicon.ico"><link rel="stylesheet" href="https://bitcore.io/styles/main.88c254de.css" data-instant-track><link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,300italic,400italic,600,700,700italic,600italic|Titillium+Web:400,300,700" rel="stylesheet" type="text/css"><script type="text/javascript" data-no-instant>
+  !function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","group","track","ready","alias","page","once","off","on"];analytics.factory=function(t){return function(){var e=Array.prototype.slice.call(arguments);e.unshift(t);analytics.push(e);return analytics}};for(var t=0;t<analytics.methods.length;t++){var e=analytics.methods[t];analytics[e]=analytics.factory(e)}analytics.load=function(t){var e=document.createElement("script");e.type="text/javascript";e.async=!0;e.src=("https:"===document.location.protocol?"https://":"http://")+"cdn.segment.com/analytics.js/v1/"+t+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(e,n)};analytics.SNIPPET_VERSION="3.0.1";
+  if(this.location.host === 'bitcore.io'){ analytics.load('hP7mqqPCPPa5hRatDaulKFxm0kPiB6Es'); }
+  else { analytics.load("dgbXyNcmHR3bJIjumdYoe3GZFrs6sHBd"); }
+  }}();
+</script>
+<script data-no-instant>
+  var $buoop = {vs:{i:9,f:30,o:25,s:5.1},c:2};
+  function $buo_f(){
+   var e = document.createElement("script");
+   e.src = "http://browser-update.org/update.js";
+   document.body.appendChild(e);
+  };
+  try {document.addEventListener("DOMContentLoaded", $buo_f,false)}
+  catch(e){window.attachEvent("onload", $buo_f)}
+</script>
+<meta name="google-site-verification" content="GOfbzCpKO__Imdru-L0nG1Fo9tTvyH3QVAIWsYO9rCk"></head><body><nav class="navbar navbar-fixed-top dark-nav hidden-sm-down"><a href="https://bitcore.io/" title="Home" class="logo logo-light margin-top"></a><ul class="nav navbar-nav pull-right"><li class="nav-item"><a href="https://bitcore.io/start" class="nav-link">Getting Started</a></li><li class="nav-item"><a href="https://bitcore.io/guides" class="nav-link">Guides</a></li><li class="nav-item"><a href="https://bitcore.io/api" class="nav-link active">Docs</a></li><li class="nav-item"><a href="https://bitcore.io/playground" class="nav-link">Playground        </a></li><li class="nav-item"><a href="http://forum.bitcore.io/" class="nav-link">Forum</a></li></ul></nav><div class="mobile-menu hidden-md-up navbar-fixed-top"><div id="exCollapsingNavbar" class="collapse"><div class="bg-inverse p-md"><h3 class="m-b-0"> <ul class="p-l-0 no-bullets m-b-0"><li class="nav-item"><a href="https://bitcore.io/" class="nav-link">Home</a></li><li class="nav-item"><a href="https://bitcore.io/start" class="nav-link">Getting Started</a></li><li class="nav-item"><a href="https://bitcore.io/guides" class="nav-link">Guides</a></li><li class="nav-item"><a href="https://bitcore.io/api" class="nav-link active">Docs</a></li><li class="nav-item"><a href="https://bitcore.io/playground" class="nav-link">Playground        </a></li><li class="nav-item"><a href="http://forum.bitcore.io/" class="nav-link">Forum</a></li></ul></h3></div></div><nav class="navbar dark-nav"><button type="button" data-toggle="collapse" data-target="#exCollapsingNavbar" class="navbar-toggler p-l-0"><div class="logo logo-square-orange menu-text color-white">Menu</div></button></nav></div><div class="fixed-sidebar bg-gray border-right-grey p-l-md"><a href="https://bitcore.io/api/"><h3 class="menu-header m-t-md">Bitcore</h3><ul class="nav nav-pills nav-stacked"><li class="nav-item"><a href="https://bitcore.io/api/" class="nav-link">Overview</a></li></ul></a><a href="https://bitcore.io/api/node"><h3 class="menu-header m-t-md">Node</h3></a><a href="https://bitcore.io/api/service"><h3 class="menu-header m-t-md">Services</h3></a><a href="https://bitcore.io/api/lib"><h3 class="menu-header m-t-md">Library API</h3></a><a href="https://bitcore.io/api/mnemonic"><h3 class="menu-header m-t-md">Library Modules</h3></a><h3 class="menu-header m-t-md">Peer-to-Peer</h3><ul class="nav nav-pills nav-stacked"><li class="nav-item"><a href="https://bitcore.io/api/p2p" class="nav-link">Overview</a></li><li class="nav-item"><a href="https://bitcore.io/api/p2p/messages" class="active nav-link">Messages</a></li><li class="nav-item"><a href="https://bitcore.io/api/p2p/peer" class="nav-link">Peer</a></li><li class="nav-item"><a href="https://bitcore.io/api/p2p/pool" class="nav-link">Pool</a></li></ul></div><div class="scroll-content"><div class="api-content"><div class="docs bg-white"><div class="container"><div class="section p-t-lg"><div class="text-right bring-to-front"><a href="https://github.com/bitpay/bitcore-p2p/edit/master/docs/messages.md">Edit</a></div><h1 id="messages">Messages</h1>
+<p>The bitcoin protocol specifies a set of <a href="https://en.bitcoin.it/wiki/Protocol_specification">messages</a> that can be sent from peer to peer. <code>bitcore-p2p</code> provides support for some of these messages.</p>
+<p>To create a message, you can use any of the message constructors, here is a simple example:</p>
+<pre><code class="lang-javascript">var messages = new Messages();
+var message = messages.Ping();
+</code></pre>
+<p>There are also several convenient helpers for inventory based messages:</p>
+<pre><code class="lang-javascript">message = messages.GetData.forTransaction(txHash);
+message = messages.GetData.forBlock(blockHash);
+message = messages.Inventory.forTransaction(txHash);
+</code></pre>
+<p>As well as sending &quot;tx&quot; and &quot;block&quot; messages with Bitcore instances:</p>
+<pre><code class="lang-javascript">message = messages.Block(block);
+message = messages.Transaction(transaction);
+</code></pre>
+<p>Note: A list of further messages is available below.</p>
+<p>For advanced usage, you can also customize which constructor is used for Block and Transaction messages by passing it as an argument to Messages, for example:</p>
+<pre><code class="lang-javascript">var messages = new Messages({Block: MyBlock, Transaction: MyTransaction});
+</code></pre>
+<p>And additionally a custom network:</p>
+<pre><code class="lang-javascript">var messages = new Messages({network: Networks.testnet});
+</code></pre>
+<h2 id="list-of-messages">List of Messages</h2>
+<h3 id="version">Version</h3>
+<p>The version message (<code>ver</code>) is used on connection creation, to advertise the type of node. The remote node will respond with its version, and no communication is possible until both peers have exchanged their versions. By default, bitcore advertises itself as named <code>bitcore</code> with the current version of the <code>bitcore-p2p</code> package.</p>
+<h3 id="verack">VerAck</h3>
+<p>Finishes the connection handshake started by the <code>ver</code> message.</p>
+<h3 id="inventory">Inventory</h3>
+<p>From the bitcoin protocol spec: &quot;Allows a node to advertise its knowledge of one or more objects. It can be received unsolicited, or in reply to getblocks.&quot;.</p>
+<h3 id="getdata">GetData</h3>
+<p>From the bitcoin protocol spec: <code>getdata</code> is used in response to <code>inv</code>, to retrieve the content of a specific object, and is usually sent after receiving an <code>inv</code> packet, after filtering known elements. It can be used to retrieve transactions, but only if they are in the memory pool or relay set - arbitrary access to transactions in the chain is not allowed to avoid having clients start to depend on nodes having full transaction indexes (which modern nodes do not).</p>
+<p>GetData inherits from Inventory, as they both have the same structure.</p>
+<h3 id="notfound">NotFound</h3>
+<p>notfound is a response to a getdata, sent if any requested data items could not be relayed, for example, because the requested transaction was not in the memory pool or relay set. Contains inventory information specifying which items were not found.</p>
+<h3 id="ping">Ping</h3>
+<p>Sent to another peer mainly to check the connection is still alive.</p>
+<h3 id="pong">Pong</h3>
+<p>Sent in response to a <code>ping</code> message.</p>
+<h3 id="address-and-getaddresses">Address and GetAddresses</h3>
+<p>Provides information on known nodes of the network. <code>GetAddresses</code> is used to query another peer for known addresses.</p>
+<h3 id="getheaders-and-headers">GetHeaders and Headers</h3>
+<p><code>getheaders</code> allows a peer to query another about blockheaders. <code>headers</code> is sent in response to a <code>getheaders</code> message, containing information about block headers.</p>
+<h3 id="getblocks-and-block">GetBlocks and Block</h3>
+<p>Same as <code>getheaders</code> and <code>headers</code>, but the response comes one block at the time.</p>
+<h3 id="transaction">Transaction</h3>
+<p>Message that contains a transaction.</p>
+<h2 id="custom-messages">Custom Messages</h2>
+<p>It is possible to extend the default peer to peer messages and add custom ones. First you will need to create a message which resembles the default messages in <code>lib/messages/commands</code>.</p>
+<p>Then to add the custom message:</p>
+<pre><code class="lang-javascript">messages.add(&#39;custom&#39;, &#39;Custom&#39;, CustomMessage);
+
+var customMessage = messages.Custom(&#39;argument&#39;);
+</code></pre>
+</div></div></div><div class="lib bg-dark"><div class="container"><div class="section p-t-lg"><div class="text-right bring-to-front"><a href="https://github.com/bitpay/bitcore-p2p/blob/master/lib/messages/index.js">View Source</a></div><p><a name="Messages"></a></p>
+<h2 id="messages">Messages</h2>
+<p><strong>Kind</strong>: global class  </p>
+<ul>
+<li><a href="#Messages">Messages</a><ul>
+<li><a href="#new_Messages_new">new Messages([options])</a></li>
+<li><a href="#Messages+parseBuffer">.parseBuffer(dataBuffer)</a></li>
+</ul>
+</li>
+</ul>
+<p><a name="new_Messages_new"></a></p>
+<h3 id="new-messages-options-">new Messages([options])</h3>
+<p>A factory to build Bitcoin protocol messages.</p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[options]</td>
+<td><code>Object</code></td>
+<td></td>
+</tr>
+<tr>
+<td>[options.network]</td>
+<td><code>Network</code></td>
+<td></td>
+</tr>
+<tr>
+<td>[options.Block]</td>
+<td><code>function</code></td>
+<td>A block constructor</td>
+</tr>
+<tr>
+<td>[options.BlockHeader]</td>
+<td><code>function</code></td>
+<td>A block header constructor</td>
+</tr>
+<tr>
+<td>[options.MerkleBlock]</td>
+<td><code>function</code></td>
+<td>A merkle block constructor</td>
+</tr>
+<tr>
+<td>[options.Transaction]</td>
+<td><code>function</code></td>
+<td>A transaction constructor</td>
+</tr>
+</tbody>
+</table>
+<p><a name="Messages+parseBuffer"></a></p>
+<h3 id="messages-parsebuffer-databuffer-">messages.parseBuffer(dataBuffer)</h3>
+<p><strong>Kind</strong>: instance method of <code><a href="#Messages">Messages</a></code>  </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>dataBuffer</td>
+<td><code>Buffers</code></td>
+</tr>
+</tbody>
+</table>
+</div><div class="section p-t-lg"><div class="text-right bring-to-front"><a href="https://github.com/bitpay/bitcore-p2p/blob/master/lib/messages/builder.js">View Source</a></div></div><div class="section p-t-lg"><div class="text-right bring-to-front"><a href="https://github.com/bitpay/bitcore-p2p/blob/master/lib/messages/message.js">View Source</a></div><p><a name="Message"></a></p>
+<h2 id="message">Message</h2>
+<p><strong>Kind</strong>: global class  </p>
+<ul>
+<li><a href="#Message">Message</a><ul>
+<li><a href="#new_Message_new">new Message([options])</a></li>
+<li><a href="#Message+toBuffer">.toBuffer</a></li>
+</ul>
+</li>
+</ul>
+<p><a name="new_Message_new"></a></p>
+<h3 id="new-message-options-">new Message([options])</h3>
+<p>Base message that can be inherited to add an additional
+<code>getPayload</code> method to modify the message payload.</p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[options]</td>
+<td><code>Object</code></td>
+</tr>
+<tr>
+<td>[options.command]</td>
+<td><code>String</code></td>
+</tr>
+<tr>
+<td>[options.network]</td>
+<td><code>Network</code></td>
+</tr>
+</tbody>
+</table>
+<p><a name="Message+toBuffer"></a></p>
+<h3 id="message-tobuffer">message.toBuffer</h3>
+<p><strong>Kind</strong>: instance class of <code><a href="#Message">Message</a></code>  </p>
+</div><div class="section p-t-lg"><div class="text-right bring-to-front"><a href="https://github.com/bitpay/bitcore-p2p/blob/master/lib/messages/utils.js">View Source</a></div></div><div class="section p-t-lg"><div class="text-right bring-to-front"><a href="https://github.com/bitpay/bitcore-p2p/blob/master/lib/messages/commands/addr.js">View Source</a></div><p><a name="AddrMessage"></a></p>
+<h2 id="addrmessage-code-message-code-">AddrMessage ⇐ <code>Message</code></h2>
+<p><strong>Kind</strong>: global class<br><strong>Extends:</strong> <code>Message</code><br><a name="new_AddrMessage_new"></a></p>
+<h3 id="new-addrmessage-arg-options-">new AddrMessage([arg], [options])</h3>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[arg]</td>
+<td><code>Array</code></td>
+<td>An array of addrs</td>
+</tr>
+<tr>
+<td>[options]</td>
+<td><code>Object</code></td>
+</tr>
+</tbody>
+</table>
+</div><div class="section p-t-lg"><div class="text-right bring-to-front"><a href="https://github.com/bitpay/bitcore-p2p/blob/master/lib/messages/commands/alert.js">View Source</a></div><p><a name="AlertMessage"></a></p>
+<h2 id="alertmessage-code-message-code-">AlertMessage ⇐ <code>Message</code></h2>
+<p><strong>Kind</strong>: global class<br><strong>Extends:</strong> <code>Message</code><br><a name="new_AlertMessage_new"></a></p>
+<h3 id="new-alertmessage-arg-options-">new AlertMessage([arg], options)</h3>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[arg]</td>
+<td><code>Object</code></td>
+</tr>
+<tr>
+<td>[arg.payload]</td>
+<td><code>Buffer</code></td>
+</tr>
+<tr>
+<td>[arg.signature]</td>
+<td><code>Buffer</code></td>
+</tr>
+<tr>
+<td>options</td>
+<td><code>Object</code></td>
+</tr>
+</tbody>
+</table>
+</div><div class="section p-t-lg"><div class="text-right bring-to-front"><a href="https://github.com/bitpay/bitcore-p2p/blob/master/lib/messages/commands/block.js">View Source</a></div><p><a name="BlockMessage"></a></p>
+<h2 id="blockmessage-code-message-code-">BlockMessage ⇐ <code>Message</code></h2>
+<p><strong>Kind</strong>: global class<br><strong>Extends:</strong> <code>Message</code><br><a name="new_BlockMessage_new"></a></p>
+<h3 id="new-blockmessage-arg-options-">new BlockMessage([arg], options)</h3>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[arg]</td>
+<td><code>Block</code></td>
+<td>An instance of a Block</td>
+</tr>
+<tr>
+<td>options</td>
+<td><code>Object</code></td>
+<td></td>
+</tr>
+<tr>
+<td>options.Block</td>
+<td><code>function</code></td>
+<td>A block constructor</td>
+</tr>
+</tbody>
+</table>
+</div><div class="section p-t-lg"><div class="text-right bring-to-front"><a href="https://github.com/bitpay/bitcore-p2p/blob/master/lib/messages/commands/filteradd.js">View Source</a></div><p><a name="FilteraddMessage"></a></p>
+<h2 id="filteraddmessage-code-message-code-">FilteraddMessage ⇐ <code>Message</code></h2>
+<p><strong>Kind</strong>: global class<br><strong>Extends:</strong> <code>Message</code><br><a name="new_FilteraddMessage_new"></a></p>
+<h3 id="new-filteraddmessage-data-options-">new FilteraddMessage([data], [options])</h3>
+<p>Request peer to add data to a bloom filter already set by &#39;filterload&#39;</p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[data]</td>
+<td><code>Buffer</code></td>
+<td>Array of bytes representing bloom filter data</td>
+</tr>
+<tr>
+<td>[options]</td>
+<td><code>Object</code></td>
+</tr>
+</tbody>
+</table>
+</div><div class="section p-t-lg"><div class="text-right bring-to-front"><a href="https://github.com/bitpay/bitcore-p2p/blob/master/lib/messages/commands/filterclear.js">View Source</a></div><p><a name="FilterclearMessage"></a></p>
+<h2 id="filterclearmessage-code-message-code-">FilterclearMessage ⇐ <code>Message</code></h2>
+<p><strong>Kind</strong>: global class<br><strong>Extends:</strong> <code>Message</code><br><a name="new_FilterclearMessage_new"></a></p>
+<h3 id="new-filterclearmessage-">new FilterclearMessage()</h3>
+<p>Request peer to clear data for a bloom filter</p>
+</div><div class="section p-t-lg"><div class="text-right bring-to-front"><a href="https://github.com/bitpay/bitcore-p2p/blob/master/lib/messages/commands/filterload.js">View Source</a></div><p><a name="FilterloadMessage"></a></p>
+<h2 id="filterloadmessage-code-message-code-">FilterloadMessage ⇐ <code>Message</code></h2>
+<p><strong>Kind</strong>: global class<br><strong>Extends:</strong> <code>Message</code><br><a name="new_FilterloadMessage_new"></a></p>
+<h3 id="new-filterloadmessage-arg-options-">new FilterloadMessage([arg], options)</h3>
+<p>Request peer to send inv messages based on a bloom filter</p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[arg]</td>
+<td><code>BloomFilter</code></td>
+<td>An instance of BloomFilter</td>
+</tr>
+<tr>
+<td>options</td>
+<td><code>Object</code></td>
+</tr>
+</tbody>
+</table>
+</div><div class="section p-t-lg"><div class="text-right bring-to-front"><a href="https://github.com/bitpay/bitcore-p2p/blob/master/lib/messages/commands/getaddr.js">View Source</a></div><p><a name="GetaddrMessage"></a></p>
+<h2 id="getaddrmessage-code-message-code-">GetaddrMessage ⇐ <code>Message</code></h2>
+<p><strong>Kind</strong>: global class<br><strong>Extends:</strong> <code>Message</code><br><a name="new_GetaddrMessage_new"></a></p>
+<h3 id="new-getaddrmessage-options-">new GetaddrMessage(options)</h3>
+<p>Request information about active peers</p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>options</td>
+<td><code>Object</code></td>
+</tr>
+</tbody>
+</table>
+</div><div class="section p-t-lg"><div class="text-right bring-to-front"><a href="https://github.com/bitpay/bitcore-p2p/blob/master/lib/messages/commands/getblocks.js">View Source</a></div><p><a name="GetblocksMessage"></a></p>
+<h2 id="getblocksmessage-code-message-code-">GetblocksMessage ⇐ <code>Message</code></h2>
+<p><strong>Kind</strong>: global class<br><strong>Extends:</strong> <code>Message</code><br><a name="new_GetblocksMessage_new"></a></p>
+<h3 id="new-getblocksmessage-arg-options-">new GetblocksMessage([arg], options)</h3>
+<p>Query another peer about blocks. It can query for multiple block hashes,
+and the response will contain all the chains of blocks starting from those
+hashes.</p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[arg]</td>
+<td><code>Object</code></td>
+<td></td>
+</tr>
+<tr>
+<td>[arg.starts]</td>
+<td><code>Array</code></td>
+<td>Array of buffers or strings with the starting block hashes</td>
+</tr>
+<tr>
+<td>[arg.stop]</td>
+<td><code>Buffer</code></td>
+<td>Hash of the last block</td>
+</tr>
+<tr>
+<td>options</td>
+<td><code>Object</code></td>
+</tr>
+</tbody>
+</table>
+</div><div class="section p-t-lg"><div class="text-right bring-to-front"><a href="https://github.com/bitpay/bitcore-p2p/blob/master/lib/messages/commands/getdata.js">View Source</a></div><p><a name="GetdataMessage"></a></p>
+<h2 id="getdatamessage-code-message-code-">GetdataMessage ⇐ <code>Message</code></h2>
+<p><strong>Kind</strong>: global class<br><strong>Extends:</strong> <code>Message</code><br><a name="new_GetdataMessage_new"></a></p>
+<h3 id="new-getdatamessage-arg-">new GetdataMessage(arg)</h3>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>arg</td>
+<td><code>Object</code> &#124; <code>Array</code></td>
+<td>options - If options is an array will use as &quot;inventory&quot;</td>
+</tr>
+<tr>
+<td>[options.inventory]</td>
+<td><code>Array</code></td>
+<td>An array of inventory items</td>
+</tr>
+</tbody>
+</table>
+</div><div class="section p-t-lg"><div class="text-right bring-to-front"><a href="https://github.com/bitpay/bitcore-p2p/blob/master/lib/messages/commands/getheaders.js">View Source</a></div><p><a name="GetheadersMessage"></a></p>
+<h2 id="getheadersmessage-code-message-code-">GetheadersMessage ⇐ <code>Message</code></h2>
+<p><strong>Kind</strong>: global class<br><strong>Extends:</strong> <code>Message</code><br><a name="new_GetheadersMessage_new"></a></p>
+<h3 id="new-getheadersmessage-options-">new GetheadersMessage([options])</h3>
+<p>Query another peer about block headers. It can query for multiple block hashes,
+and the response will contain all the chains of blocks starting from those
+hashes.</p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[options]</td>
+<td><code>Object</code></td>
+<td></td>
+</tr>
+<tr>
+<td>[options.starts]</td>
+<td><code>Array</code></td>
+<td>Array of buffers or strings with the starting block hashes</td>
+</tr>
+<tr>
+<td>[options.stop]</td>
+<td><code>Buffer</code></td>
+<td>Hash of the last block</td>
+</tr>
+</tbody>
+</table>
+</div><div class="section p-t-lg"><div class="text-right bring-to-front"><a href="https://github.com/bitpay/bitcore-p2p/blob/master/lib/messages/commands/headers.js">View Source</a></div><p><a name="HeadersMessage"></a></p>
+<h2 id="headersmessage-code-message-code-">HeadersMessage ⇐ <code>Message</code></h2>
+<p><strong>Kind</strong>: global class<br><strong>Extends:</strong> <code>Message</code><br><a name="new_HeadersMessage_new"></a></p>
+<h3 id="new-headersmessage-arg-options-">new HeadersMessage(arg, [options])</h3>
+<p>Sent in response to a <code>getheaders</code> message. It contains information about
+block headers.</p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>arg</td>
+<td><code>Array</code></td>
+<td>An array of BlockHeader instances</td>
+</tr>
+<tr>
+<td>[options]</td>
+<td><code>Object</code></td>
+<td></td>
+</tr>
+<tr>
+<td>[options.headers]</td>
+<td><code>Array</code></td>
+<td>array of block headers</td>
+</tr>
+<tr>
+<td>options.BlockHeader</td>
+<td><code>function</code></td>
+<td>a BlockHeader constructor</td>
+</tr>
+</tbody>
+</table>
+</div><div class="section p-t-lg"><div class="text-right bring-to-front"><a href="https://github.com/bitpay/bitcore-p2p/blob/master/lib/messages/commands/inv.js">View Source</a></div><p><a name="InvMessage"></a></p>
+<h2 id="invmessage-code-message-code-">InvMessage ⇐ <code>Message</code></h2>
+<p><strong>Kind</strong>: global class<br><strong>Extends:</strong> <code>Message</code><br><a name="new_InvMessage_new"></a></p>
+<h3 id="new-invmessage-arg-options-">new InvMessage([arg], options)</h3>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[arg]</td>
+<td><code>Array</code></td>
+<td>An array of inventory</td>
+</tr>
+<tr>
+<td>options</td>
+<td><code>Object</code></td>
+<td></td>
+</tr>
+<tr>
+<td>[options.inventory]</td>
+<td><code>Array</code></td>
+<td>An array of inventory items</td>
+</tr>
+</tbody>
+</table>
+</div><div class="section p-t-lg"><div class="text-right bring-to-front"><a href="https://github.com/bitpay/bitcore-p2p/blob/master/lib/messages/commands/mempool.js">View Source</a></div><p><a name="MempoolMessage"></a></p>
+<h2 id="mempoolmessage-code-message-code-">MempoolMessage ⇐ <code>Message</code></h2>
+<p><strong>Kind</strong>: global class<br><strong>Extends:</strong> <code>Message</code><br><strong>See</strong>: <a href="https://en.bitcoin.it/wiki/Protocol_documentation#mempool">https://en.bitcoin.it/wiki/Protocol_documentation#mempool</a><br><a name="new_MempoolMessage_new"></a></p>
+<h3 id="new-mempoolmessage-options-">new MempoolMessage(options)</h3>
+<p>The mempool message sends a request to a node asking for information about
+transactions it has verified but which have not yet confirmed.</p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>options</td>
+<td><code>Object</code></td>
+</tr>
+</tbody>
+</table>
+</div><div class="section p-t-lg"><div class="text-right bring-to-front"><a href="https://github.com/bitpay/bitcore-p2p/blob/master/lib/messages/commands/merkleblock.js">View Source</a></div><p><a name="MerkleblockMessage"></a></p>
+<h2 id="merkleblockmessage-code-message-code-">MerkleblockMessage ⇐ <code>Message</code></h2>
+<p><strong>Kind</strong>: global class<br><strong>Extends:</strong> <code>Message</code><br><strong>See</strong>: <a href="https://en.bitcoin.it/wiki/Protocol_documentation">https://en.bitcoin.it/wiki/Protocol_documentation</a><br><a name="new_MerkleblockMessage_new"></a></p>
+<h3 id="new-merkleblockmessage-arg-options-">new MerkleblockMessage(arg, [options])</h3>
+<p>Contains information about a MerkleBlock</p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>arg</td>
+<td><code>MerkleBlock</code></td>
+<td>An instance of MerkleBlock</td>
+</tr>
+<tr>
+<td>[options]</td>
+<td><code>Object</code></td>
+<td></td>
+</tr>
+<tr>
+<td>options.MerkleBlock</td>
+<td><code>function</code></td>
+<td>a MerkleBlock constructor</td>
+</tr>
+</tbody>
+</table>
+</div><div class="section p-t-lg"><div class="text-right bring-to-front"><a href="https://github.com/bitpay/bitcore-p2p/blob/master/lib/messages/commands/notfound.js">View Source</a></div><p><a name="NotfoundMessage"></a></p>
+<h2 id="notfoundmessage-code-message-code-">NotfoundMessage ⇐ <code>Message</code></h2>
+<p><strong>Kind</strong>: global class<br><strong>Extends:</strong> <code>Message</code><br><a name="new_NotfoundMessage_new"></a></p>
+<h3 id="new-notfoundmessage-arg-options-">new NotfoundMessage(arg, options)</h3>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>arg</td>
+<td><code>Array</code></td>
+<td>An array of inventory</td>
+</tr>
+<tr>
+<td>options</td>
+<td><code>Object</code></td>
+<td></td>
+</tr>
+<tr>
+<td>[options.inventory]</td>
+<td><code>Array</code></td>
+<td>An array of inventory items</td>
+</tr>
+</tbody>
+</table>
+</div><div class="section p-t-lg"><div class="text-right bring-to-front"><a href="https://github.com/bitpay/bitcore-p2p/blob/master/lib/messages/commands/ping.js">View Source</a></div><p><a name="PingMessage"></a></p>
+<h2 id="pingmessage-code-message-code-">PingMessage ⇐ <code>Message</code></h2>
+<p><strong>Kind</strong>: global class<br><strong>Extends:</strong> <code>Message</code><br><a name="new_PingMessage_new"></a></p>
+<h3 id="new-pingmessage-arg-options-">new PingMessage(arg, [options])</h3>
+<p>A message to confirm that a connection is still valid.</p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>arg</td>
+<td><code>Number</code></td>
+<td>A nonce for the Ping message</td>
+</tr>
+<tr>
+<td>[options]</td>
+<td><code>Object</code></td>
+</tr>
+</tbody>
+</table>
+</div><div class="section p-t-lg"><div class="text-right bring-to-front"><a href="https://github.com/bitpay/bitcore-p2p/blob/master/lib/messages/commands/pong.js">View Source</a></div><p><a name="PongMessage"></a></p>
+<h2 id="pongmessage-code-message-code-">PongMessage ⇐ <code>Message</code></h2>
+<p><strong>Kind</strong>: global class<br><strong>Extends:</strong> <code>Message</code><br><a name="new_PongMessage_new"></a></p>
+<h3 id="new-pongmessage-arg-options-">new PongMessage(arg, [options])</h3>
+<p>A message in response to a ping message.</p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>arg</td>
+<td><code>Number</code></td>
+<td>A nonce for the Pong message</td>
+</tr>
+<tr>
+<td>[options]</td>
+<td><code>Object</code></td>
+</tr>
+</tbody>
+</table>
+</div><div class="section p-t-lg"><div class="text-right bring-to-front"><a href="https://github.com/bitpay/bitcore-p2p/blob/master/lib/messages/commands/reject.js">View Source</a></div><p><a name="RejectMessage"></a></p>
+<h2 id="rejectmessage-code-message-code-">RejectMessage ⇐ <code>Message</code></h2>
+<p><strong>Kind</strong>: global class<br><strong>Extends:</strong> <code>Message</code><br><strong>See</strong>: <a href="https://en.bitcoin.it/wiki/Protocol_documentation#reject">https://en.bitcoin.it/wiki/Protocol_documentation#reject</a><br><a name="new_RejectMessage_new"></a></p>
+<h3 id="new-rejectmessage-arg-options-">new RejectMessage([arg], options)</h3>
+<p>The reject message is sent when messages are rejected.</p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[arg]</td>
+<td><code>Object</code></td>
+<td>properties for the reject message</td>
+</tr>
+<tr>
+<td>[arg.message]</td>
+<td><code>String</code></td>
+<td>type of message rejected</td>
+</tr>
+<tr>
+<td>[arg.ccode]</td>
+<td><code>Number</code></td>
+<td>code relating to rejected message</td>
+</tr>
+<tr>
+<td>[arg.reason]</td>
+<td><code>String</code></td>
+<td>text version of reason for rejection</td>
+</tr>
+<tr>
+<td>[arg.data]</td>
+<td><code>Buffer</code></td>
+<td>Optional extra data provided by some errors.</td>
+</tr>
+<tr>
+<td>options</td>
+<td><code>Object</code></td>
+</tr>
+</tbody>
+</table>
+</div><div class="section p-t-lg"><div class="text-right bring-to-front"><a href="https://github.com/bitpay/bitcore-p2p/blob/master/lib/messages/commands/tx.js">View Source</a></div><p><a name="TransactionMessage"></a></p>
+<h2 id="transactionmessage-code-message-code-">TransactionMessage ⇐ <code>Message</code></h2>
+<p><strong>Kind</strong>: global class<br><strong>Extends:</strong> <code>Message</code><br><a name="new_TransactionMessage_new"></a></p>
+<h3 id="new-transactionmessage-arg-options-">new TransactionMessage([arg], options)</h3>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[arg]</td>
+<td><code>Transaction</code></td>
+<td>An instance of Transaction</td>
+</tr>
+<tr>
+<td>options</td>
+<td><code>Object</code></td>
+</tr>
+</tbody>
+</table>
+</div><div class="section p-t-lg"><div class="text-right bring-to-front"><a href="https://github.com/bitpay/bitcore-p2p/blob/master/lib/messages/commands/verack.js">View Source</a></div><p><a name="VerackMessage"></a></p>
+<h2 id="verackmessage-code-message-code-">VerackMessage ⇐ <code>Message</code></h2>
+<p><strong>Kind</strong>: global class<br><strong>Extends:</strong> <code>Message</code><br><a name="new_VerackMessage_new"></a></p>
+<h3 id="new-verackmessage-">new VerackMessage()</h3>
+<p>A message in response to a version message.</p>
+</div><div class="section p-t-lg"><div class="text-right bring-to-front"><a href="https://github.com/bitpay/bitcore-p2p/blob/master/lib/messages/commands/version.js">View Source</a></div><p><a name="VersionMessage"></a></p>
+<h2 id="versionmessage-code-message-code-">VersionMessage ⇐ <code>Message</code></h2>
+<p><strong>Kind</strong>: global class<br><strong>Extends:</strong> <code>Message</code><br><strong>See</strong>: <a href="https://en.bitcoin.it/wiki/Protocol_documentation#version">https://en.bitcoin.it/wiki/Protocol_documentation#version</a><br><a name="new_VersionMessage_new"></a></p>
+<h3 id="new-versionmessage-arg-options-">new VersionMessage([arg], options)</h3>
+<p>The version message is used on connection creation to advertise
+the type of node. The remote node will respond with its version, and no
+communication is possible until both peers have exchanged their versions.</p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[arg]</td>
+<td><code>Object</code></td>
+<td>properties for the version message</td>
+</tr>
+<tr>
+<td>[arg.nonce]</td>
+<td><code>Buffer</code></td>
+<td>a random 8 byte buffer</td>
+</tr>
+<tr>
+<td>[arg.subversion]</td>
+<td><code>String</code></td>
+<td>version of the client</td>
+</tr>
+<tr>
+<td>[arg.services]</td>
+<td><code>BN</code></td>
+<td></td>
+</tr>
+<tr>
+<td>[arg.timestamp]</td>
+<td><code>Date</code></td>
+<td></td>
+</tr>
+<tr>
+<td>[arg.startHeight]</td>
+<td><code>Number</code></td>
+<td></td>
+</tr>
+<tr>
+<td>options</td>
+<td><code>Object</code></td>
+</tr>
+</tbody>
+</table>
+</div><div class="section p-t-lg"><div class="text-right bring-to-front"><a href="https://github.com/bitpay/bitcore-p2p/blob/master/lib/inventory.js">View Source</a></div><p><a name="Inventory"></a></p>
+<h2 id="inventory">Inventory</h2>
+<p><strong>Kind</strong>: global class  </p>
+<ul>
+<li><a href="#Inventory">Inventory</a><ul>
+<li><a href="#new_Inventory_new">new Inventory(obj)</a></li>
+<li><em>instance</em><ul>
+<li><a href="#Inventory+toBuffer">.toBuffer()</a> ⇒ <code>Buffer</code></li>
+<li><a href="#Inventory+toBufferWriter">.toBufferWriter(bw)</a></li>
+</ul>
+</li>
+<li><em>static</em><ul>
+<li><a href="#Inventory.forItem">.forItem(type, hash)</a> ⇒ <code><a href="#Inventory">Inventory</a></code></li>
+<li><a href="#Inventory.forBlock">.forBlock(hash)</a> ⇒ <code><a href="#Inventory">Inventory</a></code></li>
+<li><a href="#Inventory.forFilteredBlock">.forFilteredBlock(hash)</a> ⇒ <code><a href="#Inventory">Inventory</a></code></li>
+<li><a href="#Inventory.forTransaction">.forTransaction(hash)</a> ⇒ <code><a href="#Inventory">Inventory</a></code></li>
+<li><a href="#Inventory.fromBuffer">.fromBuffer(payload)</a></li>
+<li><a href="#Inventory.fromBufferReader">.fromBufferReader(br)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><a name="new_Inventory_new"></a></p>
+<h3 id="new-inventory-obj-">new Inventory(obj)</h3>
+<p>A constructor for inventory related Bitcoin messages such as
+&quot;getdata&quot;, &quot;inv&quot; and &quot;notfound&quot;.</p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>obj</td>
+<td><code>Object</code></td>
+<td></td>
+</tr>
+<tr>
+<td>obj.type</td>
+<td><code>Number</code></td>
+<td>Inventory.TYPE</td>
+</tr>
+<tr>
+<td>obj.hash</td>
+<td><code>Buffer</code></td>
+<td>The hash for the inventory</td>
+</tr>
+</tbody>
+</table>
+<p><a name="Inventory+toBuffer"></a></p>
+<h3 id="inventory-tobuffer-code-buffer-code-">inventory.toBuffer() ⇒ <code>Buffer</code></h3>
+<p><strong>Kind</strong>: instance method of <code><a href="#Inventory">Inventory</a></code><br><strong>Returns</strong>: <code>Buffer</code> - - Serialized inventory<br><a name="Inventory+toBufferWriter"></a></p>
+<h3 id="inventory-tobufferwriter-bw-">inventory.toBufferWriter(bw)</h3>
+<p><strong>Kind</strong>: instance method of <code><a href="#Inventory">Inventory</a></code>  </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>bw</td>
+<td><code>BufferWriter</code></td>
+<td>An instance of BufferWriter</td>
+</tr>
+</tbody>
+</table>
+<p><a name="Inventory.forItem"></a></p>
+<h3 id="inventory-foritem-type-hash-code-inventory-code-">Inventory.forItem(type, hash) ⇒ <code><a href="#Inventory">Inventory</a></code></h3>
+<p>A convenience constructor for Inventory.</p>
+<p><strong>Kind</strong>: static method of <code><a href="#Inventory">Inventory</a></code><br><strong>Returns</strong>: <code><a href="#Inventory">Inventory</a></code> - - A new instance of Inventory  </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type</td>
+<td><code>Number</code></td>
+<td>Inventory.TYPE</td>
+</tr>
+<tr>
+<td>hash</td>
+<td><code>Buffer</code> &#124; <code>String</code></td>
+<td>The hash for the inventory</td>
+</tr>
+</tbody>
+</table>
+<p><a name="Inventory.forBlock"></a></p>
+<h3 id="inventory-forblock-hash-code-inventory-code-">Inventory.forBlock(hash) ⇒ <code><a href="#Inventory">Inventory</a></code></h3>
+<p>A convenience constructor for Inventory for block inventory types.</p>
+<p><strong>Kind</strong>: static method of <code><a href="#Inventory">Inventory</a></code><br><strong>Returns</strong>: <code><a href="#Inventory">Inventory</a></code> - - A new instance of Inventory  </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>hash</td>
+<td><code>Buffer</code> &#124; <code>String</code></td>
+<td>The hash for the block inventory</td>
+</tr>
+</tbody>
+</table>
+<p><a name="Inventory.forFilteredBlock"></a></p>
+<h3 id="inventory-forfilteredblock-hash-code-inventory-code-">Inventory.forFilteredBlock(hash) ⇒ <code><a href="#Inventory">Inventory</a></code></h3>
+<p>A convenience constructor for Inventory for filtered/merkle block inventory types.</p>
+<p><strong>Kind</strong>: static method of <code><a href="#Inventory">Inventory</a></code><br><strong>Returns</strong>: <code><a href="#Inventory">Inventory</a></code> - - A new instance of Inventory  </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>hash</td>
+<td><code>Buffer</code> &#124; <code>String</code></td>
+<td>The hash for the filtered block inventory</td>
+</tr>
+</tbody>
+</table>
+<p><a name="Inventory.forTransaction"></a></p>
+<h3 id="inventory-fortransaction-hash-code-inventory-code-">Inventory.forTransaction(hash) ⇒ <code><a href="#Inventory">Inventory</a></code></h3>
+<p>A convenience constructor for Inventory for transaction inventory types.</p>
+<p><strong>Kind</strong>: static method of <code><a href="#Inventory">Inventory</a></code><br><strong>Returns</strong>: <code><a href="#Inventory">Inventory</a></code> - - A new instance of Inventory  </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>hash</td>
+<td><code>Buffer</code> &#124; <code>String</code></td>
+<td>The hash for the transaction inventory</td>
+</tr>
+</tbody>
+</table>
+<p><a name="Inventory.fromBuffer"></a></p>
+<h3 id="inventory-frombuffer-payload-">Inventory.fromBuffer(payload)</h3>
+<p><strong>Kind</strong>: static method of <code><a href="#Inventory">Inventory</a></code>  </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>payload</td>
+<td><code>Buffer</code></td>
+<td>Serialized buffer of the inventory</td>
+</tr>
+</tbody>
+</table>
+<p><a name="Inventory.fromBufferReader"></a></p>
+<h3 id="inventory-frombufferreader-br-">Inventory.fromBufferReader(br)</h3>
+<p><strong>Kind</strong>: static method of <code><a href="#Inventory">Inventory</a></code>  </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>br</td>
+<td><code>BufferWriter</code></td>
+<td>An instance of BufferWriter</td>
+</tr>
+</tbody>
+</table>
+</div></div></div></div></div><a class="exit-off-canvas"></a><script src="https://bitcore.io/scripts/main.min.efe3021b.js" data-no-instant="data-no-instant"></script></body>
+<!-- Mirrored from bitcore.io/api/p2p/messages by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 22 Dec 2018 16:43:33 GMT -->
+</html>

@@ -1,0 +1,240 @@
+<!DOCTYPE html><html lang="en">
+<!-- Mirrored from bitcore.io/guides/bitcoin/ by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 22 Dec 2018 16:42:41 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Run Bitcoin for Bitcore | Bitcore</title><meta name="description" content="Set up and run Bitcoin for Bitcore."><!-- Twitter Card data--><meta name="twitter:card" content="summary"><meta name="twitter:site" content="@BitPay"><meta name="twitter:title" content="Run Bitcoin for Bitcore"><meta name="twitter:description" content="Set up and run Bitcoin for Bitcore."><meta name="twitter:image" content="../../images/social/card.jpg"><!-- Open Graph data (Facebook and Reddit)--><meta property="og:title" content="Run Bitcoin for Bitcore"><meta property="og:type" content="article"><meta property="og:url" content="../../index.html"><meta property="og:image" content="../../images/social/avatar.jpg"><meta property="og:description" content="Set up and run Bitcoin for Bitcore."><meta property="og:site_name" content="Bitcore.io"><!-- Add to homescreen for Chrome on Android--><meta name="mobile-web-app-capable" content="yes"><link rel="icon" sizes="192x192" href="../../images/touch/chrome-touch-icon-192x192.b0c7306c.png"><!-- Add to homescreen for Safari on iOS--><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><meta name="apple-mobile-web-app-title" content="Bitcore"><link rel="apple-touch-icon-precomposed" href="apple-touch-icon-precomposed.html"><!-- Tile icon for Win8 (144x144 + tile color)--><meta name="msapplication-TileImage" content="../../images/touch/ms-touch-icon-144x144-precomposed.dcbb3eea.png"><meta name="msapplication-TileColor" content="#F9AB3D"><!-- Favicon--><link rel="shortcut icon" href="../../favicon.ico"><link rel="stylesheet" href="../../styles/main.88c254de.css" data-instant-track><link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,300italic,400italic,600,700,700italic,600italic|Titillium+Web:400,300,700" rel="stylesheet" type="text/css"><script type="text/javascript" data-no-instant>
+  !function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","group","track","ready","alias","page","once","off","on"];analytics.factory=function(t){return function(){var e=Array.prototype.slice.call(arguments);e.unshift(t);analytics.push(e);return analytics}};for(var t=0;t<analytics.methods.length;t++){var e=analytics.methods[t];analytics[e]=analytics.factory(e)}analytics.load=function(t){var e=document.createElement("script");e.type="text/javascript";e.async=!0;e.src=("https:"===document.location.protocol?"https://":"http://")+"cdn.segment.com/analytics.js/v1/"+t+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(e,n)};analytics.SNIPPET_VERSION="3.0.1";
+  if(this.location.host === 'bitcore.io'){ analytics.load('hP7mqqPCPPa5hRatDaulKFxm0kPiB6Es'); }
+  else { analytics.load("dgbXyNcmHR3bJIjumdYoe3GZFrs6sHBd"); }
+  }}();
+</script>
+<script data-no-instant>
+  var $buoop = {vs:{i:9,f:30,o:25,s:5.1},c:2};
+  function $buo_f(){
+   var e = document.createElement("script");
+   e.src = "../../../browser-update.org/update.js";
+   document.body.appendChild(e);
+  };
+  try {document.addEventListener("DOMContentLoaded", $buo_f,false)}
+  catch(e){window.attachEvent("onload", $buo_f)}
+</script>
+<meta name="google-site-verification" content="GOfbzCpKO__Imdru-L0nG1Fo9tTvyH3QVAIWsYO9rCk"></head><body class="bg-white"><nav class="navbar navbar-light bg-faded hidden-sm-down light-nav p-y-0"><div class="container"><div class="navbar p-l-0"><a href="../../index.html" title="Home" class="logo logo-dark margin-top"></a><ul class="nav navbar-nav pull-right"><li class="nav-item"><a href="../../start.html" class="nav-link">Getting Started</a></li><li class="nav-item"><a href="../index.html" class="nav-link active">Guides</a></li><li class="nav-item"><a href="../../bitcoin.html" class="nav-link">Bitcoin</a></li><li class="nav-item"><a href="../../api/index.html" class="nav-link">Docs</a></li><li class="nav-item"><a href="../../playground/index.html" class="nav-link">Playground        </a></li><li class="nav-item"><a href="http://forum.bitcore.io/" class="nav-link">Forum</a></li></ul></div></div></nav><div class="mobile-menu hidden-md-up"> <div id="exCollapsingNavbar" class="collapse"><div class="bg-inverse p-md"><h3 class="m-b-0"><ul class="p-l-0 no-bullets m-b-0"><li class="nav-item"><a href="../../index.html" class="nav-link">Home</a></li><li class="nav-item"><a href="../../start.html" class="nav-link">Getting Started</a></li><li class="nav-item"><a href="../index.html" class="nav-link active">Guides</a></li><li class="nav-item"><a href="../../bitcoin.html" class="nav-link">Bitcoin</a></li><li class="nav-item"><a href="../../playground/index.html" class="nav-link">Playground        </a></li><li class="nav-item"><a href="../../api/index.html" class="nav-link">Docs</a></li><li class="nav-item"><a href="http://forum.bitcore.io/" class="nav-link">Forum</a></li></ul></h3></div></div><nav class="navbar light-nav"><button type="button" data-toggle="collapse" data-target="#exCollapsingNavbar" class="navbar-toggler p-l-0"><div class="logo logo-square-orange menu-text">Menu</div></button></nav></div><div class="container"><div class="row"><div class="col-md-12 col-lg-3 m-t-lg"><h3 class="menu-header">Guides</h3><ul class="nav nav-pills nav-stacked"><li class="nav-item"><a href="../full-node/index.html" class="nav-link">Run a Full Node</a></li><li class="nav-item"><a href="index.html" class="active nav-link">Run Bitcoin Standalone</a></li><li class="nav-item"><a href="../upstart-daemon/index.html" class="nav-link">Run Bitcore as a Daemon</a></li><li class="nav-item"><a href="../wallet-service/index.html" class="nav-link">Run a Wallet Service</a></li><li class="nav-item"><a href="../browser.html" class="nav-link">Browser Builds</a></li></ul><h3 class="menu-header m-t-md">Tutorials</h3><ul class="nav nav-pills nav-stacked"><li class="nav-item"><a href="../service-development/index.html" class="nav-link">Service Development</a></li><li class="nav-item"><a href="../satoshi-fire-alarm/index.html" class="nav-link">Satoshi Fire Alarm</a></li><li class="nav-item"><a href="../lemonade-stand/index.html" class="nav-link">Lemonade Stand</a></li><li class="nav-item"><a href="../i-made-this/index.html" class="nav-link">I Made This</a></li></ul></div><div class="col-md-12 col-lg-9 m-t-lg docs"><h1 id="run-bitcoin-standalone">Run Bitcoin Standalone</h1>
+<p>This tutorial describes running <code>bitcoind</code> standalone without the Node.js components and service architecture. It assumes prior experience and familiarity with running <code>bitcoind</code> and associated tools from <a href="https://bitcoincore.org/">Bitcoin Core</a>. We will go over installation and usage of the additional features and indexes introduced in the <a href="https://github.com/bitpay/bitcoin/tree/0.12.1-bitcore">Bitcore branch</a>, as well verifying the download and deterministic build.</p>
+<h2 id="download-verify">Download &amp; Verify</h2>
+<p>The <code>bitcoind</code> binary is deterministically built with <a href="https://github.com/devrandom/gitian-builder">Gitian</a>. For more information about this please see the <a href="https://github.com/bitpay/bitcoin/blob/0.12.1-bitcore/doc/gitian-building.md">Gitian building</a> documentation, and the corresponding <a href="https://github.com/bitpay/gitian.sigs">gitian.sigs</a> repository with signatures and hashes for these builds.</p>
+<p>Add the signing keys to your key ring and verify fingerprints:</p>
+<pre><code>gpg --keyserver pgp.mit.edu --recv-keys 0xC07A276D 0xEF6BDB7F
+gpg --list-keys --with-fingerprint 0xC07A276D 0xEF6BDB7F
+</code></pre><p>Fingerprints should match:</p>
+<ul>
+<li>D909 EFE6 70B5 F6CC 89A3  607A 9BBF 07CA C07A 276D <em>(Braydon G. Fuller)</em></li>
+<li>F8B0 891C C459 C197 65C2  5043 3319 5D27 EF6B DB7F <em>(Chris Kleeschulte)</em></li>
+</ul>
+<p>Go to <a href="https://github.com/bitpay/bitcoin/releases">https://github.com/bitpay/bitcoin/releases</a> to get the URLs to the latest release for your system.</p>
+<pre><code>wget https://github.com/bitpay/bitcoin/releases/download/v0.12.1-bitcore-2/bitcoin-0.12.1-linux64.tar.gz
+wget https://github.com/bitpay/bitcoin/releases/download/v0.12.1-bitcore-2/SHA256SUMS.asc
+</code></pre><p>Verify the download by checking that the checksums match:</p>
+<pre><code>gpg --verify SHA256SUMS.asc
+sha256sum -c SHA256SUMS.asc 2&gt;&amp;1 | grep OK
+</code></pre><p>The sha256sum line should output:</p>
+<pre><code>bitcoin-0.12.1-linux64.tar.gz: OK
+</code></pre><p>To view checksums manually:</p>
+<pre><code>cat SHA256SUMS.asc | grep &quot;bitcoin-0.12.1-linux64.tar.gz&quot;
+sha256sum bitcoin-0.12.1-linux64.tar.gz
+</code></pre><p>And then extract the archive in your desired location and run bitcoind:</p>
+<pre><code>tar -xvzf bitcoin-0.12.1-linux64.tar.gz
+cd bitcoin-0.12.1/bin
+./bitcoind
+</code></pre><h2 id="new-indexes">New Indexes</h2>
+<p>There are three new configuration options to add to your <code>bitcoin.conf</code></p>
+<pre><code>addressindex=1
+timestampindex=1
+spentindex=1
+</code></pre><hr>
+<p><strong>addressindex</strong></p>
+<p>Records all changes to an address for retrieving txids, balances and unspent outputs for addresses. Changes are stored and sorted in block order. Both p2sh and p2pkh address types are supported. The index records two sets of key/value pairs. The first records all activity and is useful for viewing transaction history and all changes. The second is specifically for retrieving unspent outputs by address, and is smaller as values are removed once they are spent.</p>
+<hr>
+<p><strong>spentindex</strong></p>
+<p>This index has multiple purposes and brings closer together inputs and outputs of transactions. The main purpose is to efficiently determine the address and amount of an input&#39;s previous output. The second purpose is to be able to determine which input spent an output.</p>
+<hr>
+<p><strong>timestampindex</strong></p>
+<p>This index maps timestamps with block hashes and is useful for searching blocks by date instead of by height. This is useful for a block explorer that will give search options by date. However it should be noted that the timestamps of blocks can be <em>out of order</em>, as there is a tolerance of around 2 hours that a timestamp of block is allowed to be set.</p>
+<h2 id="new-rpc-methods-and-updates">New RPC Methods and Updates</h2>
+<hr>
+<p><strong>getaddresstxids</strong></p>
+<p><em>Requires Config</em>: <code>addressindex=1</code></p>
+<p>This method will search for txids involving an address or addresses. The txids will be sorted in block order in the sequence of the transactions <em>(the most recent is at the end)</em>. The txids will only include confirmed transactions. There is also an option to specify a range of block heights to query that can be useful for updating a cache.</p>
+<pre><code>~$ bitcoin-cli getaddresstxids &#39;{&quot;addresses&quot;: [&quot;12cbQLTFMXRnSzktFkuoG3eHoMeFtpTu3S&quot;], &quot;start&quot;: 220151, &quot;end&quot;: 400000}&#39;
+[
+  &quot;1554a02d4eb1c7a73e3736922ed99530e360784e709896c42e5756e65b2da341&quot;,
+  &quot;20fb69a94413637cb50f65e473f91d2599a04d5a0bf9bf6a5e9e843df2710ea4&quot;
+]
+</code></pre><hr>
+<p><strong>getaddressdeltas</strong></p>
+<p><em>Requires Config</em>: <code>addressindex=1</code></p>
+<p>This method is similar to <code>getaddresstxids</code>, however will include more details, and will include every change involving an address. Each result corresponds with either an input or an output depending if the satoshi value is positive or negative. The <code>index</code> corresponds with the input or output index. The <code>blockindex</code> corresponds with the index of the transaction within the block. These results will also only include confirmed changes.</p>
+<pre><code>~$ bitcoin-cli getaddressdeltas &#39;{&quot;addresses&quot;: [&quot;12cbQLTFMXRnSzktFkuoG3eHoMeFtpTu3S&quot;], &quot;start&quot;: 220151, &quot;end&quot;: 400000}&#39;
+[
+  {
+    &quot;satoshis&quot;: 1,
+    &quot;txid&quot;: &quot;1554a02d4eb1c7a73e3736922ed99530e360784e709896c42e5756e65b2da341&quot;,
+    &quot;index&quot;: 2,
+    &quot;blockindex&quot;: 236,
+    &quot;height&quot;: 220151,
+    &quot;address&quot;: &quot;12cbQLTFMXRnSzktFkuoG3eHoMeFtpTu3S&quot;
+  },
+  {
+    &quot;satoshis&quot;: 30000,
+    &quot;txid&quot;: &quot;20fb69a94413637cb50f65e473f91d2599a04d5a0bf9bf6a5e9e843df2710ea4&quot;,
+    &quot;index&quot;: 0,
+    &quot;blockindex&quot;: 165,
+    &quot;height&quot;: 228208,
+    &quot;address&quot;: &quot;12cbQLTFMXRnSzktFkuoG3eHoMeFtpTu3S&quot;
+  }
+]
+</code></pre><hr>
+<p><strong>getaddressbalance</strong></p>
+<p><em>Requires Config</em>: <code>addressindex=1</code></p>
+<p>This method will calculate the balance of for an address or addresses from confirmed transactions. There are two values returned, one is the current balance and the other is the total received, both are integers as satoshis.</p>
+<pre><code>~$ bitcoin-cli getaddressbalance &#39;{&quot;addresses&quot;: [&quot;12cbQLTFMXRnSzktFkuoG3eHoMeFtpTu3S&quot;]}&#39;
+{
+  &quot;balance&quot;: 25527936,
+  &quot;received&quot;: 25527936
+}
+</code></pre><p><strong>Note</strong>: The total received means all funds received including those from the same address.</p>
+<hr>
+<p><strong>getaddressutxos</strong></p>
+<p><em>Requires Config</em>: <code>addressindex=1</code></p>
+<p>This method will return all unspent outputs for an address or addresses. Results will only included confirmed outputs and are sorted by block height.</p>
+<pre><code>~$ bitcoin-cli getaddressutxos &#39;{&quot;addresses&quot;: [&quot;12cbQLTFMXRnSzktFkuoG3eHoMeFtpTu3S&quot;]}&#39;
+[
+  {
+    &quot;address&quot;: &quot;12cbQLTFMXRnSzktFkuoG3eHoMeFtpTu3S&quot;,
+    &quot;txid&quot;: &quot;1554a02d4eb1c7a73e3736922ed99530e360784e709896c42e5756e65b2da341&quot;,
+    &quot;outputIndex&quot;: 2,
+    &quot;script&quot;: &quot;76a91411b366edfc0a8b66feebae5c2e25a7b6a5d1cf3188ac&quot;,
+    &quot;satoshis&quot;: 1,
+    &quot;height&quot;: 220151
+  },
+  {
+    &quot;address&quot;: &quot;12cbQLTFMXRnSzktFkuoG3eHoMeFtpTu3S&quot;,
+    &quot;txid&quot;: &quot;20fb69a94413637cb50f65e473f91d2599a04d5a0bf9bf6a5e9e843df2710ea4&quot;,
+    &quot;outputIndex&quot;: 0,
+    &quot;script&quot;: &quot;76a91411b366edfc0a8b66feebae5c2e25a7b6a5d1cf3188ac&quot;,
+    &quot;satoshis&quot;: 30000,
+    &quot;height&quot;: 228208
+  },
+  ...
+]
+
+</code></pre><hr>
+<p><strong>getaddressmempool</strong></p>
+<p><em>Requires Config</em>: <code>addressindex=1</code></p>
+<p>Since all of the above methods return confirmed transactions, this method can be used to calculate unconfirmed portion of the balance, txids and unspent outputs. The results are similar to <code>getaddressdeltas</code> with additional information. Instead of <code>height</code> there is <code>timestamp</code> that is the time the transaction entered the mempool. There is also <code>prevtxid</code> and <code>prevout</code> that can be used for marking utxos as spent.</p>
+<pre><code>~$ bitcoin-cli getaddressmempool &#39;{&quot;addresses&quot;: [&quot;3M366gYcKHbvun6YYF1Xim6sDeT5JSTVUy&quot;]}&#39;
+[
+  {
+    &quot;address&quot;: &quot;3M366gYcKHbvun6YYF1Xim6sDeT5JSTVUy&quot;,
+    &quot;txid&quot;: &quot;ff21363aa331f2dc7bbf70acc7eefb7a4080645d30b4e319ca190ceaecbcce42&quot;,
+    &quot;index&quot;: 0,
+    &quot;satoshis&quot;: -10684303,
+    &quot;timestamp&quot;: 1463602662,
+    &quot;prevtxid&quot;: &quot;0c15f067d6b082f4dcc2740f039d33bb4f47b23c79ceae880ca759268389f82a&quot;,
+    &quot;prevout&quot;: 1
+  },
+  {
+    &quot;address&quot;: &quot;3M366gYcKHbvun6YYF1Xim6sDeT5JSTVUy&quot;,
+    &quot;txid&quot;: &quot;ff21363aa331f2dc7bbf70acc7eefb7a4080645d30b4e319ca190ceaecbcce42&quot;,
+    &quot;index&quot;: 1,
+    &quot;satoshis&quot;: 10454303,
+    &quot;timestamp&quot;: 1463602662
+  }
+]
+</code></pre><hr>
+<p><strong>getblockhashes</strong></p>
+<p><em>Requires Config</em>: <code>timestampindex=1</code></p>
+<p>This method searches for block hashes within a range of two timestamps. The first argument is the more recent timestamp and the second is the less recent timestamp. The timestamp is in seconds, results are sorted by timestamp with the most recent at the end.</p>
+<pre><code>~$ bitcoin-cli getblockhashes 1231614698 1231024505
+[
+  &quot;00000000839a8e6886ab5951d76f411475428afc90947ee320161bbf18eb6048&quot;,
+  &quot;000000006a625f06636b8bb6ac7b960a8d03705d1ace08b1a19da3fdcc99ddbd&quot;,
+  &quot;0000000082b5015589a3fdf2d4baff403e6f0be035a5d9742c1cae6295464449&quot;,
+  &quot;000000004ebadb55ee9096c9a2f8880e09da59c0d68b1c228da88e48844a1485&quot;,
+  ...
+]
+</code></pre><hr>
+<p><strong>getspentinfo</strong></p>
+<p><em>Requires Config</em>: <code>spentindex=1</code></p>
+<p>This method will return the txid and input index that has spent the output.</p>
+<pre><code>~$ bitcoin-cli getspentinfo &#39;{&quot;txid&quot;: &quot;0437cd7f8525ceed2324359c2d0ba26006d92d856a9c20fa0241106ee5a597c9&quot;, &quot;index&quot;: 0}&#39;
+{
+  &quot;txid&quot;: &quot;f4184fc596403b9d638783cf57adfe4c75c605f6356fbc91338530e9831e9e16&quot;,
+  &quot;index&quot;: 0,
+  &quot;height&quot;: 170
+}
+</code></pre><hr>
+<p><strong>getrawtransaction</strong></p>
+<p><em>Requires Config</em>: <code>spentindex=1</code></p>
+<p>This method&#39;s verbose result will now has some additional fields added when spentindex is enabled. The <code>vin</code> values will include <code>value</code> <em>(a float in BTC)</em> and <code>valueSat</code> <em>(an integer in satoshis)</em> with the previous output value as well as the <code>address</code>. The <code>vout</code> values will also now include a <code>valueSat</code> <em>(an integer in satoshis)</em>. It will also include <code>spentTxId</code>, <code>spentIndex</code> and <code>spentHeight</code> that corresponds with the input that spent the output.</p>
+<pre><code>~$ bitcoin-cli getrawtransaction &quot;1d21fdbbddc8985ead4079261d9db4608f0b3cc946cb52081c5e347a9cddd63a&quot; 1
+{
+  &quot;hex&quot;: &quot;01000000019947f74a506878e3e22793d300a90a35300bc9a485d46eff04a0cb79e8852fe8000000006b483045022100fc40f8211e0d2d93b0058e164638c3af7a11c1a66aeea0b106bf32afacbad65502206861ca00638d85374b1996c66093f8306666a5596d410f57d51a3ef140c2eaa5012102e6a787823b52bd7833b351dfa6b7cd241f4bf4289ae558f0650c71cd2b985414ffffffff025a256904000000001976a9148b31e454cccc8fee9346c65ad7a831d7a4c018fb88ac00570000000000001976a91411b366edfc0a8b66feebae5c2e25a7b6a5d1cf3188ac00000000&quot;,
+  &quot;txid&quot;: &quot;1d21fdbbddc8985ead4079261d9db4608f0b3cc946cb52081c5e347a9cddd63a&quot;,
+  &quot;size&quot;: 226,
+  &quot;version&quot;: 1,
+  &quot;locktime&quot;: 0,
+  &quot;vin&quot;: [
+    {
+      &quot;txid&quot;: &quot;e82f85e879cba004ff6ed485a4c90b30350aa900d39327e2e37868504af74799&quot;,
+      &quot;vout&quot;: 0,
+      &quot;scriptSig&quot;: {
+        &quot;asm&quot;: &quot;3045022100fc40f8211e0d2d93b0058e164638c3af7a11c1a66aeea0b106bf32afacbad65502206861ca00638d85374b1996c66093f8306666a5596d410f57d51a3ef140c2eaa5[ALL] 02e6a787823b52bd7833b351dfa6b7cd241f4bf4289ae558f0650c71cd2b985414&quot;,
+        &quot;hex&quot;: &quot;483045022100fc40f8211e0d2d93b0058e164638c3af7a11c1a66aeea0b106bf32afacbad65502206861ca00638d85374b1996c66093f8306666a5596d410f57d51a3ef140c2eaa5012102e6a787823b52bd7833b351dfa6b7cd241f4bf4289ae558f0650c71cd2b985414&quot;
+      },
+      &quot;value&quot;: 0.74053058,
+      &quot;valueSat&quot;: 74053058,
+      &quot;address&quot;: &quot;1NdzHo5YCVS99e5w6rvTFnoVxj773ejFfH&quot;,
+      &quot;sequence&quot;: 4294967295
+    }
+  ],
+  &quot;vout&quot;: [
+    {
+      &quot;value&quot;: 0.73999706,
+      &quot;valueSat&quot;: 73999706,
+      &quot;n&quot;: 0,
+      &quot;scriptPubKey&quot;: {
+        &quot;asm&quot;: &quot;OP_DUP OP_HASH160 8b31e454cccc8fee9346c65ad7a831d7a4c018fb OP_EQUALVERIFY OP_CHECKSIG&quot;,
+        &quot;hex&quot;: &quot;76a9148b31e454cccc8fee9346c65ad7a831d7a4c018fb88ac&quot;,
+        &quot;reqSigs&quot;: 1,
+        &quot;type&quot;: &quot;pubkeyhash&quot;,
+        &quot;addresses&quot;: [
+          &quot;1DgzhDWiPagWc3QPJNkwAMjqH9PqyXY2zH&quot;
+        ]
+      },
+      &quot;spentTxId&quot;: &quot;db76bffdfe19707e8c4397c769b954f87acaf14a03ab07c774fa84175fd10a64&quot;,
+      &quot;spentIndex&quot;: 0,
+      &quot;spentHeight&quot;: 410401
+    },
+    {
+      &quot;value&quot;: 0.00022272,
+      &quot;valueSat&quot;: 22272,
+      &quot;n&quot;: 1,
+      &quot;scriptPubKey&quot;: {
+        &quot;asm&quot;: &quot;OP_DUP OP_HASH160 11b366edfc0a8b66feebae5c2e25a7b6a5d1cf31 OP_EQUALVERIFY OP_CHECKSIG&quot;,
+        &quot;hex&quot;: &quot;76a91411b366edfc0a8b66feebae5c2e25a7b6a5d1cf3188ac&quot;,
+        &quot;reqSigs&quot;: 1,
+        &quot;type&quot;: &quot;pubkeyhash&quot;,
+        &quot;addresses&quot;: [
+          &quot;12cbQLTFMXRnSzktFkuoG3eHoMeFtpTu3S&quot;
+        ]
+      }
+    }
+  ],
+  &quot;blockhash&quot;: &quot;00000000000000000470a32d40180041de9242174fde63e5cc1e011f10c650d1&quot;,
+  &quot;height&quot;: 410400,
+  &quot;confirmations&quot;: 1953,
+  &quot;time&quot;: 1462481722,
+  &quot;blocktime&quot;: 1462481722
+}
+</code></pre></div></div></div><a class="exit-off-canvas"></a><script src="../../scripts/main.min.efe3021b.js" data-no-instant="data-no-instant"></script></body>
+<!-- Mirrored from bitcore.io/guides/bitcoin/ by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 22 Dec 2018 16:42:41 GMT -->
+</html>

@@ -1,0 +1,242 @@
+<!DOCTYPE html><html lang="en">
+<!-- Mirrored from bitcore.io/api/p2p/peer by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 22 Dec 2018 16:43:33 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Peer | Bitcore</title><meta name="description" content="The Peer class provides a simple interface for connecting to a node in the bitcoin network."><!-- Twitter Card data--><meta name="twitter:card" content="summary"><meta name="twitter:site" content="@BitPay"><meta name="twitter:title" content="Peer"><meta name="twitter:description" content="The Peer class provides a simple interface for connecting to a node in the bitcoin network."><meta name="twitter:image" content="https://bitcore.io/images/social/card.jpg"><!-- Open Graph data (Facebook and Reddit)--><meta property="og:title" content="Peer"><meta property="og:type" content="article"><meta property="og:url" content="https://bitcore.io/"><meta property="og:image" content="https://bitcore.io/images/social/avatar.jpg"><meta property="og:description" content="The Peer class provides a simple interface for connecting to a node in the bitcoin network."><meta property="og:site_name" content="Bitcore.io"><!-- Add to homescreen for Chrome on Android--><meta name="mobile-web-app-capable" content="yes"><link rel="icon" sizes="192x192" href="https://bitcore.io/images/touch/chrome-touch-icon-192x192.b0c7306c.png"><!-- Add to homescreen for Safari on iOS--><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><meta name="apple-mobile-web-app-title" content="Bitcore"><link rel="apple-touch-icon-precomposed" href="https://bitcore.io/api/p2p/apple-touch-icon-precomposed.png"><!-- Tile icon for Win8 (144x144 + tile color)--><meta name="msapplication-TileImage" content="https://bitcore.io/images/touch/ms-touch-icon-144x144-precomposed.dcbb3eea.png"><meta name="msapplication-TileColor" content="#F9AB3D"><!-- Favicon--><link rel="shortcut icon" href="https://bitcore.io/favicon.ico"><link rel="stylesheet" href="https://bitcore.io/styles/main.88c254de.css" data-instant-track><link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,300italic,400italic,600,700,700italic,600italic|Titillium+Web:400,300,700" rel="stylesheet" type="text/css"><script type="text/javascript" data-no-instant>
+  !function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","group","track","ready","alias","page","once","off","on"];analytics.factory=function(t){return function(){var e=Array.prototype.slice.call(arguments);e.unshift(t);analytics.push(e);return analytics}};for(var t=0;t<analytics.methods.length;t++){var e=analytics.methods[t];analytics[e]=analytics.factory(e)}analytics.load=function(t){var e=document.createElement("script");e.type="text/javascript";e.async=!0;e.src=("https:"===document.location.protocol?"https://":"http://")+"cdn.segment.com/analytics.js/v1/"+t+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(e,n)};analytics.SNIPPET_VERSION="3.0.1";
+  if(this.location.host === 'bitcore.io'){ analytics.load('hP7mqqPCPPa5hRatDaulKFxm0kPiB6Es'); }
+  else { analytics.load("dgbXyNcmHR3bJIjumdYoe3GZFrs6sHBd"); }
+  }}();
+</script>
+<script data-no-instant>
+  var $buoop = {vs:{i:9,f:30,o:25,s:5.1},c:2};
+  function $buo_f(){
+   var e = document.createElement("script");
+   e.src = "http://browser-update.org/update.js";
+   document.body.appendChild(e);
+  };
+  try {document.addEventListener("DOMContentLoaded", $buo_f,false)}
+  catch(e){window.attachEvent("onload", $buo_f)}
+</script>
+<meta name="google-site-verification" content="GOfbzCpKO__Imdru-L0nG1Fo9tTvyH3QVAIWsYO9rCk"></head><body><nav class="navbar navbar-fixed-top dark-nav hidden-sm-down"><a href="https://bitcore.io/" title="Home" class="logo logo-light margin-top"></a><ul class="nav navbar-nav pull-right"><li class="nav-item"><a href="https://bitcore.io/start" class="nav-link">Getting Started</a></li><li class="nav-item"><a href="https://bitcore.io/guides" class="nav-link">Guides</a></li><li class="nav-item"><a href="https://bitcore.io/api" class="nav-link active">Docs</a></li><li class="nav-item"><a href="https://bitcore.io/playground" class="nav-link">Playground        </a></li><li class="nav-item"><a href="http://forum.bitcore.io/" class="nav-link">Forum</a></li></ul></nav><div class="mobile-menu hidden-md-up navbar-fixed-top"><div id="exCollapsingNavbar" class="collapse"><div class="bg-inverse p-md"><h3 class="m-b-0"> <ul class="p-l-0 no-bullets m-b-0"><li class="nav-item"><a href="https://bitcore.io/" class="nav-link">Home</a></li><li class="nav-item"><a href="https://bitcore.io/start" class="nav-link">Getting Started</a></li><li class="nav-item"><a href="https://bitcore.io/guides" class="nav-link">Guides</a></li><li class="nav-item"><a href="https://bitcore.io/api" class="nav-link active">Docs</a></li><li class="nav-item"><a href="https://bitcore.io/playground" class="nav-link">Playground        </a></li><li class="nav-item"><a href="http://forum.bitcore.io/" class="nav-link">Forum</a></li></ul></h3></div></div><nav class="navbar dark-nav"><button type="button" data-toggle="collapse" data-target="#exCollapsingNavbar" class="navbar-toggler p-l-0"><div class="logo logo-square-orange menu-text color-white">Menu</div></button></nav></div><div class="fixed-sidebar bg-gray border-right-grey p-l-md"><a href="https://bitcore.io/api/"><h3 class="menu-header m-t-md">Bitcore</h3><ul class="nav nav-pills nav-stacked"><li class="nav-item"><a href="https://bitcore.io/api/" class="nav-link">Overview</a></li></ul></a><a href="https://bitcore.io/api/node"><h3 class="menu-header m-t-md">Node</h3></a><a href="https://bitcore.io/api/service"><h3 class="menu-header m-t-md">Services</h3></a><a href="https://bitcore.io/api/lib"><h3 class="menu-header m-t-md">Library API</h3></a><a href="https://bitcore.io/api/mnemonic"><h3 class="menu-header m-t-md">Library Modules</h3></a><h3 class="menu-header m-t-md">Peer-to-Peer</h3><ul class="nav nav-pills nav-stacked"><li class="nav-item"><a href="https://bitcore.io/api/p2p" class="nav-link">Overview</a></li><li class="nav-item"><a href="https://bitcore.io/api/p2p/messages" class="nav-link">Messages</a></li><li class="nav-item"><a href="https://bitcore.io/api/p2p/peer" class="active nav-link">Peer</a></li><li class="nav-item"><a href="https://bitcore.io/api/p2p/pool" class="nav-link">Pool</a></li></ul></div><div class="scroll-content"><div class="api-content"><div class="docs bg-white"><div class="container"><div class="section p-t-lg"><div class="text-right bring-to-front"><a href="https://github.com/bitpay/bitcore-p2p/edit/master/docs/peer.md">Edit</a></div><h1 id="peer">Peer</h1>
+<p>Represents a node from the p2p bitcoin network. The Peer class supports connecting directly to other nodes or through a socks5 proxy like Tor.</p>
+<h2 id="creating-a-peer">Creating a peer</h2>
+<p>The code to create a new peer looks like this:</p>
+<pre><code class="lang-javascript">var Peer = require(&#39;bitcore-p2p&#39;).Peer;
+
+// default port
+var livenetPeer = new Peer({host: &#39;5.9.85.34&#39;});
+var testnetPeer = new Peer({host: &#39;5.9.85.34&#39;, network: Networks.testnet});
+
+// custom port
+var livenetPeer = new Peer({host: &#39;5.9.85.34&#39;, port: 8334});
+var testnetPeer = new Peer({host: &#39;5.9.85.34&#39;, port: 18334, network: Networks.testnet});
+
+// use sock5 proxy (Tor)
+var peer = new Peer({host: &#39;5.9.85.34&#39;}).setProxy(&#39;localhost&#39;, 9050);
+</code></pre>
+<h2 id="states">States</h2>
+<p>A peer instance is always in one of the following states:</p>
+<ul>
+<li><code>disconnected</code>: No connection with the remote node.</li>
+<li><code>connecting</code>: While establishing the connection.</li>
+<li><code>connected</code>: Exchanging version packages.</li>
+<li><code>ready</code>: Connection ready for sending and receiving messages.</li>
+</ul>
+<p>You can subscribe to the change of those states as follows:</p>
+<pre><code class="lang-javascript">var Peer = require(&#39;bitcore-p2p&#39;).Peer;
+
+var peer = new Peer({host: &#39;5.9.85.34&#39;});
+
+peer.on(&#39;ready&#39;, function() {
+  // peer info
+  console.log(peer.version, peer.subversion, peer.bestHeight);
+});
+
+peer.on(&#39;disconnect&#39;, function() {
+  console.log(&#39;connection closed&#39;);
+});
+
+peer.connect();
+</code></pre>
+<h2 id="handle-messages">Handle messages</h2>
+<p>Once connected, a peer instance can send and receive messages. Every time a message arrives it&#39;s emitted as a new event. Let&#39;s see an example of this:</p>
+<pre><code class="lang-javascript">var Peer = require(&#39;bitcore-p2p&#39;).Peer;
+var peer = new Peer({host: &#39;5.9.85.34&#39;});
+
+// handle events
+peer.on(&#39;inv&#39;, function(message) {
+  // message.inventory[]
+});
+
+peer.on(&#39;tx&#39;, function(message) {
+  // message.transaction
+});
+
+peer.on(&#39;addr&#39;, function(message) {
+  // message.addresses[]
+});
+
+peer.connect();
+</code></pre>
+<h2 id="sending-messages">Sending messages</h2>
+<p>In order to send messages the Peer class offers the <code>sendMessage(message)</code> method, which receives an instance of a message. All supported messages can be found in the <code>Messages</code> module. For more information about messages refer to the <a href="https://en.bitcoin.it/wiki/Protocol_specification">protocol specification</a>.</p>
+<p>An example for requesting other connected nodes to a peers looks like this:</p>
+<pre><code class="lang-javascript">var p2p = require(&#39;bitcore-p2p&#39;)
+var Peer = p2p.Peer;
+var Messages = p2p.Messages;
+var peer = new Peer({host: &#39;5.9.85.34&#39;});
+
+peer.on(&#39;ready&#39;, function() {
+  var message = new Messages.GetAddresses();
+  peer.sendMessage(message);
+});
+
+peer.on(&#39;addr&#39;, function(message) {
+  message.addresses.forEach(function(address) {
+    // do something
+  });
+});
+
+peer.connect();
+</code></pre>
+</div></div></div><div class="lib bg-dark"><div class="container"><div class="section p-t-lg"><div class="text-right bring-to-front"><a href="https://github.com/bitpay/bitcore-p2p/blob/master/lib/peer.js">View Source</a></div><p><a name="Peer"></a></p>
+<h2 id="peer">Peer</h2>
+<p><strong>Kind</strong>: global class  </p>
+<ul>
+<li><a href="#Peer">Peer</a><ul>
+<li><a href="#new_Peer_new">new Peer(options)</a></li>
+<li><a href="#Peer+setProxy">.setProxy(host, port)</a> ⇒ <code><a href="#Peer">Peer</a></code></li>
+<li><a href="#Peer+connect">.connect()</a> ⇒ <code><a href="#Peer">Peer</a></code></li>
+<li><a href="#Peer+disconnect">.disconnect()</a> ⇒ <code><a href="#Peer">Peer</a></code></li>
+<li><a href="#Peer+sendMessage">.sendMessage(message)</a></li>
+<li><a href="#Peer+_sendVersion">._sendVersion()</a></li>
+<li><a href="#Peer+_sendPong">._sendPong()</a></li>
+<li><a href="#Peer+_readMessage">._readMessage()</a></li>
+<li><a href="#Peer+_getSocket">._getSocket()</a> ⇒ <code>Socket</code></li>
+</ul>
+</li>
+</ul>
+<p><a name="new_Peer_new"></a></p>
+<h3 id="new-peer-options-">new Peer(options)</h3>
+<p>The Peer constructor will create an instance of Peer to send and receive messages
+using the standard Bitcoin protocol. A Peer instance represents one connection
+on the Bitcoin network. To create a new peer connection provide the host and port
+options and then invoke the connect method. Additionally, a newly connected socket
+can be provided instead of host and port.</p>
+<p><strong>Returns</strong>: <code><a href="#Peer">Peer</a></code> - A new instance of Peer.  </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>options</td>
+<td><code>Object</code></td>
+<td></td>
+</tr>
+<tr>
+<td>options.host</td>
+<td><code>String</code></td>
+<td>IP address of the remote host</td>
+</tr>
+<tr>
+<td>options.port</td>
+<td><code>Number</code></td>
+<td>Port number of the remote host</td>
+</tr>
+<tr>
+<td>options.network</td>
+<td><code>Network</code></td>
+<td>The network configuration</td>
+</tr>
+<tr>
+<td>[options.relay]</td>
+<td><code>Boolean</code></td>
+<td>An option to disable automatic inventory relaying from the remote peer</td>
+</tr>
+<tr>
+<td>[options.socket]</td>
+<td><code>Socket</code></td>
+<td>An existing connected socket</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong>  </p>
+<pre><code class="lang-javascript">
+var peer = new Peer({host: &#39;127.0.0.1&#39;}).setProxy(&#39;127.0.0.1&#39;, 9050);
+peer.on(&#39;tx&#39;, function(tx) {
+ console.log(&#39;New transaction: &#39;, tx.id);
+});
+peer.connect();
+</code></pre>
+<p><a name="Peer+setProxy"></a></p>
+<h3 id="peer-setproxy-host-port-code-peer-code-">peer.setProxy(host, port) ⇒ <code><a href="#Peer">Peer</a></code></h3>
+<p>Set a socks5 proxy for the connection. Enables the use of the TOR network.</p>
+<p><strong>Kind</strong>: instance method of <code><a href="#Peer">Peer</a></code><br><strong>Returns</strong>: <code><a href="#Peer">Peer</a></code> - The same Peer instance.  </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>host</td>
+<td><code>String</code></td>
+<td>IP address of the proxy</td>
+</tr>
+<tr>
+<td>port</td>
+<td><code>Number</code></td>
+<td>Port number of the proxy</td>
+</tr>
+</tbody>
+</table>
+<p><a name="Peer+connect"></a></p>
+<h3 id="peer-connect-code-peer-code-">peer.connect() ⇒ <code><a href="#Peer">Peer</a></code></h3>
+<p>Init the connection with the remote peer.</p>
+<p><strong>Kind</strong>: instance method of <code><a href="#Peer">Peer</a></code><br><strong>Returns</strong>: <code><a href="#Peer">Peer</a></code> - The same peer instance.<br><a name="Peer+disconnect"></a></p>
+<h3 id="peer-disconnect-code-peer-code-">peer.disconnect() ⇒ <code><a href="#Peer">Peer</a></code></h3>
+<p>Disconnects the remote connection.</p>
+<p><strong>Kind</strong>: instance method of <code><a href="#Peer">Peer</a></code><br><strong>Returns</strong>: <code><a href="#Peer">Peer</a></code> - The same peer instance.<br><a name="Peer+sendMessage"></a></p>
+<h3 id="peer-sendmessage-message-">peer.sendMessage(message)</h3>
+<p>Send a Message to the remote peer.</p>
+<p><strong>Kind</strong>: instance method of <code><a href="#Peer">Peer</a></code>  </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>message</td>
+<td><code>Message</code></td>
+<td>A message instance</td>
+</tr>
+</tbody>
+</table>
+<p><a name="Peer+_sendVersion"></a></p>
+<h3 id="peer-_sendversion-">peer._sendVersion()</h3>
+<p>Internal function that sends VERSION message to the remote peer.</p>
+<p><strong>Kind</strong>: instance method of <code><a href="#Peer">Peer</a></code><br><a name="Peer+_sendPong"></a></p>
+<h3 id="peer-_sendpong-">peer._sendPong()</h3>
+<p>Send a PONG message to the remote peer.</p>
+<p><strong>Kind</strong>: instance method of <code><a href="#Peer">Peer</a></code><br><a name="Peer+_readMessage"></a></p>
+<h3 id="peer-_readmessage-">peer._readMessage()</h3>
+<p>Internal function that tries to read a message from the data buffer</p>
+<p><strong>Kind</strong>: instance method of <code><a href="#Peer">Peer</a></code><br><a name="Peer+_getSocket"></a></p>
+<h3 id="peer-_getsocket-code-socket-code-">peer._getSocket() ⇒ <code>Socket</code></h3>
+<p>Internal function that creates a socket using a proxy if necessary.</p>
+<p><strong>Kind</strong>: instance method of <code><a href="#Peer">Peer</a></code><br><strong>Returns</strong>: <code>Socket</code> - A Socket instance not yet connected.  </p>
+</div></div></div></div></div><a class="exit-off-canvas"></a><script src="https://bitcore.io/scripts/main.min.efe3021b.js" data-no-instant="data-no-instant"></script></body>
+<!-- Mirrored from bitcore.io/api/p2p/peer by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 22 Dec 2018 16:43:33 GMT -->
+</html>

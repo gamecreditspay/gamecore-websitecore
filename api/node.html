@@ -1,0 +1,73 @@
+<!DOCTYPE html><html lang="en">
+<!-- Mirrored from bitcore.io/api/node by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 22 Dec 2018 16:42:42 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Node Constructor | Bitcore</title><meta name="description" content="A collection of services that are loaded together."><!-- Twitter Card data--><meta name="twitter:card" content="summary"><meta name="twitter:site" content="@BitPay"><meta name="twitter:title" content="Node Constructor"><meta name="twitter:description" content="A collection of services that are loaded together."><meta name="twitter:image" content="../images/social/card.jpg"><!-- Open Graph data (Facebook and Reddit)--><meta property="og:title" content="Node Constructor"><meta property="og:type" content="article"><meta property="og:url" content="../index.html"><meta property="og:image" content="../images/social/avatar.jpg"><meta property="og:description" content="A collection of services that are loaded together."><meta property="og:site_name" content="Bitcore.io"><!-- Add to homescreen for Chrome on Android--><meta name="mobile-web-app-capable" content="yes"><link rel="icon" sizes="192x192" href="../images/touch/chrome-touch-icon-192x192.b0c7306c.png"><!-- Add to homescreen for Safari on iOS--><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><meta name="apple-mobile-web-app-title" content="Bitcore"><link rel="apple-touch-icon-precomposed" href="apple-touch-icon-precomposed.html"><!-- Tile icon for Win8 (144x144 + tile color)--><meta name="msapplication-TileImage" content="../images/touch/ms-touch-icon-144x144-precomposed.dcbb3eea.png"><meta name="msapplication-TileColor" content="#F9AB3D"><!-- Favicon--><link rel="shortcut icon" href="../favicon.ico"><link rel="stylesheet" href="../styles/main.88c254de.css" data-instant-track><link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,300italic,400italic,600,700,700italic,600italic|Titillium+Web:400,300,700" rel="stylesheet" type="text/css"><script type="text/javascript" data-no-instant>
+  !function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","group","track","ready","alias","page","once","off","on"];analytics.factory=function(t){return function(){var e=Array.prototype.slice.call(arguments);e.unshift(t);analytics.push(e);return analytics}};for(var t=0;t<analytics.methods.length;t++){var e=analytics.methods[t];analytics[e]=analytics.factory(e)}analytics.load=function(t){var e=document.createElement("script");e.type="text/javascript";e.async=!0;e.src=("https:"===document.location.protocol?"https://":"http://")+"cdn.segment.com/analytics.js/v1/"+t+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(e,n)};analytics.SNIPPET_VERSION="3.0.1";
+  if(this.location.host === 'bitcore.io'){ analytics.load('hP7mqqPCPPa5hRatDaulKFxm0kPiB6Es'); }
+  else { analytics.load("dgbXyNcmHR3bJIjumdYoe3GZFrs6sHBd"); }
+  }}();
+</script>
+<script data-no-instant>
+  var $buoop = {vs:{i:9,f:30,o:25,s:5.1},c:2};
+  function $buo_f(){
+   var e = document.createElement("script");
+   e.src = "../../browser-update.org/update.js";
+   document.body.appendChild(e);
+  };
+  try {document.addEventListener("DOMContentLoaded", $buo_f,false)}
+  catch(e){window.attachEvent("onload", $buo_f)}
+</script>
+<meta name="google-site-verification" content="GOfbzCpKO__Imdru-L0nG1Fo9tTvyH3QVAIWsYO9rCk"></head><body><nav class="navbar navbar-fixed-top dark-nav hidden-sm-down"><a href="../index.html" title="Home" class="logo logo-light margin-top"></a><ul class="nav navbar-nav pull-right"><li class="nav-item"><a href="../start.html" class="nav-link">Getting Started</a></li><li class="nav-item"><a href="../guides/index.html" class="nav-link">Guides</a></li><li class="nav-item"><a href="index.html" class="nav-link active">Docs</a></li><li class="nav-item"><a href="../playground/index.html" class="nav-link">Playground        </a></li><li class="nav-item"><a href="http://forum.bitcore.io/" class="nav-link">Forum</a></li></ul></nav><div class="mobile-menu hidden-md-up navbar-fixed-top"><div id="exCollapsingNavbar" class="collapse"><div class="bg-inverse p-md"><h3 class="m-b-0"> <ul class="p-l-0 no-bullets m-b-0"><li class="nav-item"><a href="../index.html" class="nav-link">Home</a></li><li class="nav-item"><a href="../start.html" class="nav-link">Getting Started</a></li><li class="nav-item"><a href="../guides/index.html" class="nav-link">Guides</a></li><li class="nav-item"><a href="index.html" class="nav-link active">Docs</a></li><li class="nav-item"><a href="../playground/index.html" class="nav-link">Playground        </a></li><li class="nav-item"><a href="http://forum.bitcore.io/" class="nav-link">Forum</a></li></ul></h3></div></div><nav class="navbar dark-nav"><button type="button" data-toggle="collapse" data-target="#exCollapsingNavbar" class="navbar-toggler p-l-0"><div class="logo logo-square-orange menu-text color-white">Menu</div></button></nav></div><div class="fixed-sidebar bg-gray border-right-grey p-l-md"><a href="index.html"><h3 class="menu-header m-t-md">Bitcore</h3><ul class="nav nav-pills nav-stacked"><li class="nav-item"><a href="index.html" class="nav-link">Overview</a></li></ul></a><h3 class="menu-header m-t-md">Node</h3><ul class="nav nav-pills nav-stacked"><li class="nav-item"><a href="node.html" class="active nav-link">Get Started</a></li><li class="nav-item"><a href="node-constructor.html" class="nav-link">Node Constructor</a></li><li class="nav-item"><a href="bus.html" class="nav-link">Event Bus</a></li><li class="nav-item"><a href="development.html" class="nav-link">Development</a></li><li class="nav-item"><a href="upgrade.html" class="nav-link">Upgrade</a></li></ul><a href="service/index.html"><h3 class="menu-header m-t-md">Services</h3></a><a href="lib/index.html"><h3 class="menu-header m-t-md">Library API</h3></a><a href="mnemonic/index.html"><h3 class="menu-header m-t-md">Library Modules</h3></a><a href="p2p/index.html"><h3 class="menu-header m-t-md">Peer-to-Peer</h3></a></div><div class="scroll-content"><div class="api-content"><div class="docs bg-white"><div class="container"><div class="section p-t-lg"><div class="text-right bring-to-front"><a href="https://github.com/bitpay/bitcore-node/edit/master/README.md">Edit</a></div><h1 id="bitcore-node">Bitcore Node</h1>
+<p>A Bitcoin full node for building applications and services with Node.js. A node is extensible and can be configured to run additional services. At the minimum a node has an interface to <a href="https://github.com/bitpay/bitcoin/tree/0.12.1-bitcore">Bitcoin Core with additional indexing</a> for more advanced address queries. Additional services can be enabled to make a node more useful such as exposing new APIs, running a block explorer and wallet service.</p>
+<h2 id="install">Install</h2>
+<pre><code class="lang-bash">npm install -g bitcore-node
+bitcore-node start
+</code></pre>
+<p>Note: For your convenience, we distribute bitcoind binaries for x86_64 Linux and x86_64 Mac OS X. Upon npm install, the binaries for your platform will be downloaded. For more detailed installation instructions, or if you want to compile the project yourself, then please see the Bitcore branch of <a href="https://github.com/bitpay/bitcoin/tree/0.12.1-bitcore">Bitcoin Core with additional indexing</a>.</p>
+<h2 id="prerequisites">Prerequisites</h2>
+<ul>
+<li>GNU/Linux x86_32/x86_64, or OSX 64bit <em>(for bitcoind distributed binaries)</em></li>
+<li>Node.js v0.10, v0.12 or v4</li>
+<li>ZeroMQ <em>(libzmq3-dev for Ubuntu/Debian or zeromq on OSX)</em></li>
+<li>~200GB of disk storage</li>
+<li>~8GB of RAM</li>
+</ul>
+<h2 id="configuration">Configuration</h2>
+<p>Bitcore includes a Command Line Interface (CLI) for managing, configuring and interfacing with your Bitcore Node.</p>
+<pre><code class="lang-bash">bitcore-node create -d &lt;bitcoin-data-dir&gt; mynode
+cd mynode
+bitcore-node install &lt;service&gt;
+bitcore-node install https://github.com/yourname/helloworld
+</code></pre>
+<p>This will create a directory with configuration files for your node and install the necessary dependencies. For more information about (and developing) services, please see the <a href="docs/services.html">Service Documentation</a>.</p>
+<h2 id="add-on-services">Add-on Services</h2>
+<p>There are several add-on services available to extend the functionality of Bitcore:</p>
+<ul>
+<li><a href="https://github.com/bitpay/insight-api">Insight API</a></li>
+<li><a href="https://github.com/bitpay/insight-ui">Insight UI</a></li>
+<li><a href="https://github.com/bitpay/bitcore-wallet-service">Bitcore Wallet Service</a></li>
+</ul>
+<h2 id="documentation">Documentation</h2>
+<ul>
+<li><a href="docs/upgrade.html">Upgrade Notes</a></li>
+<li><a href="docs/services.html">Services</a><ul>
+<li><a href="docs/services/bitcoind.html">Bitcoind</a> - Interface to Bitcoin Core</li>
+<li><a href="docs/services/web.html">Web</a> - Creates an express application over which services can expose their web/API content</li>
+</ul>
+</li>
+<li><a href="docs/development.html">Development Environment</a> - Guide for setting up a development environment</li>
+<li><a href="docs/node.html">Node</a> - Details on the node constructor</li>
+<li><a href="docs/bus.html">Bus</a> - Overview of the event bus constructor</li>
+<li><a href="docs/release.html">Release Process</a> - Information about verifying a release and the release process.</li>
+</ul>
+<h2 id="contributing">Contributing</h2>
+<p>Please send pull requests for bug fixes, code optimization, and ideas for improvement. For more information on how to contribute, please refer to our <a href="https://github.com/bitpay/bitcore/blob/master/CONTRIBUTING.md">CONTRIBUTING</a> file.</p>
+<h2 id="license">License</h2>
+<p>Code released under <a href="https://github.com/bitpay/bitcore-node/blob/master/LICENSE">the MIT license</a>.</p>
+<p>Copyright 2013-2015 BitPay, Inc.</p>
+<ul>
+<li>bitcoin: Copyright (c) 2009-2015 Bitcoin Core Developers (MIT License)</li>
+</ul>
+</div></div></div><div class="lib bg-dark"><div class="container"></div></div></div></div><a class="exit-off-canvas"></a><script src="../scripts/main.min.efe3021b.js" data-no-instant="data-no-instant"></script></body>
+<!-- Mirrored from bitcore.io/api/node by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 22 Dec 2018 16:42:44 GMT -->
+</html>

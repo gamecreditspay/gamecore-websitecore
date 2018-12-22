@@ -1,0 +1,167 @@
+<!DOCTYPE html><html lang="en">
+<!-- Mirrored from bitcore.io/api/paypro/ by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 22 Dec 2018 16:43:33 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Overview | Bitcore</title><meta name="description" content="A powerful interface for serialize, deserialize, sign and verify payment protocol messsages."><!-- Twitter Card data--><meta name="twitter:card" content="summary"><meta name="twitter:site" content="@BitPay"><meta name="twitter:title" content="Overview"><meta name="twitter:description" content="A powerful interface for serialize, deserialize, sign and verify payment protocol messsages."><meta name="twitter:image" content="https://bitcore.io/images/social/card.jpg"><!-- Open Graph data (Facebook and Reddit)--><meta property="og:title" content="Overview"><meta property="og:type" content="article"><meta property="og:url" content="https://bitcore.io/"><meta property="og:image" content="https://bitcore.io/images/social/avatar.jpg"><meta property="og:description" content="A powerful interface for serialize, deserialize, sign and verify payment protocol messsages."><meta property="og:site_name" content="Bitcore.io"><!-- Add to homescreen for Chrome on Android--><meta name="mobile-web-app-capable" content="yes"><link rel="icon" sizes="192x192" href="https://bitcore.io/images/touch/chrome-touch-icon-192x192.b0c7306c.png"><!-- Add to homescreen for Safari on iOS--><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><meta name="apple-mobile-web-app-title" content="Bitcore"><link rel="apple-touch-icon-precomposed" href="https://bitcore.io/api/paypro/apple-touch-icon-precomposed.png"><!-- Tile icon for Win8 (144x144 + tile color)--><meta name="msapplication-TileImage" content="https://bitcore.io/images/touch/ms-touch-icon-144x144-precomposed.dcbb3eea.png"><meta name="msapplication-TileColor" content="#F9AB3D"><!-- Favicon--><link rel="shortcut icon" href="https://bitcore.io/favicon.ico"><link rel="stylesheet" href="https://bitcore.io/styles/main.88c254de.css" data-instant-track><link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,300italic,400italic,600,700,700italic,600italic|Titillium+Web:400,300,700" rel="stylesheet" type="text/css"><script type="text/javascript" data-no-instant>
+  !function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","group","track","ready","alias","page","once","off","on"];analytics.factory=function(t){return function(){var e=Array.prototype.slice.call(arguments);e.unshift(t);analytics.push(e);return analytics}};for(var t=0;t<analytics.methods.length;t++){var e=analytics.methods[t];analytics[e]=analytics.factory(e)}analytics.load=function(t){var e=document.createElement("script");e.type="text/javascript";e.async=!0;e.src=("https:"===document.location.protocol?"https://":"http://")+"cdn.segment.com/analytics.js/v1/"+t+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(e,n)};analytics.SNIPPET_VERSION="3.0.1";
+  if(this.location.host === 'bitcore.io'){ analytics.load('hP7mqqPCPPa5hRatDaulKFxm0kPiB6Es'); }
+  else { analytics.load("dgbXyNcmHR3bJIjumdYoe3GZFrs6sHBd"); }
+  }}();
+</script>
+<script data-no-instant>
+  var $buoop = {vs:{i:9,f:30,o:25,s:5.1},c:2};
+  function $buo_f(){
+   var e = document.createElement("script");
+   e.src = "http://browser-update.org/update.js";
+   document.body.appendChild(e);
+  };
+  try {document.addEventListener("DOMContentLoaded", $buo_f,false)}
+  catch(e){window.attachEvent("onload", $buo_f)}
+</script>
+<meta name="google-site-verification" content="GOfbzCpKO__Imdru-L0nG1Fo9tTvyH3QVAIWsYO9rCk"></head><body><nav class="navbar navbar-fixed-top dark-nav hidden-sm-down"><a href="https://bitcore.io/" title="Home" class="logo logo-light margin-top"></a><ul class="nav navbar-nav pull-right"><li class="nav-item"><a href="https://bitcore.io/start" class="nav-link">Getting Started</a></li><li class="nav-item"><a href="https://bitcore.io/guides" class="nav-link">Guides</a></li><li class="nav-item"><a href="https://bitcore.io/api" class="nav-link active">Docs</a></li><li class="nav-item"><a href="https://bitcore.io/playground" class="nav-link">Playground        </a></li><li class="nav-item"><a href="http://forum.bitcore.io/" class="nav-link">Forum</a></li></ul></nav><div class="mobile-menu hidden-md-up navbar-fixed-top"><div id="exCollapsingNavbar" class="collapse"><div class="bg-inverse p-md"><h3 class="m-b-0"> <ul class="p-l-0 no-bullets m-b-0"><li class="nav-item"><a href="https://bitcore.io/" class="nav-link">Home</a></li><li class="nav-item"><a href="https://bitcore.io/start" class="nav-link">Getting Started</a></li><li class="nav-item"><a href="https://bitcore.io/guides" class="nav-link">Guides</a></li><li class="nav-item"><a href="https://bitcore.io/api" class="nav-link active">Docs</a></li><li class="nav-item"><a href="https://bitcore.io/playground" class="nav-link">Playground        </a></li><li class="nav-item"><a href="http://forum.bitcore.io/" class="nav-link">Forum</a></li></ul></h3></div></div><nav class="navbar dark-nav"><button type="button" data-toggle="collapse" data-target="#exCollapsingNavbar" class="navbar-toggler p-l-0"><div class="logo logo-square-orange menu-text color-white">Menu</div></button></nav></div><div class="fixed-sidebar bg-gray border-right-grey p-l-md"><a href="https://bitcore.io/api/"><h3 class="menu-header m-t-md">Bitcore</h3><ul class="nav nav-pills nav-stacked"><li class="nav-item"><a href="https://bitcore.io/api/" class="nav-link">Overview</a></li></ul></a><a href="https://bitcore.io/api/node"><h3 class="menu-header m-t-md">Node</h3></a><a href="https://bitcore.io/api/service"><h3 class="menu-header m-t-md">Services</h3></a><a href="https://bitcore.io/api/lib"><h3 class="menu-header m-t-md">Library API</h3></a><h3 class="menu-header m-t-md">Library Modules</h3><ul class="nav nav-pills nav-stacked"><li class="nav-item"><a href="https://bitcore.io/api/mnemonic" class="nav-link">Mnemonic</a></li><li class="nav-item"><a href="https://bitcore.io/api/paypro" class="active nav-link">Payment Protocol</a></li><li class="nav-item"><a href="https://bitcore.io/api/message" class="nav-link">Message</a></li></ul><a href="https://bitcore.io/api/p2p"><h3 class="menu-header m-t-md">Peer-to-Peer</h3></a></div><div class="scroll-content"><div class="api-content"><div class="docs bg-white"><div class="container"><div class="section p-t-lg"><div class="text-right bring-to-front"><a href="https://github.com/bitpay/bitcore-payment-protocol/edit/master/docs/index.md">Edit</a></div><h1 id="payment-protocol">Payment Protocol</h1>
+<p><code>PaymentProtocol</code> and associated functions and methods will serialize, deserialize, sign and verify payment protocol messages both in Node.js and web browsers. Both X.509 and <a href="https://en.bitcoin.it/wiki/Identity_protocol_v1">bitcoin identity protocol</a> are supported. For detailed technical information, please view <a href="https://github.com/bitcoin/bips/blob/master/bip-0070.mediawiki">BIP70</a>.</p>
+<h2 id="installation">Installation</h2>
+<p>Payment protocol is implemented as a separate module and you must add it to your dependencies:</p>
+<p>For node projects:</p>
+<pre><code>npm install bitcore-lib --save
+npm install bitcore-payment-protocol --save
+</code></pre><p>For client-side projects:</p>
+<pre><code>bower install bitcore-lib --save
+bower install bitcore-payment-protocol --save
+</code></pre><h2 id="make-payment-details">Make Payment Details</h2>
+<p>Here the merchant&#39;s server will construct the payment details message:</p>
+<pre><code class="lang-javascript">var PaymentProtocol = require(&#39;bitcore-payment-protocol&#39;);
+var now = Date.now() / 1000 | 0;
+
+// construct the payment details
+var details = new PaymentProtocol().makePaymentDetails();
+details.set(&#39;network&#39;, &#39;test&#39;);
+details.set(&#39;outputs&#39;, outputs);
+details.set(&#39;time&#39;, now);
+details.set(&#39;expires&#39;, now + 60 * 60 * 24);
+details.set(&#39;memo&#39;, &#39;A payment request from the merchant.&#39;);
+details.set(&#39;payment_url&#39;, &#39;https://localhost/-/pay&#39;);
+details.set(&#39;merchant_data&#39;, new Buffer({size: 7})); // identify the request
+</code></pre>
+<p>For more information about these fields please visit <a href="https://github.com/bitcoin/bips/blob/master/bip-0070.mediawiki#paymentdetailspaymentrequest">BIP70</a></p>
+<h2 id="sign-a-payment-request">Sign a Payment Request</h2>
+<p>The merchant&#39;s server will then construct a payment request and send it to the customer:</p>
+<pre><code class="lang-javascript">// load the X509 certificate
+var certificates = new PaymentProtocol().makeX509Certificates();
+certificates.set(&#39;certificate&#39;, [file_with_x509_der_cert]);
+
+// form the request
+var request = new PaymentProtocol().makePaymentRequest();
+request.set(&#39;payment_details_version&#39;, 1);
+request.set(&#39;pki_type&#39;, &#39;x509+sha256&#39;);
+request.set(&#39;pki_data&#39;, certificates.serialize());
+request.set(&#39;serialized_payment_details&#39;, details.serialize());
+request.sign(file_with_x509_private_key);
+
+// serialize the request
+var rawbody = request.serialize();
+
+// Example HTTP Response Headers:
+// Content-Type: PaymentProtocol.PAYMENT_REQUEST_CONTENT_TYPE
+// Content-Length: request.length
+// Content-Transfer-Encoding: &#39;binary&#39;
+</code></pre>
+<h2 id="verify-a-payment-request">Verify a Payment Request</h2>
+<p>The customers wallet would then verify the payment request as follows (after asking for the payment request message):</p>
+<pre><code class="lang-javascript">
+// Example HTTP Request Headers:
+// Method: GET
+// Accept: PaymentProtocol.PAYMENT_REQUEST_CONTENT_TYPE, PaymentProtocol.PAYMENT_ACK_CONTENT_TYPE
+// Content-Type: &#39;application/octet-stream&#39;
+// Content-Length: 0
+
+var body = PaymentProtocol.PaymentRequest.decode(rawbody);
+var request = new PaymentProtocol().makePaymentRequest(body);
+
+var version = request.get(&#39;payment_details_version&#39;);
+var pki_type = request.get(&#39;pki_type&#39;);
+var pki_data = request.get(&#39;pki_data&#39;);
+var serializedDetails = request.get(&#39;serialized_payment_details&#39;);
+var signature = request.get(&#39;signature&#39;);
+
+// Verify the signature
+var verified = request.verify();
+
+// Get the payment details
+var decodedDetails = PaymentProtocol.PaymentDetails.decode(serializedDetails);
+var details = new PaymentProtocol().makePaymentDetails(decodedDetails);
+var network = details.get(&#39;network&#39;);
+var outputs = details.get(&#39;outputs&#39;);
+var time = details.get(&#39;time&#39;);
+var expires = details.get(&#39;expires&#39;);
+var memo = details.get(&#39;memo&#39;);
+var payment_url = details.get(&#39;payment_url&#39;);
+var merchant_data = details.get(&#39;merchant_data&#39;);
+</code></pre>
+<h2 id="send-a-payment">Send a Payment</h2>
+<p>After the request is verified a payment can be sent to the merchant from the customer&#39;s wallet:</p>
+<pre><code class="lang-javascript">
+// send the payment transaction
+var payment = new PaymentProtocol().makePayment();
+payment.set(&#39;merchant_data&#39;, merchant_data);
+payment.set(&#39;transactions&#39;, [transaction_with_outputs]); // as from payment details
+
+// define the refund outputs
+var refund_outputs = [];
+var outputs = new PaymentProtocol().makeOutput();
+outputs.set(&#39;amount&#39;, 0);
+outputs.set(&#39;script&#39;, script.toBuffer()); // an instance of script
+refund_outputs.push(outputs.message);
+
+payment.set(&#39;refund_to&#39;, refund_outputs);
+payment.set(&#39;memo&#39;, &#39;Here is a payment&#39;);
+
+// serialize and send
+var rawbody = pay.serialize();
+
+// Example Request Headers:
+// Method: &#39;POST&#39;,
+// Accept: PaymentProtocol.PAYMENT_REQUEST_CONTENT_TYPE, PaymentPrococl.PAYMENT_ACK_CONTENT_TYPE
+// Content-Type: PaymentProtocol.PAYMENT_CONTENT_TYPE
+// Content-Length: payment.length
+// Content-Transfer-Encoding: &#39;binary&#39;
+</code></pre>
+<h2 id="receive-a-payment">Receive a Payment</h2>
+<p>The merchant would then receive the payment as follows:</p>
+<pre><code class="lang-javascript">
+var body = PaymentProtocol.Payment.decode(rawbody);
+var payment = new PaymentProtocol().makePayment(body);
+var merchant_data = payment.get(&#39;merchant_data&#39;);
+var transactions = payment.get(&#39;transactions&#39;);
+var refund_to = payment.get(&#39;refund_to&#39;);
+var memo = payment.get(&#39;memo&#39;);
+
+// send the transaction to the bitcoin network
+</code></pre>
+<h2 id="send-a-payment-acknowledgement">Send a Payment Acknowledgement</h2>
+<p>After the payment has been broadcasted, a payment acknowledgement can be sent in response:</p>
+<pre><code class="lang-javascript">
+// make a payment acknowledgement
+var ack = new PaymentProtocol().makePaymentACK();
+ack.set(&#39;payment&#39;, payment.message);
+ack.set(&#39;memo&#39;, &#39;Thank you for your payment!&#39;);
+var rawbody = ack.serialize();
+
+// Example Response Headers:
+// Content-Type: PaymentProtocol.PAYMENT_ACK_CONTENT_TYPE
+// Content-Length: ack.length
+// Content-Transfer-Encoding: &#39;binary&#39;
+</code></pre>
+<h2 id="receive-an-acknowledgement">Receive an Acknowledgement</h2>
+<p>The customer&#39;s wallet can then receive an acknowledgement of payment as follows:</p>
+<pre><code class="lang-javascript">var body = PaymentProtocol.PaymentACK.decode(rawbody);
+var ack = new PaymentProtocol().makePaymentACK(body);
+var serializedPayment = ack.get(&#39;payment&#39;);
+var memo = ack.get(&#39;memo&#39;);
+var decodedPayment = PaymentProtocol.Payment.decode(serializedPayment);
+var payment = new PaymentProtocol().makePayment(decodedPayment);
+var tx = payment.message.transactions[0];
+</code></pre>
+<p>For detailed diagram of the exchange of messages, please see the <a href="https://github.com/bitcoin/bips/blob/master/bip-0070.mediawiki#protocol">Protocol section of BIP70</a>.</p>
+</div></div></div><div class="lib bg-dark"><div class="container"><div class="section p-t-lg"><div class="text-right bring-to-front"><a href="https://github.com/bitpay/bitcore-payment-protocol/blob/master/lib/index.js">View Source</a></div></div><div class="section p-t-lg"><div class="text-right bring-to-front"><a href="https://github.com/bitpay/bitcore-payment-protocol/blob/master/lib/browser.js">View Source</a></div></div><div class="section p-t-lg"><div class="text-right bring-to-front"><a href="https://github.com/bitpay/bitcore-payment-protocol/blob/master/lib/common.js">View Source</a></div></div><div class="section p-t-lg"><div class="text-right bring-to-front"><a href="https://github.com/bitpay/bitcore-payment-protocol/blob/master/lib/rootcerts.js">View Source</a></div></div><div class="section p-t-lg"><div class="text-right bring-to-front"><a href="https://github.com/bitpay/bitcore-payment-protocol/blob/master/lib/errors.js">View Source</a></div></div></div></div></div></div><a class="exit-off-canvas"></a><script src="https://bitcore.io/scripts/main.min.efe3021b.js" data-no-instant="data-no-instant"></script></body>
+<!-- Mirrored from bitcore.io/api/paypro/ by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 22 Dec 2018 16:43:33 GMT -->
+</html>

@@ -1,0 +1,995 @@
+<!DOCTYPE html><html lang="en">
+<!-- Mirrored from bitcore.io/api/service/bitcoin by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 22 Dec 2018 16:43:06 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Bitcoin Service | Bitcore</title><meta name="description" content="Overview of the Bitcoin Service for Bitcore."><!-- Twitter Card data--><meta name="twitter:card" content="summary"><meta name="twitter:site" content="@BitPay"><meta name="twitter:title" content="Bitcoin Service"><meta name="twitter:description" content="Overview of the Bitcoin Service for Bitcore."><meta name="twitter:image" content="../../images/social/card.jpg"><!-- Open Graph data (Facebook and Reddit)--><meta property="og:title" content="Bitcoin Service"><meta property="og:type" content="article"><meta property="og:url" content="../../index.html"><meta property="og:image" content="../../images/social/avatar.jpg"><meta property="og:description" content="Overview of the Bitcoin Service for Bitcore."><meta property="og:site_name" content="Bitcore.io"><!-- Add to homescreen for Chrome on Android--><meta name="mobile-web-app-capable" content="yes"><link rel="icon" sizes="192x192" href="../../images/touch/chrome-touch-icon-192x192.b0c7306c.png"><!-- Add to homescreen for Safari on iOS--><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><meta name="apple-mobile-web-app-title" content="Bitcore"><link rel="apple-touch-icon-precomposed" href="apple-touch-icon-precomposed.html"><!-- Tile icon for Win8 (144x144 + tile color)--><meta name="msapplication-TileImage" content="../../images/touch/ms-touch-icon-144x144-precomposed.dcbb3eea.png"><meta name="msapplication-TileColor" content="#F9AB3D"><!-- Favicon--><link rel="shortcut icon" href="../../favicon.ico"><link rel="stylesheet" href="../../styles/main.88c254de.css" data-instant-track><link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,300italic,400italic,600,700,700italic,600italic|Titillium+Web:400,300,700" rel="stylesheet" type="text/css"><script type="text/javascript" data-no-instant>
+  !function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","group","track","ready","alias","page","once","off","on"];analytics.factory=function(t){return function(){var e=Array.prototype.slice.call(arguments);e.unshift(t);analytics.push(e);return analytics}};for(var t=0;t<analytics.methods.length;t++){var e=analytics.methods[t];analytics[e]=analytics.factory(e)}analytics.load=function(t){var e=document.createElement("script");e.type="text/javascript";e.async=!0;e.src=("https:"===document.location.protocol?"https://":"http://")+"cdn.segment.com/analytics.js/v1/"+t+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(e,n)};analytics.SNIPPET_VERSION="3.0.1";
+  if(this.location.host === 'bitcore.io'){ analytics.load('hP7mqqPCPPa5hRatDaulKFxm0kPiB6Es'); }
+  else { analytics.load("dgbXyNcmHR3bJIjumdYoe3GZFrs6sHBd"); }
+  }}();
+</script>
+<script data-no-instant>
+  var $buoop = {vs:{i:9,f:30,o:25,s:5.1},c:2};
+  function $buo_f(){
+   var e = document.createElement("script");
+   e.src = "../../../browser-update.org/update.js";
+   document.body.appendChild(e);
+  };
+  try {document.addEventListener("DOMContentLoaded", $buo_f,false)}
+  catch(e){window.attachEvent("onload", $buo_f)}
+</script>
+<meta name="google-site-verification" content="GOfbzCpKO__Imdru-L0nG1Fo9tTvyH3QVAIWsYO9rCk"></head><body><nav class="navbar navbar-fixed-top dark-nav hidden-sm-down"><a href="../../index.html" title="Home" class="logo logo-light margin-top"></a><ul class="nav navbar-nav pull-right"><li class="nav-item"><a href="../../start.html" class="nav-link">Getting Started</a></li><li class="nav-item"><a href="../../guides/index.html" class="nav-link">Guides</a></li><li class="nav-item"><a href="../index.html" class="nav-link active">Docs</a></li><li class="nav-item"><a href="../../playground/index.html" class="nav-link">Playground        </a></li><li class="nav-item"><a href="http://forum.bitcore.io/" class="nav-link">Forum</a></li></ul></nav><div class="mobile-menu hidden-md-up navbar-fixed-top"><div id="exCollapsingNavbar" class="collapse"><div class="bg-inverse p-md"><h3 class="m-b-0"> <ul class="p-l-0 no-bullets m-b-0"><li class="nav-item"><a href="../../index.html" class="nav-link">Home</a></li><li class="nav-item"><a href="../../start.html" class="nav-link">Getting Started</a></li><li class="nav-item"><a href="../../guides/index.html" class="nav-link">Guides</a></li><li class="nav-item"><a href="../index.html" class="nav-link active">Docs</a></li><li class="nav-item"><a href="../../playground/index.html" class="nav-link">Playground        </a></li><li class="nav-item"><a href="http://forum.bitcore.io/" class="nav-link">Forum</a></li></ul></h3></div></div><nav class="navbar dark-nav"><button type="button" data-toggle="collapse" data-target="#exCollapsingNavbar" class="navbar-toggler p-l-0"><div class="logo logo-square-orange menu-text color-white">Menu</div></button></nav></div><div class="fixed-sidebar bg-gray border-right-grey p-l-md"><a href="../index.html"><h3 class="menu-header m-t-md">Bitcore</h3><ul class="nav nav-pills nav-stacked"><li class="nav-item"><a href="../index.html" class="nav-link">Overview</a></li></ul></a><a href="../node.html"><h3 class="menu-header m-t-md">Node</h3></a><h3 class="menu-header m-t-md">Services</h3><ul class="nav nav-pills nav-stacked"><li class="nav-item"><a href="index.html" class="nav-link">Overview</a></li><li class="nav-item"><a href="bitcoin.html" class="active nav-link">Bitcoin Service</a></li><li class="nav-item"><a href="web.html" class="nav-link">Web Service</a></li></ul><a href="../lib/index.html"><h3 class="menu-header m-t-md">Library API</h3></a><a href="../mnemonic/index.html"><h3 class="menu-header m-t-md">Library Modules</h3></a><a href="../p2p/index.html"><h3 class="menu-header m-t-md">Peer-to-Peer</h3></a></div><div class="scroll-content"><div class="api-content"><div class="docs bg-white"><div class="container"><div class="section p-t-lg"><div class="text-right bring-to-front"><a href="https://github.com/bitpay/bitcore-node/edit/master/docs/services/bitcoind.md">Edit</a></div><h1 id="bitcoin-service">Bitcoin Service</h1>
+<p>The Bitcoin Service is a Node.js interface to <a href="https://github.com/bitcoin/bitcoin">Bitcoin Core</a> for querying information about the bitcoin block chain. It will manage starting and stopping <code>bitcoind</code> or connect to several running <code>bitcoind</code> processes. It uses a branch of a <a href="https://github.com/bitpay/bitcoin/tree/0.12.1-bitcore">branch of Bitcoin Core</a> with additional indexes for querying information about addresses and blocks. Results are cached for performance and there are several additional API methods added for common queries.</p>
+<h2 id="configuration">Configuration</h2>
+<p>The default configuration will include a &quot;spawn&quot; configuration in &quot;bitcoind&quot;. This defines the location of the block chain database and the location of the <code>bitcoind</code> daemon executable. The below configuration points to a local clone of <code>bitcoin</code>, and will start <code>bitcoind</code> automatically with your Node.js application.</p>
+<pre><code class="lang-json">  &quot;servicesConfig&quot;: {
+    &quot;bitcoind&quot;: {
+      &quot;spawn&quot;: {
+        &quot;datadir&quot;: &quot;/home/bitcore/.bitcoin&quot;,
+        &quot;exec&quot;: &quot;/home/bitcore/bitcoin/src/bitcoind&quot;
+      }
+    }
+  }
+</code></pre>
+<p>It&#39;s also possible to connect to separately managed <code>bitcoind</code> processes with round-robin quering, for example:</p>
+<pre><code class="lang-json">  &quot;servicesConfig&quot;: {
+    &quot;bitcoind&quot;: {
+      &quot;connect&quot;: [
+        {
+          &quot;rpchost&quot;: &quot;127.0.0.1&quot;,
+          &quot;rpcport&quot;: 30521,
+          &quot;rpcuser&quot;: &quot;bitcoin&quot;,
+          &quot;rpcpassword&quot;: &quot;local321&quot;,
+          &quot;zmqpubrawtx&quot;: &quot;tcp://127.0.0.1:30611&quot;
+        },
+        {
+          &quot;rpchost&quot;: &quot;127.0.0.1&quot;,
+          &quot;rpcport&quot;: 30522,
+          &quot;rpcuser&quot;: &quot;bitcoin&quot;,
+          &quot;rpcpassword&quot;: &quot;local321&quot;,
+          &quot;zmqpubrawtx&quot;: &quot;tcp://127.0.0.1:30622&quot;
+        },
+        {
+          &quot;rpchost&quot;: &quot;127.0.0.1&quot;,
+          &quot;rpcport&quot;: 30523,
+          &quot;rpcuser&quot;: &quot;bitcoin&quot;,
+          &quot;rpcpassword&quot;: &quot;local321&quot;,
+          &quot;zmqpubrawtx&quot;: &quot;tcp://127.0.0.1:30633&quot;
+        }
+      ]
+    }
+  }
+</code></pre>
+<p><strong>Note</strong>: For detailed example configuration see <a href="regtest/cluster.html"><code>regtest/cluster.js</code></a></p>
+<h2 id="api-documentation">API Documentation</h2>
+<p>Methods are available by directly interfacing with the service:</p>
+<pre><code class="lang-js">node.services.bitcoind.&lt;methodName&gt;
+</code></pre>
+<h3 id="chain">Chain</h3>
+<p><strong>Getting Latest Blocks</strong></p>
+<pre><code class="lang-js">// gives the block hashes sorted from low to high within a range of timestamps
+var high = 1460393372; // Mon Apr 11 2016 12:49:25 GMT-0400 (EDT)
+var low = 1460306965; // Mon Apr 10 2016 12:49:25 GMT-0400 (EDT)
+node.services.bitcoind.getBlockHashesByTimestamp(high, low, function(err, blockHashes) {
+  //...
+});
+
+// get the current tip of the chain
+node.services.bitcoind.getBestBlockHash(function(err, blockHash) {
+  //...
+})
+</code></pre>
+<p><strong>Getting Synchronization and Node Status</strong></p>
+<pre><code class="lang-js">// gives a boolean if the daemon is fully synced (not the initial block download)
+node.services.bitcoind.isSynced(function(err, synced) {
+  //...
+})
+
+// gives the current estimate of blockchain download as a percentage
+node.services.bitcoind.syncPercentage(function(err, percent) {
+  //...
+});
+
+// gives information about the chain including total number of blocks
+node.services.bitcoind.getInfo(function(err, info) {
+  //...
+});
+</code></pre>
+<p><strong>Generate Blocks</strong></p>
+<pre><code class="lang-js">// will generate a block for the &quot;regtest&quot; network (development purposes)
+var numberOfBlocks = 10;
+node.services.bitcoind.generateBlock(numberOfBlocks, function(err, blockHashes) {
+  //...
+});
+</code></pre>
+<h3 id="blocks-and-transactions">Blocks and Transactions</h3>
+<p><strong>Getting Block Information</strong></p>
+<p>It&#39;s possible to query blocks by both block hash and by height. Blocks are given as Node.js Buffers and can be parsed via Bitcore:</p>
+<pre><code class="lang-js">var blockHeight = 0;
+node.services.bitcoind.getRawBlock(blockHeight, function(err, blockBuffer) {
+  if (err) {
+    throw err;
+  }
+  var block = bitcore.Block.fromBuffer(blockBuffer);
+  console.log(block);
+};
+
+// get a bitcore object of the block (as above)
+node.services.bitcoind.getBlock(blockHash, function(err, block) {
+  //...
+};
+
+// get only the block header and index (including chain work, height, and previous hash)
+node.services.bitcoind.getBlockHeader(blockHeight, function(err, blockHeader) {
+  //...
+});
+
+// get the block with a list of txids
+node.services.bitcoind.getBlockOverview(blockHash, function(err, blockOverview) {
+  //...
+};
+</code></pre>
+<p><strong>Retrieving and Sending Transactions</strong></p>
+<p>Get a transaction asynchronously by reading it from disk:</p>
+<pre><code class="lang-js">var txid = &#39;7426c707d0e9705bdd8158e60983e37d0f5d63529086d6672b07d9238d5aa623&#39;;
+node.services.bitcoind.getRawTransaction(txid, function(err, transactionBuffer) {
+  if (err) {
+    throw err;
+  }
+  var transaction = bitcore.Transaction().fromBuffer(transactionBuffer);
+});
+
+// get a bitcore object of the transaction (as above)
+node.services.bitcoind.getTransaction(txid, function(err, transaction) {
+  //...
+});
+
+// retrieve the transaction with input values, fees, spent and block info
+node.services.bitcoind.getDetailedTransaction(txid, function(err, transaction) {
+  //...
+});
+</code></pre>
+<p>Send a transaction to the network:</p>
+<pre><code class="lang-js">var numberOfBlocks = 3;
+node.services.bitcoind.estimateFee(numberOfBlocks, function(err, feesPerKilobyte) {
+  //...
+});
+
+node.services.bitcoind.sendTransaction(transaction.serialize(), function(err, hash) {
+  //...
+});
+</code></pre>
+<h3 id="addresses">Addresses</h3>
+<p><strong>Get Unspent Outputs</strong></p>
+<p>One of the most common uses will be to retrieve unspent outputs necessary to create a transaction, here is how to get the unspent outputs for an address:</p>
+<pre><code class="lang-js">var address = &#39;mgY65WSfEmsyYaYPQaXhmXMeBhwp4EcsQW&#39;;
+node.services.bitcoind.getAddressUnspentOutputs(address, options, function(err, unspentOutputs) {
+  // see below
+});
+</code></pre>
+<p>The <code>unspentOutputs</code> will have the format:</p>
+<pre><code class="lang-js">[
+  {
+    address: &#39;mgY65WSfEmsyYaYPQaXhmXMeBhwp4EcsQW&#39;,
+    txid: &#39;9d956c5d324a1c2b12133f3242deff264a9b9f61be701311373998681b8c1769&#39;,
+    outputIndex: 1,
+    height: 150,
+    satoshis: 1000000000,
+    script: &#39;76a9140b2f0a0c31bfe0406b0ccc1381fdbe311946dadc88ac&#39;,
+    confirmations: 3
+  }
+]
+</code></pre>
+<p><strong>View Balances</strong></p>
+<pre><code class="lang-js">var address = &#39;mgY65WSfEmsyYaYPQaXhmXMeBhwp4EcsQW&#39;;
+node.services.bitcoind.getAddressBalance(address, options, function(err, balance) {
+  // balance will be in satoshis with &quot;received&quot; and &quot;balance&quot;
+});
+</code></pre>
+<p><strong>View Address History</strong></p>
+<p>This method will give history of an address limited by a range of block heights by using the &quot;start&quot; and &quot;end&quot; arguments. The &quot;start&quot; value is the more recent, and greater, block height. The &quot;end&quot; value is the older, and lesser, block height. This feature is most useful for synchronization as previous history can be omitted. Furthermore for large ranges of block heights, results can be paginated by using the &quot;from&quot; and &quot;to&quot; arguments.</p>
+<pre><code class="lang-js">var addresses = [&#39;mgY65WSfEmsyYaYPQaXhmXMeBhwp4EcsQW&#39;];
+var options = {
+  start: 345000,
+  end: 344000,
+  queryMempool: true
+};
+node.services.bitcoind.getAddressHistory(addresses, options, function(err, history) {
+  // see below
+});
+</code></pre>
+<p>The history format will be:</p>
+<pre><code class="lang-js">{
+  totalCount: 1, // The total number of items within &quot;start&quot; and &quot;end&quot;
+  items: [
+    {
+      addresses: {
+        &#39;mgY65WSfEmsyYaYPQaXhmXMeBhwp4EcsQW&#39;: {
+          inputIndexes: [],
+          outputIndexes: [0]
+        }
+      },
+      satoshis: 1000000000,
+      tx: &lt;detailed_transaction&gt; // the same format as getDetailedTransaction
+    }
+  ]
+}
+</code></pre>
+<p><strong>View Address Summary</strong></p>
+<pre><code class="lang-js">var address = &#39;mgY65WSfEmsyYaYPQaXhmXMeBhwp4EcsQW&#39;;
+var options = {
+  noTxList: false
+};
+
+node.services.bitcoind.getAddressSummary(address, options, function(err, summary) {
+  // see below
+});
+</code></pre>
+<p>The <code>summary</code> will have the format (values are in satoshis):</p>
+<pre><code class="lang-js">{
+  totalReceived: 1000000000,
+  totalSpent: 0,
+  balance: 1000000000,
+  unconfirmedBalance: 1000000000,
+  appearances: 1,
+  unconfirmedAppearances: 0,
+  txids: [
+    &#39;3f7d13efe12e82f873f4d41f7e63bb64708fc4c942eb8c6822fa5bd7606adb00&#39;
+  ]
+}
+</code></pre>
+<p><strong>Notes</strong>:</p>
+<ul>
+<li><code>totalReceived</code> does not exclude change <em>(the amount of satoshis originating from the same address)</em></li>
+<li><code>unconfirmedBalance</code> is the delta that the unconfirmed transactions have on the total balance <em>(can be both positive and negative)</em></li>
+<li><code>unconfirmedAppearances</code> is the total number of unconfirmed transactions</li>
+<li><code>appearances</code> is the total confirmed transactions</li>
+<li><code>txids</code> Are sorted in block order with the most recent at the beginning. A maximum of 1000 <em>(default)</em> will be returned, the <code>from</code> and <code>to</code> options can be used to get further values.</li>
+</ul>
+<h2 id="events">Events</h2>
+<p>The Bitcoin Service exposes two events via the Bus, and there are a few events that can be directly registered:</p>
+<pre><code class="lang-js">node.services.bitcoind.on(&#39;tip&#39;, function(blockHash) {
+  // a new block tip has been added, if there is a rapid update (with a second) this will not emit every tip update
+});
+
+node.services.bitcoind.on(&#39;tx&#39;, function(transactionBuffer) {
+  // a new transaction has entered the mempool
+});
+
+node.services.bitcoind.on(&#39;block&#39;, function(blockHash) {
+  // a new block has been added
+});
+</code></pre>
+<p>For details on instantiating a bus for a node, see the <a href="../bus-2.html">Bus Documentation</a>.</p>
+<ul>
+<li>Name: <code>bitcoind/rawtransaction</code></li>
+<li>Name: <code>bitcoind/hashblock</code></li>
+<li>Name: <code>bitcoind/addresstxid</code>, Arguments: [address, address...]</li>
+</ul>
+<p><strong>Examples:</strong></p>
+<pre><code class="lang-js">bus.subscribe(&#39;bitcoind/rawtransaction&#39;);
+bus.subscribe(&#39;bitcoind/hashblock&#39;);
+bus.subscribe(&#39;bitcoind/addresstxid&#39;, [&#39;13FMwCYz3hUhwPcaWuD2M1U2KzfTtvLM89&#39;]);
+
+bus.on(&#39;bitcoind/rawtransaction&#39;, function(transactionHex) {
+  //...
+});
+
+bus.on(&#39;bitcoind/hashblock&#39;, function(blockhashHex) {
+  //...
+});
+
+bus.on(&#39;bitcoind/addresstxid&#39;, function(data) {
+  // data.address;
+  // data.txid;
+});
+</code></pre>
+</div></div></div><div class="lib bg-dark"><div class="container"><div class="section p-t-lg"><div class="text-right bring-to-front"><a href="../../../github.com/bitpay/bitcore-node/blob/master/lib/services/bitcoind.html">View Source</a></div><p><a name="Bitcoin"></a></p>
+<h2 id="bitcoin-options-">Bitcoin(options)</h2>
+<p>Provides a friendly event driven API to bitcoind in Node.js. Manages starting and
+stopping bitcoind as a child process for application support, as well as connecting
+to multiple bitcoind processes for server infrastructure. Results are cached in an
+LRU cache for improved performance and methods added for common queries.</p>
+<p><strong>Kind</strong>: global function  </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>options</td>
+<td><code>Object</code></td>
+<td></td>
+</tr>
+<tr>
+<td>options.node</td>
+<td><code>Node</code></td>
+<td>A reference to the node</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><a href="#Bitcoin">Bitcoin(options)</a><ul>
+<li><a href="#Bitcoin+getAPIMethods">.getAPIMethods()</a></li>
+<li><a href="#Bitcoin+getPublishEvents">.getPublishEvents()</a></li>
+<li><a href="#Bitcoin+unsubscribeAddressAll">.unsubscribeAddressAll(name, emitter)</a></li>
+<li><a href="#Bitcoin+start">.start(callback)</a></li>
+<li><a href="#Bitcoin+isSynced">.isSynced(callback)</a></li>
+<li><a href="#Bitcoin+syncPercentage">.syncPercentage(callback)</a></li>
+<li><a href="#Bitcoin+getAddressBalance">.getAddressBalance(addressArg, options, callback)</a></li>
+<li><a href="#Bitcoin+getAddressUnspentOutputs">.getAddressUnspentOutputs(addressArg, options, callback)</a></li>
+<li><a href="#Bitcoin+getAddressTxids">.getAddressTxids(addressArg, options, callback)</a></li>
+<li><a href="#Bitcoin+_getAddressDetailedTransaction">._getAddressDetailedTransaction(txid, callback)</a></li>
+<li><a href="#Bitcoin+getAddressHistory">.getAddressHistory(addressArg, options, callback)</a></li>
+<li><a href="#Bitcoin+getAddressSummary">.getAddressSummary(addressArg, options, callback)</a></li>
+<li><a href="#Bitcoin+getRawBlock">.getRawBlock(block, callback)</a></li>
+<li><a href="#Bitcoin+getBlockOverview">.getBlockOverview(block, callback)</a></li>
+<li><a href="#Bitcoin+getBlock">.getBlock(block, callback)</a></li>
+<li><a href="#Bitcoin+getBlockHashesByTimestamp">.getBlockHashesByTimestamp(high, low, callback)</a></li>
+<li><a href="#Bitcoin+getBlockHeader">.getBlockHeader(block, callback)</a></li>
+<li><a href="#Bitcoin+estimateFee">.estimateFee(blocks, callback)</a></li>
+<li><a href="#Bitcoin+sendTransaction">.sendTransaction(transaction, [options], callback)</a></li>
+<li><a href="#Bitcoin+getRawTransaction">.getRawTransaction(txid, callback)</a></li>
+<li><a href="#Bitcoin+getTransaction">.getTransaction(txid, queryMempool, callback)</a></li>
+<li><a href="#Bitcoin+getDetailedTransaction">.getDetailedTransaction(txid, callback)</a></li>
+<li><a href="#Bitcoin+getBestBlockHash">.getBestBlockHash(callback)</a></li>
+<li><a href="#Bitcoin+getSpentInfo">.getSpentInfo(callback)</a></li>
+<li><a href="#Bitcoin+getInfo">.getInfo(callback)</a></li>
+<li><a href="#Bitcoin+stop">.stop(callback)</a></li>
+</ul>
+</li>
+</ul>
+<p><a name="Bitcoin+getAPIMethods"></a></p>
+<h3 id="bitcoin-getapimethods-">bitcoin.getAPIMethods()</h3>
+<p>Called by Node to determine the available API methods.</p>
+<p><strong>Kind</strong>: instance method of <code><a href="#Bitcoin">Bitcoin</a></code><br><a name="Bitcoin+getPublishEvents"></a></p>
+<h3 id="bitcoin-getpublishevents-">bitcoin.getPublishEvents()</h3>
+<p>Called by the Bus to determine the available events.</p>
+<p><strong>Kind</strong>: instance method of <code><a href="#Bitcoin">Bitcoin</a></code><br><a name="Bitcoin+unsubscribeAddressAll"></a></p>
+<h3 id="bitcoin-unsubscribeaddressall-name-emitter-">bitcoin.unsubscribeAddressAll(name, emitter)</h3>
+<p>A helper function for the <code>unsubscribe</code> method to unsubscribe from all addresses.</p>
+<p><strong>Kind</strong>: instance method of <code><a href="#Bitcoin">Bitcoin</a></code>  </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>name</td>
+<td><code>String</code></td>
+<td>The name of the event</td>
+</tr>
+<tr>
+<td>emitter</td>
+<td><code>EventEmitter</code></td>
+<td>An instance of an event emitter</td>
+</tr>
+</tbody>
+</table>
+<p><a name="Bitcoin+start"></a></p>
+<h3 id="bitcoin-start-callback-">bitcoin.start(callback)</h3>
+<p>Called by Node to start the service</p>
+<p><strong>Kind</strong>: instance method of <code><a href="#Bitcoin">Bitcoin</a></code>  </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>callback</td>
+<td><code>function</code></td>
+</tr>
+</tbody>
+</table>
+<p><a name="Bitcoin+isSynced"></a></p>
+<h3 id="bitcoin-issynced-callback-">bitcoin.isSynced(callback)</h3>
+<p>Helper to determine the state of the database.</p>
+<p><strong>Kind</strong>: instance method of <code><a href="#Bitcoin">Bitcoin</a></code>  </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>callback</td>
+<td><code>function</code></td>
+</tr>
+</tbody>
+</table>
+<p><a name="Bitcoin+syncPercentage"></a></p>
+<h3 id="bitcoin-syncpercentage-callback-">bitcoin.syncPercentage(callback)</h3>
+<p>Helper to determine the progress of the database.</p>
+<p><strong>Kind</strong>: instance method of <code><a href="#Bitcoin">Bitcoin</a></code>  </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>callback</td>
+<td><code>function</code></td>
+</tr>
+</tbody>
+</table>
+<p><a name="Bitcoin+getAddressBalance"></a></p>
+<h3 id="bitcoin-getaddressbalance-addressarg-options-callback-">bitcoin.getAddressBalance(addressArg, options, callback)</h3>
+<p>Will get the balance for an address or multiple addresses</p>
+<p><strong>Kind</strong>: instance method of <code><a href="#Bitcoin">Bitcoin</a></code>  </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>addressArg</td>
+<td><code>String</code> &#124; <code>Address</code> &#124; <code>Array</code></td>
+<td>An address string, bitcore address, or array of addresses</td>
+</tr>
+<tr>
+<td>options</td>
+<td><code>Object</code></td>
+<td></td>
+</tr>
+<tr>
+<td>callback</td>
+<td><code>function</code></td>
+</tr>
+</tbody>
+</table>
+<p><a name="Bitcoin+getAddressUnspentOutputs"></a></p>
+<h3 id="bitcoin-getaddressunspentoutputs-addressarg-options-callback-">bitcoin.getAddressUnspentOutputs(addressArg, options, callback)</h3>
+<p>Will get the unspent outputs for an address or multiple addresses</p>
+<p><strong>Kind</strong>: instance method of <code><a href="#Bitcoin">Bitcoin</a></code>  </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>addressArg</td>
+<td><code>String</code> &#124; <code>Address</code> &#124; <code>Array</code></td>
+<td>An address string, bitcore address, or array of addresses</td>
+</tr>
+<tr>
+<td>options</td>
+<td><code>Object</code></td>
+<td></td>
+</tr>
+<tr>
+<td>callback</td>
+<td><code>function</code></td>
+</tr>
+</tbody>
+</table>
+<p><a name="Bitcoin+getAddressTxids"></a></p>
+<h3 id="bitcoin-getaddresstxids-addressarg-options-callback-">bitcoin.getAddressTxids(addressArg, options, callback)</h3>
+<p>Will get the txids for an address or multiple addresses</p>
+<p><strong>Kind</strong>: instance method of <code><a href="#Bitcoin">Bitcoin</a></code>  </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>addressArg</td>
+<td><code>String</code> &#124; <code>Address</code> &#124; <code>Array</code></td>
+<td>An address string, bitcore address, or array of addresses</td>
+</tr>
+<tr>
+<td>options</td>
+<td><code>Object</code></td>
+<td></td>
+</tr>
+<tr>
+<td>callback</td>
+<td><code>function</code></td>
+</tr>
+</tbody>
+</table>
+<p><a name="Bitcoin+_getAddressDetailedTransaction"></a></p>
+<h3 id="bitcoin-_getaddressdetailedtransaction-txid-callback-">bitcoin._getAddressDetailedTransaction(txid, callback)</h3>
+<p>Will expand into a detailed transaction from a txid</p>
+<p><strong>Kind</strong>: instance method of <code><a href="#Bitcoin">Bitcoin</a></code>  </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>txid</td>
+<td><code>Object</code></td>
+<td>A bitcoin transaction id</td>
+</tr>
+<tr>
+<td>callback</td>
+<td><code>function</code></td>
+</tr>
+</tbody>
+</table>
+<p><a name="Bitcoin+getAddressHistory"></a></p>
+<h3 id="bitcoin-getaddresshistory-addressarg-options-callback-">bitcoin.getAddressHistory(addressArg, options, callback)</h3>
+<p>Will detailed transaction history for an address or multiple addresses</p>
+<p><strong>Kind</strong>: instance method of <code><a href="#Bitcoin">Bitcoin</a></code>  </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>addressArg</td>
+<td><code>String</code> &#124; <code>Address</code> &#124; <code>Array</code></td>
+<td>An address string, bitcore address, or array of addresses</td>
+</tr>
+<tr>
+<td>options</td>
+<td><code>Object</code></td>
+<td></td>
+</tr>
+<tr>
+<td>callback</td>
+<td><code>function</code></td>
+</tr>
+</tbody>
+</table>
+<p><a name="Bitcoin+getAddressSummary"></a></p>
+<h3 id="bitcoin-getaddresssummary-addressarg-options-callback-">bitcoin.getAddressSummary(addressArg, options, callback)</h3>
+<p>Will get the summary including txids and balance for an address or multiple addresses</p>
+<p><strong>Kind</strong>: instance method of <code><a href="#Bitcoin">Bitcoin</a></code>  </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>addressArg</td>
+<td><code>String</code> &#124; <code>Address</code> &#124; <code>Array</code></td>
+<td>An address string, bitcore address, or array of addresses</td>
+</tr>
+<tr>
+<td>options</td>
+<td><code>Object</code></td>
+<td></td>
+</tr>
+<tr>
+<td>callback</td>
+<td><code>function</code></td>
+</tr>
+</tbody>
+</table>
+<p><a name="Bitcoin+getRawBlock"></a></p>
+<h3 id="bitcoin-getrawblock-block-callback-">bitcoin.getRawBlock(block, callback)</h3>
+<p>Will retrieve a block as a Node.js Buffer</p>
+<p><strong>Kind</strong>: instance method of <code><a href="#Bitcoin">Bitcoin</a></code>  </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>block</td>
+<td><code>String</code> &#124; <code>Number</code></td>
+<td>A block hash or block height number</td>
+</tr>
+<tr>
+<td>callback</td>
+<td><code>function</code></td>
+</tr>
+</tbody>
+</table>
+<p><a name="Bitcoin+getBlockOverview"></a></p>
+<h3 id="bitcoin-getblockoverview-block-callback-">bitcoin.getBlockOverview(block, callback)</h3>
+<p>Similar to getBlockHeader but will include a list of txids</p>
+<p><strong>Kind</strong>: instance method of <code><a href="#Bitcoin">Bitcoin</a></code>  </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>block</td>
+<td><code>String</code> &#124; <code>Number</code></td>
+<td>A block hash or block height number</td>
+</tr>
+<tr>
+<td>callback</td>
+<td><code>function</code></td>
+</tr>
+</tbody>
+</table>
+<p><a name="Bitcoin+getBlock"></a></p>
+<h3 id="bitcoin-getblock-block-callback-">bitcoin.getBlock(block, callback)</h3>
+<p>Will retrieve a block as a Bitcore object</p>
+<p><strong>Kind</strong>: instance method of <code><a href="#Bitcoin">Bitcoin</a></code>  </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>block</td>
+<td><code>String</code> &#124; <code>Number</code></td>
+<td>A block hash or block height number</td>
+</tr>
+<tr>
+<td>callback</td>
+<td><code>function</code></td>
+</tr>
+</tbody>
+</table>
+<p><a name="Bitcoin+getBlockHashesByTimestamp"></a></p>
+<h3 id="bitcoin-getblockhashesbytimestamp-high-low-callback-">bitcoin.getBlockHashesByTimestamp(high, low, callback)</h3>
+<p>Will retrieve an array of block hashes within a range of timestamps</p>
+<p><strong>Kind</strong>: instance method of <code><a href="#Bitcoin">Bitcoin</a></code>  </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>high</td>
+<td><code>Number</code></td>
+<td>The more recent timestamp in seconds</td>
+</tr>
+<tr>
+<td>low</td>
+<td><code>Number</code></td>
+<td>The older timestamp in seconds</td>
+</tr>
+<tr>
+<td>callback</td>
+<td><code>function</code></td>
+</tr>
+</tbody>
+</table>
+<p><a name="Bitcoin+getBlockHeader"></a></p>
+<h3 id="bitcoin-getblockheader-block-callback-">bitcoin.getBlockHeader(block, callback)</h3>
+<p>Will return the block index information, the output will have the format:
+{
+  hash: &#39;0000000000000a817cd3a74aec2f2246b59eb2cbb1ad730213e6c4a1d68ec2f6&#39;,
+  confirmations: 5,
+  height: 828781,
+  chainWork: &#39;00000000000000000000000000000000000000000000000ad467352c93bc6a3b&#39;,
+  prevHash: &#39;0000000000000504235b2aff578a48470dbf6b94dafa9b3703bbf0ed554c9dd9&#39;,
+  nextHash: &#39;00000000000000eedd967ec155f237f033686f0924d574b946caf1b0e89551b8&#39;
+  version: 536870912,
+  merkleRoot: &#39;124e0f3fb5aa268f102b0447002dd9700988fc570efcb3e0b5b396ac7db437a9&#39;,
+  time: 1462979126,
+  medianTime: 1462976771,
+  nonce: 2981820714,
+  bits: &#39;1a13ca10&#39;,
+  difficulty: 847779.0710240941,
+}</p>
+<p><strong>Kind</strong>: instance method of <code><a href="#Bitcoin">Bitcoin</a></code>  </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>block</td>
+<td><code>String</code> &#124; <code>Number</code></td>
+<td>A block hash or block height</td>
+</tr>
+<tr>
+<td>callback</td>
+<td><code>function</code></td>
+</tr>
+</tbody>
+</table>
+<p><a name="Bitcoin+estimateFee"></a></p>
+<h3 id="bitcoin-estimatefee-blocks-callback-">bitcoin.estimateFee(blocks, callback)</h3>
+<p>Will estimate the fee per kilobyte.</p>
+<p><strong>Kind</strong>: instance method of <code><a href="#Bitcoin">Bitcoin</a></code>  </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>blocks</td>
+<td><code>Number</code></td>
+<td>The number of blocks for the transaction to be confirmed.</td>
+</tr>
+<tr>
+<td>callback</td>
+<td><code>function</code></td>
+</tr>
+</tbody>
+</table>
+<p><a name="Bitcoin+sendTransaction"></a></p>
+<h3 id="bitcoin-sendtransaction-transaction-options-callback-">bitcoin.sendTransaction(transaction, [options], callback)</h3>
+<p>Will add a transaction to the mempool and relay to connected peers</p>
+<p><strong>Kind</strong>: instance method of <code><a href="#Bitcoin">Bitcoin</a></code>  </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>transaction</td>
+<td><code>String</code> &#124; <code>Transaction</code></td>
+<td>The hex string of the transaction</td>
+</tr>
+<tr>
+<td>[options]</td>
+<td><code>Object</code></td>
+<td></td>
+</tr>
+<tr>
+<td>[options.allowAbsurdFees]</td>
+<td><code>Boolean</code></td>
+<td>Enable large fees</td>
+</tr>
+<tr>
+<td>callback</td>
+<td><code>function</code></td>
+</tr>
+</tbody>
+</table>
+<p><a name="Bitcoin+getRawTransaction"></a></p>
+<h3 id="bitcoin-getrawtransaction-txid-callback-">bitcoin.getRawTransaction(txid, callback)</h3>
+<p>Will get a transaction as a Node.js Buffer. Results include the mempool.</p>
+<p><strong>Kind</strong>: instance method of <code><a href="#Bitcoin">Bitcoin</a></code>  </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>txid</td>
+<td><code>String</code></td>
+<td>The transaction hash</td>
+</tr>
+<tr>
+<td>callback</td>
+<td><code>function</code></td>
+</tr>
+</tbody>
+</table>
+<p><a name="Bitcoin+getTransaction"></a></p>
+<h3 id="bitcoin-gettransaction-txid-querymempool-callback-">bitcoin.getTransaction(txid, queryMempool, callback)</h3>
+<p>Will get a transaction as a Bitcore Transaction. Results include the mempool.</p>
+<p><strong>Kind</strong>: instance method of <code><a href="#Bitcoin">Bitcoin</a></code>  </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>txid</td>
+<td><code>String</code></td>
+<td>The transaction hash</td>
+</tr>
+<tr>
+<td>queryMempool</td>
+<td><code>Boolean</code></td>
+<td>Include the mempool</td>
+</tr>
+<tr>
+<td>callback</td>
+<td><code>function</code></td>
+</tr>
+</tbody>
+</table>
+<p><a name="Bitcoin+getDetailedTransaction"></a></p>
+<h3 id="bitcoin-getdetailedtransaction-txid-callback-">bitcoin.getDetailedTransaction(txid, callback)</h3>
+<p>Will get a detailed view of a transaction including addresses, amounts and fees.</p>
+<p>Example result:
+{
+  blockHash: &#39;000000000000000002cd0ba6e8fae058747d2344929ed857a18d3484156c9250&#39;,
+  height: 411462,
+  blockTimestamp: 1463070382,
+  version: 1,
+  hash: &#39;de184cc227f6d1dc0316c7484aa68b58186a18f89d853bb2428b02040c394479&#39;,
+  locktime: 411451,
+  coinbase: true,
+  inputs: [
+    {
+      prevTxId: &#39;3d003413c13eec3fa8ea1fe8bbff6f40718c66facffe2544d7516c9e2900cac2&#39;,
+      outputIndex: 0,
+      sequence: 123456789,
+      script: [hexString],
+      scriptAsm: [asmString],
+      address: &#39;1LCTmj15p7sSXv3jmrPfA6KGs6iuepBiiG&#39;,
+      satoshis: 771146
+    }
+  ],
+  outputs: [
+    {
+      satoshis: 811146,
+      script: &#39;76a914d2955017f4e3d6510c57b427cf45ae29c372c99088ac&#39;,
+      scriptAsm: &#39;OP_DUP OP_HASH160 d2955017f4e3d6510c57b427cf45ae29c372c990 OP_EQUALVERIFY OP_CHECKSIG&#39;,
+      address: &#39;1LCTmj15p7sSXv3jmrPfA6KGs6iuepBiiG&#39;,
+      spentTxId: &#39;4316b98e7504073acd19308b4b8c9f4eeb5e811455c54c0ebfe276c0b1eb6315&#39;,
+      spentIndex: 1,
+      spentHeight: 100
+    }
+  ],
+  inputSatoshis: 771146,
+  outputSatoshis: 811146,
+  feeSatoshis: 40000
+};</p>
+<p><strong>Kind</strong>: instance method of <code><a href="#Bitcoin">Bitcoin</a></code>  </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>txid</td>
+<td><code>String</code></td>
+<td>The hex string of the transaction</td>
+</tr>
+<tr>
+<td>callback</td>
+<td><code>function</code></td>
+</tr>
+</tbody>
+</table>
+<p><a name="Bitcoin+getBestBlockHash"></a></p>
+<h3 id="bitcoin-getbestblockhash-callback-">bitcoin.getBestBlockHash(callback)</h3>
+<p>Will get the best block hash for the chain.</p>
+<p><strong>Kind</strong>: instance method of <code><a href="#Bitcoin">Bitcoin</a></code>  </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>callback</td>
+<td><code>function</code></td>
+</tr>
+</tbody>
+</table>
+<p><a name="Bitcoin+getSpentInfo"></a></p>
+<h3 id="bitcoin-getspentinfo-callback-">bitcoin.getSpentInfo(callback)</h3>
+<p>Will give the txid and inputIndex that spent an output</p>
+<p><strong>Kind</strong>: instance method of <code><a href="#Bitcoin">Bitcoin</a></code>  </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>callback</td>
+<td><code>function</code></td>
+</tr>
+</tbody>
+</table>
+<p><a name="Bitcoin+getInfo"></a></p>
+<h3 id="bitcoin-getinfo-callback-">bitcoin.getInfo(callback)</h3>
+<p>This will return information about the database in the format:
+{
+  version: 110000,
+  protocolVersion: 70002,
+  blocks: 151,
+  timeOffset: 0,
+  connections: 0,
+  difficulty: 4.6565423739069247e-10,
+  testnet: false,
+  network: &#39;testnet&#39;
+  relayFee: 1000,
+  errors: &#39;&#39;
+}</p>
+<p><strong>Kind</strong>: instance method of <code><a href="#Bitcoin">Bitcoin</a></code>  </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>callback</td>
+<td><code>function</code></td>
+</tr>
+</tbody>
+</table>
+<p><a name="Bitcoin+stop"></a></p>
+<h3 id="bitcoin-stop-callback-">bitcoin.stop(callback)</h3>
+<p>Called by Node to stop the service.</p>
+<p><strong>Kind</strong>: instance method of <code><a href="#Bitcoin">Bitcoin</a></code>  </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>callback</td>
+<td><code>function</code></td>
+</tr>
+</tbody>
+</table>
+</div></div></div></div></div><a class="exit-off-canvas"></a><script src="../../scripts/main.min.efe3021b.js" data-no-instant="data-no-instant"></script></body>
+<!-- Mirrored from bitcore.io/api/service/bitcoin by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 22 Dec 2018 16:43:08 GMT -->
+</html>
